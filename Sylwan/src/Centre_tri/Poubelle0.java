@@ -69,5 +69,16 @@ public class Poubelle {
 	        return false;
 	    }
 	}
+		      
+	public void attribuer(Dechet dechet, Bacs bacs) {
+		if (verifier(Dechet dechet, Bacs bacs== True){
+			this.ptsFidelite += 1;
+		}
+		else {
+			this.ptsFidelite -= 1;
+		}
+	}
+		      
+		      
 
 	

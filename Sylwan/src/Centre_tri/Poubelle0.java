@@ -59,7 +59,7 @@ public class Poubelle {
 	    else if (dechet.getType().equals("Papier") && bacs.getCouleur().equals("Bleu"))) {
 	        return true; 
 	    } 
-	    else if ((dechet.getType().equals("Plastique") or (dechet.getType().equals("Carton") or dechet.getType().equals("Metal"))  && (bacs.getCouleur().equals("Jaune")) {
+	    else if (dechet.getType().equals("Plastique") or (dechet.getType().equals("Carton") or dechet.getType().equals("Metal"))  && (bacs.getCouleur().equals("Jaune")) {
 	        return true; 
 		}
 	    else if ((dechet.getType().equals("Autres")  && (bacs.getCouleur().equals("Classique")) {

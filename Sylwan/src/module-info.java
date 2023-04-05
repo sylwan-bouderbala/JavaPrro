@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author sylwa
- *
- */
-module Poubelle {
-}

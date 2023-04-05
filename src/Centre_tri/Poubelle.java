@@ -30,7 +30,9 @@ public class Poubelle {
 		
 	}
 	
-	public void PrintjsonStat(operation operation) {
+	
+	// La méthode qui sert a ajourter le json
+	public void PrintjsonStat(operation operation) { 
 		Gson gson = new Gson();
 		 
         try (FileWriter writer = new FileWriter("stat.json")) {

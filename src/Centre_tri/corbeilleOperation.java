@@ -2,7 +2,7 @@ package TriSelectifPoubelle;
 
 import java.util.Date;
 
-public class RelationPoubelleMenage {
+public class CorbeilleOperation {
     private Poubelle poubelle;
     private MenageCompte menageCompte;
     private int nbDechets;
@@ -15,7 +15,7 @@ public class RelationPoubelleMenage {
     private String couleurBacUtilise;
     private int ptsFidelite;
 
-    public RelationPoubelleMenage(Poubelle poubelle, MenageCompte menageCompte, int nbDechets, int identifiant, Date heure, float quantite, String nature, Date date, boolean valeurVerifier, String couleurBacUtilise, int ptsFidelite) {
+    public CorbeilleOperation(Poubelle poubelle, MenageCompte menageCompte, int nbDechets, int identifiant, Date heure, float quantite, String nature, Date date, boolean valeurVerifier, String couleurBacUtilise, int ptsFidelite) {
         this.poubelle = poubelle;
         this.menageCompte = menageCompte;
         this.nbDechets = nbDechets;

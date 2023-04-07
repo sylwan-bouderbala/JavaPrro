@@ -1,15 +1,14 @@
-package net.codejava;
+package Centre_tri;
 
-public class Autres extends Classique {
+public class Autres extends Dechet {
 
 	public final float poids;
 	
 	public Autres(float poids) {
 		this.poids = poids;
 	}
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public String getType() {
+		return "autres";
 	}
 
 }

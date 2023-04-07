@@ -1,4 +1,4 @@
-package Poubelle;
+package Centre_tri;
 
 public class Papier extends Dechet{
 	

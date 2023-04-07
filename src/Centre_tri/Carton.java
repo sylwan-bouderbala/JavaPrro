@@ -1,4 +1,4 @@
-package net.codejava;
+package Centre_tri;
 
 public class Carton extends Dechet{
 	

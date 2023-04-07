@@ -1,7 +1,12 @@
-package Poubelle;
+package Centre_tri;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Poubelle {
 	private int identifiant;
@@ -26,13 +31,40 @@ public class Poubelle {
 		
 	}
 	
-	
 	public void setIdentfiant(int identifiant) {
 		this.identifiant=identifiant;
 	}
 
 	public int getIdentifiant() {
 		return this.identifiant;
+	}
+	
+	public float getQuantiteMaximale() {
+	    return quantiteMaximale;
+	}
+
+	public float getQuantite() {
+	    return quantite;
+	}
+
+	public int getCodeAcces() {
+	    return codeAcces;
+	}
+
+	public String getQuartier() {
+	    return quartier;
+	}
+
+	public ArrayList<Bac> getBacs() {
+	    return bacs;
+	}
+
+	public HashMap<Integer, Bac> getBacsMap() {
+	    return Bacs;
+	}
+
+	public boolean estPleine() {
+	    return estPleine;
 	}
 	
 	public void setCapacitemaximale(float capaciteMaximale) {
@@ -86,25 +118,6 @@ public class Poubelle {
 	}
 	
 
-	public void enregistrerStats(CorbeilleOperation operation) {
-	    Gson gson = new Gson();
-	    Stat stats = new Stat();
-	    stats.setIdentifiantMenage(operation.getMenageCompte().getIdentifiant());
-	    stats.setQuartier(operation.getMenageCompte().getQuartier());
-	    stats.setCouleurPoubelle(operation.getPoubelle().getBac().getCouleur());
-	    stats.setIdentifiantPoubelle(operation.getPoubelle().getIdentifiant());
-	    stats.setPoidsDechet(operation.getDechet().getPoids());
-	    stats.setNombreDechets(operation.getDechet().getNombre());
-	    stats.setValeurVerifier(operation.isValeurVerifier());
-	    
-	    try (FileWriter writer = new FileWriter("stats.json", true)) {
-	        gson.toJson(stats, writer);
-	    } catch (IOException e) {
-	        e.printStackTrace();
-	    }
-	}
-
-}
-
+	
 
 		    

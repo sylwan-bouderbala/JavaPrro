@@ -1,4 +1,4 @@
-package MenageCompte;
+package Centre_tri;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.io.File;
 import java.io.IOException;
 
-import org.json.JSONObject;
+
 
 public class MenageCompte implements Serializable
 {
@@ -33,22 +33,22 @@ public class MenageCompte implements Serializable
 		this.ptsFidelite = ptsFidelite;
 	}
 
-	private int getIdentifiant()
+	public int getIdentifiant()
 	{
 		return identifiant;
 	}
 
-	private String getmotdePasse()
+	public String getmotdePasse()
 	{
 		return motDePasse;
 	}
 
-	private int getnbPersonnes()
+	public int getnbPersonnes()
 	{
 		return nbPersonnes;
 	}
 
-	private int getptsFidelite()
+	public int getptsFidelite()
 	{
 		return ptsFidelite;
 	}
@@ -65,27 +65,22 @@ public class MenageCompte implements Serializable
 		return nvMenageCompte;
 	}
 
-	public void enregistrerNvCompteMenage(int identifiant, String motDePasse, String quartier, int nbPersonnes,
-		int ptsFidelite)
-	{
-		// Création de l'objet JSON
-		JSONObject object = new JSONObject();
-		object.put("identifiant", identifiant);
-		object.put("motDePasse", motDePasse);
-		object.put("quartier", quartier);
-		object.put("nbPersonnes", nbPersonnes);
-		object.put("ptsFidelite", ptsFidelite);
+    public void enregistrerMenageCompte(MenageCompte nouveauMenageCompte) {
 
-		// Sauvegarde des résultats dans un fichier JSON
-		// TODO: Définir le nom du fichier clairement Pour le moment, le fichier est statique.
-		try (FileWriter fr = new FileWriter("compteMenage.json")) {
-			fr.append(object.toString());
-			fr.flush();
-		} catch (IOException e) {
-			System.out.printf("Erreur lors de la sauvegarde du fichier [compteMenage.json] : [%s]%n%n",
-				e.getMessage());
-		}
-	}
+        // Création d'un objet Gson pour convertir l'objet MenageCompte en JSON
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        // Conversion de l'objet MenageCompte en JSON
+        String json = gson.toJson(nouveauMenageCompte);
+
+        // Enregistrement du JSON dans un fichier
+        try (FileWriter writer = new FileWriter("compteMenage.json")) {
+            writer.write(json);
+        } catch (IOException e) {
+            System.out.printf("Erreur lors de l'enregistrement du fichier [compteMenage.json] : [%s]%n%n",
+                e.getMessage());
+        }
+    }
 
 	public void utiliser(int ptsFideliteAUtiliser)
 	{

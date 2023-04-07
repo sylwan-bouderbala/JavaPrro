@@ -6,7 +6,7 @@ import java.util.HashMap;
 import org.json.simple.*;
 
 public class centre_tri {
-	private int id ;
+	private int identifiant ;
 	private char[] nom;
 	private char[] adresse;
 	public  Statistiques stats;
@@ -17,30 +17,30 @@ public class centre_tri {
 		centre_tri Centre = new centre_tri("7à chemin de vin".toCharArray(),"le centre".toCharArray(),123);
 		System.out.println(Centre);
 	}
-	public centre_tri(char[] adresse, char[] nom, int id){
+	public centre_tri(char[] adresse, char[] nom, int identifiant){
 		this.adresse = adresse;
 		this.nom = nom;
-		this.id = id;
+		this.identifiant = identifiant;
 	}
 	
 	public void placer(Poubelle p) {
-		Poubelles.put(p.getId(), p);
+		Poubelles.put(p.getIdentifiant(), p);
 	}
 	//à voir
 	public void Retirer(Poubelle p) {
-		Poubelles.remove(p.getId());
+		Poubelles.remove(p.getIdentifiant());
 	}
 	//ajouter ou placer ?
 	public void Ajouter(Poubelle p) {
-		Poubelles.put(p.getId(), p);
+		Poubelles.put(p.getIdentifiant(), p);
 	}
 	public void Collecter(Poubelle p) {
-		if(Poubelles.containsKey(p.getId())) {
+		if(Poubelles.containsKey(p.getIdentifiant())) {
 			//methode pour collecter les poubelles
 			//p.vider();
 		}
 		else {
-			System.out.println("la poubelle : "+p.getId()+" n'appartient pas au centre-de-tri");
+			System.out.println("la poubelle : "+p.getIdentifiant()+" n'appartient pas au centre-de-tri");
 		}
 	}
 	//GET ET SETTER

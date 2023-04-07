@@ -95,5 +95,27 @@ public class Poubelle {
 			corbeilleOperation.getMenageCompte().decrementFidelite();
 		}
 	}
+	
+
+	public void enregistrerStats(CorbeilleOperation operation) {
+	    Gson gson = new Gson();
+	    Stat stats = new Stat();
+	    stats.setIdentifiantMenage(operation.getMenageCompte().getIdentifiant());
+	    stats.setQuartier(operation.getMenageCompte().getQuartier());
+	    stats.setCouleurPoubelle(operation.getPoubelle().getBac().getCouleur());
+	    stats.setIdentifiantPoubelle(operation.getPoubelle().getIdentifiant());
+	    stats.setPoidsDechet(operation.getDechet().getPoids());
+	    stats.setNombreDechets(operation.getDechet().getNombre());
+	    stats.setValeurVerifier(operation.isValeurVerifier());
+	    
+	    try (FileWriter writer = new FileWriter("stats.json", true)) {
+	        gson.toJson(stats, writer);
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	}
+
 }
+
+
 		    

@@ -27,17 +27,6 @@ public class Poubelle {
 	}
 	
 	
-	// La méthode qui sert a ajourter le json
-	public void PrintjsonStat(CorbeilleOperation operation) {
-		Gson gson = new Gson();
-		 
-        try (FileWriter writer = new FileWriter("stat.json")) {
-            gson.toJson(operation, writer);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-	}
-	
 	public void setIdentfiant(int identifiant) {
 		this.identifiant=identifiant;
 	}

@@ -10,14 +10,16 @@ public class Contrat {
 	private Date DateFin;
 	private Duration Duree;
 	
-	public void Contrat(String Name,Commerce Commerce,Date DateDebut,Date DateFin,Duration Duree){
+	public Contrat(String Name,Commerce Commerce,Date DateDebut,Date DateFin,Duration Duree){
 		this.setCommerce(Commerce);
 		this.setName(Name);
 		this.setDateDebut(DateDebut);
 		this.setDateFin(DateFin);
 		this.setDuree(Duree);
 	}
-
+	public void Renouveller(Date DateFin) {
+		setDateFin(DateFin);
+	}
 	public Duration getDuree() {
 		return Duree;
 	}

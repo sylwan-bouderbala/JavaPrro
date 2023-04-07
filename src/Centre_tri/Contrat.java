@@ -1,6 +1,7 @@
 package Centre_tri;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Contrat {
@@ -9,6 +10,7 @@ public class Contrat {
 	private Date DateDebut;
 	private Date DateFin;
 	private Duration Duree;
+	private ArrayList<Reduction> Reductions;
 	
 	public Contrat(String Name,Commerce Commerce,Date DateDebut,Date DateFin,Duration Duree){
 		this.setCommerce(Commerce);
@@ -17,6 +19,11 @@ public class Contrat {
 		this.setDateFin(DateFin);
 		this.setDuree(Duree);
 	}
+	
+	public void NouvelleReduction() {
+		Reduction reduction = new Reduction();
+	}
+	
 	public void Renouveller(Date DateFin) {
 		setDateFin(DateFin);
 	}

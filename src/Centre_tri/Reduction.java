@@ -6,8 +6,26 @@ public class Reduction {
 	private int Taux;
 	private ArrayList<String> Produits;
 	
+
+
 	public Reduction(int Taux,ArrayList<String> Produits) {
-		this.Taux = Taux;
-		this.Produits =  Produits;
+		this.setTaux(Taux);
+		this.setProduits(Produits);
+	}
+
+	public ArrayList<String> getProduits() {
+		return Produits;
+	}
+
+	public void setProduits(ArrayList<String> produits) {
+		Produits = produits;
+	}
+
+	public int getTaux() {
+		return Taux;
+	}
+
+	public void setTaux(int taux) {
+		Taux = taux;
 	}
 }

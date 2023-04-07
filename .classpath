@@ -6,7 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/sylwa/Javaclass/json-simple-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/sylwa/Downloads/gson-2.10.1.jar"/>
+	<classpathentry kind="lib" path="/data/Downloads/gson-2.10.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

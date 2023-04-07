@@ -1,4 +1,4 @@
-package Centre_tri;
+package Main;
 
 public class Main {
 

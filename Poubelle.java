@@ -1,4 +1,4 @@
-package Poubelle;
+package Centre_tri;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,7 +28,7 @@ public class Poubelle {
 	
 	
 	// La méthode qui sert a ajourter le json
-	public void PrintjsonStat(CorbeilleOperation operation) {
+	/*public void PrintjsonStat(CorbeilleOperation operation) {
 		Gson gson = new Gson();
 		 
         try (FileWriter writer = new FileWriter("stat.json")) {
@@ -36,7 +36,7 @@ public class Poubelle {
         } catch (IOException e) {
             e.printStackTrace();
         }
-	}
+	}*/
 	
 	public void setIdentfiant(int identifiant) {
 		this.identifiant=identifiant;

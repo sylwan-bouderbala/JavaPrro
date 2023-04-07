@@ -3,7 +3,6 @@ package Centre_tri;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.json.simple.*;
 
 public class centre_tri {
 	private int identifiant ;

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Reduction {
 	private int Taux;
 	private ArrayList<String> Produits;
+	private int id;
 	
 	//TODO : Ajouter la gestion de k'impression fichier et supression fichier
 
@@ -12,6 +13,7 @@ public class Reduction {
 		this.setTaux(Taux);
 		this.setProduits(Produits);
 	}
+
 
 	public ArrayList<String> getProduits() {
 		return Produits;
@@ -27,5 +29,15 @@ public class Reduction {
 
 	public void setTaux(int taux) {
 		Taux = taux;
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }

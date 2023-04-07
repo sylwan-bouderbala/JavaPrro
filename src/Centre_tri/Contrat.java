@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Contrat {
+	private int Id;
 	private Commerce Commerce;
 	private String Name;
 	private Date DateDebut;
@@ -15,16 +16,18 @@ public class Contrat {
 	//TODO : quand on ajoute une reduction deal with constructor de rreduction et le faire partout aussi
 
 	
-	public Contrat(String Name,Commerce Commerce,Date DateDebut,Date DateFin,Duration Duree){
+	public Contrat(String Name,Commerce Commerce,Date DateDebut,Date DateFin,Duration Duree,int Id){
 		this.setCommerce(Commerce);
 		this.setName(Name);
 		this.setDateDebut(DateDebut);
 		this.setDateFin(DateFin);
 		this.setDuree(Duree);
+		this.setId(Id);
 	}
 	
-	public void NouvelleReduction() {
-		Reduction reduction = new Reduction();
+	public void NouvelleReduction(ArrayList<String> Produits,int Taux) {
+		Reduction reduction = new Reduction(Taux,Produits);
+		reduction.setId(this.Reductions.size());
 	}
 	
 	public void Renouveller(Date DateFin) {
@@ -68,6 +71,14 @@ public class Contrat {
 
 	public void setCommerce(Commerce commerce) {
 		Commerce = commerce;
+	}
+
+	public int getId() {
+		return Id;
+	}
+
+	public void setId(int id) {
+		Id = id;
 	}
 	
 }

@@ -1,14 +1,15 @@
-package net.codejava;
+package Poubelle;
 
-public class Verre extends Vert {
+public class Verre extends Dechet {
 
 public final float pv;
 	
 	public Verre(float pv) {
-		this.pv = pv;}
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		this.pv = pv;
+	}
+	
+	public String getType() {
+		return "verre";
 	}
 
 }

@@ -23,7 +23,7 @@ public class Bac
 
     public String getCouleur()
     {
-        return couleur;
+        return "Impossible : cette couleur n'existe pas;
     }
 
     public void setCouleur(String couleur)

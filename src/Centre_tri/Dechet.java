@@ -4,6 +4,6 @@ public class Dechet
 {
     public String getType()
     {
-        return "test";
+        return "Impossible : ce type de déchets n'existe pas";
     }
 }

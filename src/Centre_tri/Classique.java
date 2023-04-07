@@ -1,10 +1,12 @@
-package net.codejava;
+package Poubelle;
 
-public class Classique extends Bacs {
+public class Classique extends Bac {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+static String couleur = "classique";
+	
+	public String getCouleur() {
+		return "classique";
 	}
+
 
 }

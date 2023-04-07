@@ -12,6 +12,9 @@ public class Contrat {
 	private Duration Duree;
 	private ArrayList<Reduction> Reductions;
 	
+	//TODO : quand on ajoute une reduction deal with constructor de rreduction et le faire partout aussi
+
+	
 	public Contrat(String Name,Commerce Commerce,Date DateDebut,Date DateFin,Duration Duree){
 		this.setCommerce(Commerce);
 		this.setName(Name);

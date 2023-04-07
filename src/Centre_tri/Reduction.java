@@ -6,7 +6,7 @@ public class Reduction {
 	private int Taux;
 	private ArrayList<String> Produits;
 	
-
+	//TODO : Ajouter la gestion de k'impression fichier et supression fichier
 
 	public Reduction(int Taux,ArrayList<String> Produits) {
 		this.setTaux(Taux);

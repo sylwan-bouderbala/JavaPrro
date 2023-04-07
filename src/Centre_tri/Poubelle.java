@@ -115,7 +115,9 @@ public class Poubelle {
 		else {
 			corbeilleOperation.getMenageCompte().decrementFidelite();
 		}
+	
 	}
+}
 	
 
 	

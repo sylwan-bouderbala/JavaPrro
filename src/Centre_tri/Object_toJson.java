@@ -7,6 +7,4 @@ public class Object_toJson<T> {
 		
 	}
 	
-	public Object_toJson <T> (T object1,String file){}
-	
 }

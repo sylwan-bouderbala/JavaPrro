@@ -44,12 +44,12 @@ public class centre_tri {
 		}
 	}
 	//GET ET SETTER
-	public int getId() {
-		return id;
+	public int getIdentifiant() {
+		return identifiant;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdentifiant(int identifiant) {
+		this.identifiant = identifiant;
 	}
 
 	public char[] getNom() {

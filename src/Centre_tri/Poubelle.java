@@ -16,12 +16,11 @@ public class Poubelle {
 	private ArrayList<Bac> bacs;
 	private HashMap<Integer,Bac> Bacs;
 	private boolean estPleine;
-	private float capaciteMaximale;
 
 
-	public Poubelle (int identifiant, float capaciteMaximale, float quantite, int codeAcces, String quartier) {
+	public Poubelle (int identifiant, float quantiteMaximale, float quantite, int codeAcces, String quartier) {
 		this.identifiant = identifiant;
-		this.capaciteMaximale = capaciteMaximale;
+		this.quantiteMaximale = quantiteMaximale;
 		this.quantite = quantite;
 		this.codeAcces = codeAcces;
 		this.quartier = quartier;
@@ -53,9 +52,6 @@ public class Poubelle {
 	    return quartier;
 	}
 
-	public Float getCapaciteMaximale() {
-		return capaciteMaximale;
-	}
 	public ArrayList<Bac> getBacs() {
 	    return bacs;
 	}
@@ -67,11 +63,7 @@ public class Poubelle {
 	public boolean estPleine() {
 	    return estPleine;
 	}
-	
-	public void setCapacitemaximale(float capaciteMaximale) {
-		this.capaciteMaximale = capaciteMaximale;
-	}
-	
+
 	public void setQuantite(float quantite) {
 		this.quantite = quantite;
 	}

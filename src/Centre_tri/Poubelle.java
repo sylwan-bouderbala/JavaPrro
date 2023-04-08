@@ -78,7 +78,7 @@ public class Poubelle {
 	}
 	
 	public void envoyerNotifs(CorbeilleOperation operation, Poubelle p) {
-		if (p.quantite > p.capaciteMaximale) {
+		if (p.quantite > p.quantiteMaximale) {
 			estPleine = true;
 		}
 	}

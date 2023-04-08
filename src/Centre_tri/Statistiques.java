@@ -18,6 +18,8 @@ public class Statistiques {
 		try (BufferedReader reader = new BufferedReader(new FileReader(cheminBaseDonne))) {
             String line = reader.readLine();
 			liste.add(line.split(";"));
+into the Secondary Side Bar.
+
 
             while (line != null) {
                 System.out.println(line);

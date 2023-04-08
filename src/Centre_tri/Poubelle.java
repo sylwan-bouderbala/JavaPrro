@@ -78,7 +78,7 @@ public class Poubelle {
 	
 	
 	public void identifier(CorbeilleOperation operation) {
-		System.out.println(operation.getIdentifiant());
+		return operation.getIdentifiant();
 	}
 	
 	public void envoyerNotifs(CorbeilleOperation operation, Poubelle p) {

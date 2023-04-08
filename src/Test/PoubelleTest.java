@@ -136,6 +136,7 @@ public class PoubelleTest {
 		 test.testSetIdentifiant();
 		 test.testSetQuantite();
 		 test.testSetQuartier();
+		 System.out.println("Suivant");
 	     test.testCreationPoubelle();
 	     
 	}

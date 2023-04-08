@@ -123,7 +123,6 @@ public class PoubelleTest {
 	     } else {
 	        System.out.println("False");
 	     }
-		 S
 	 }
 	 
 	 public static void main(String[] args) {

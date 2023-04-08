@@ -153,41 +153,36 @@ public class Poubelle {
 	    }
 	}
 
-	 public void enregistrerStats(CorbeilleOperation operation) {
-	        // Vérifier la valeur de l'opération
-		 	Dechet dechet = creerDechet(operation);
-		 	Bac bac = creerBac(operation, operation.getCouleurBac());
-	        boolean valeurVerifier = verifier(dechet, bac);
+	public void enregistrerStats(CorbeilleOperation operation) {
+	    // Vérifier la valeur de l'opération
+	    Dechet dechet = creerDechet(operation);
+	    Bac bac = creerBac(operation, operation.getCouleurBac());
+	    boolean valeurVerifier = verifier(dechet, bac);
 
-	        // Assigner la valeur de vérification à l'opération
-	        operation.setValeurVerifier(valeurVerifier);
+	    // Assigner la valeur de vérification à l'opération
+	    operation.setValeurVerifier(valeurVerifier);
 
-	        // Créer un objet GsonBuilder pour configurer la sérialisation
-	        GsonBuilder builder = new GsonBuilder();
-	        builder.setPrettyPrinting();
-	        Gson gson = builder.create();
+	    // Créer un objet FileWriter pour écrire dans un fichier CSV
+	    FileWriter writer;
+	    try {
+	        writer = new FileWriter("stats_poubelle.csv", true); // true pour ajouter les données au fichier existant
 
-	        // Créer un objet FileWriter pour écrire dans un fichier
-	        FileWriter writer;
-	        try {
-	            writer = new FileWriter("stats_poubelle.json", true); // true pour ajouter les données au fichier existant
-	            // Construire un objet StatsPoubelle avec les attributs de l'opération
-	            StatsAEnregistrer stats = new StatsAEnregistrer(operation.getMenageCompte().getIdentifiant(), operation.getMenageCompte().getQuartier(),
-	            operation.getCouleurBac(), operation.getPoubelle().getIdentifiant(), operation.getQuantite(), operation.getNbDechets(), valeurVerifier);
+	        // Écrire les données dans le fichier CSV
+	        writer.write(operation.getMenageCompte().getIdentifiant() + ",");
+	        writer.write(operation.getMenageCompte().getQuartier() + ",");
+	        writer.write(operation.getCouleurBac() + ",");
+	        writer.write(operation.getPoubelle().getIdentifiant() + ",");
+	        writer.write(operation.getQuantite() + ",");
+	        writer.write(operation.getNbDechets() + ",");
+	        writer.write(valeurVerifier + ",");
+	        writer.write("\n"); // ajouter une ligne vide pour faciliter la lecture
 
-	            // Convertir l'objet StatsPoubelle en JSON
-	            String jsonStats = gson.toJson(stats);
-
-	            // Écrire le JSON dans le fichier
-	            writer.write(jsonStats);
-	            writer.write("\n"); // ajouter une ligne vide pour faciliter la lecture
-
-	            // Fermer le FileWriter
-	            writer.close();
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
+	        // Fermer le FileWriter
+	        writer.close();
+	    } catch (IOException e) {
+	        e.printStackTrace();
 	    }
+	}	
 	 public static void main(String[] args) {
 		 	MenageCompte compte1 = new MenageCompte(1, "mdp123", "Quartier A", 4, 10);
 		 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");

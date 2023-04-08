@@ -20,7 +20,6 @@ public class CorbeilleOperation {
         this.menageCompte = menageCompte;
         this.nbDechets = nbDechets;
         this.identifiant = identifiant;
-        this.heure = heure;
         this.quantite = quantite;
         this.typeDechet = typeDechet;
         this.date = date;

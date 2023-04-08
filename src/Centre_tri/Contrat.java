@@ -13,19 +13,18 @@ public class Contrat {
 	private String Name;
 	private Date DateDebut;
 	private Date DateFin;
-	private Duration Duree;
 	private ArrayList<Reduction> Reductions;
 	
 	//TODO : quand on ajoute une reduction deal with constructor de rreduction et le faire partout aussi
 
 	
-	public Contrat(String Name,Commerce Commerce,Date DateDebut,Date DateFin,Duration Duree,int Id){
+	public Contrat(String Name,Commerce Commerce,Date DateDebut,Date DateFin,int Id){
 		this.setCommerce(Commerce);
 		this.setName(Name);
 		this.setDateDebut(DateDebut);
 		this.setDateFin(DateFin);
-		this.setDuree(Duree);
 		this.setId(Id);
+		this.Reductions = new ArrayList<Reduction>();
 	}
 	//Fonction d'ecriture dans un fichier s
 	public void NouvelleReduction(ArrayList<String> Produits,int Taux) {
@@ -34,7 +33,7 @@ public class Contrat {
 		
 		String chaine = String.valueOf(this.Id) +";"+ String.valueOf(Taux)+";";
 		for (String elements : Produits) {
-			chaine = chaine + elements + "/;";
+			chaine = chaine + elements + "/";
 		}
 		chaine = chaine + "\n";
         try {
@@ -51,13 +50,6 @@ public class Contrat {
 	
 	public void Renouveller(Date DateFin) {
 		setDateFin(DateFin);
-	}
-	public Duration getDuree() {
-		return Duree;
-	}
-
-	public void setDuree(Duration duree) {
-		Duree = duree;
 	}
 
 	public Date getDateFin() {

@@ -12,13 +12,12 @@ public class Commerce {
 	private String adresse;
 	private ArrayList<Contrat> Contrats;
 	
-	public Commerce(String adresse,int Id,ArrayList<Contrat> Contrats) {
+	public Commerce(String adresse,int Id) {
 		this.setId(Id);
 		this.setAdresse(adresse);
-		this.Contrats = Contrats;
 	}
-	public Contrat NouveauContrat(String Name,Commerce Commerce,Date DateDebut,Date DateFin,Duration Duree) {
-		Contrat Contrat = new Contrat(Name,Commerce,DateDebut,DateFin,Duree,this.Contrats.size()+1);
+	public Contrat NouveauContrat(String Name,Commerce Commerce,Date DateDebut,Date DateFin) {
+		Contrat Contrat = new Contrat(Name,Commerce,DateDebut,DateFin,this.Contrats.size()+1);
 		Contrats.add(Contrat);
 		
 		

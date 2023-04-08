@@ -1,4 +1,4 @@
-package Centre_tri;
+package Test;
 
 public class MenageCompteTest {
 

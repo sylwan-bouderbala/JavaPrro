@@ -13,7 +13,7 @@ public class centre_tri {
 	private HashMap<Integer,Poubelle> Poubelles;
 
 	public static void main(String[] args) {
-		centre_tri Centre = new centre_tri("7à chemin de vin".toCharArray(),"le centre".toCharArray(),123);
+		centre_tri Centre = new centre_tri("7 chemin de vin".toCharArray(),"le centre".toCharArray(),123);
 		System.out.println(Centre);
 	}
 	public centre_tri(char[] adresse, char[] nom, int identifiant){

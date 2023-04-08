@@ -7,7 +7,7 @@ import Centre_tri.Contrat;
 public class ContratTest {
 	private static void Test(boolean bool) {
 		if (bool == true) {
-			System.out.println("Vrai");
+			System.out.println("True");
 		}
 		else {
 			System.out.println("False");

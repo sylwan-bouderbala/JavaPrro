@@ -1,9 +1,11 @@
 package Test;
 
+import Centre_tri.Bac;
+
 public class BacTest {
 	
 	
-    public void testGetIdentifiant() {
+    public static void testGetIdentifiant() {
         Bac bac = new Bac(1, "jaune");
         int identifiant = bac.getIdentifiant();
         if (1 == identifiant) {
@@ -14,7 +16,7 @@ public class BacTest {
     }
     
   
-    public void testSetIdentifiant() {
+    public static void testSetIdentifiant() {
         Bac bac = new Bac(1, "jaune");
         bac.setIdentifiant(2);
         int identifiant = bac.getIdentifiant();
@@ -23,7 +25,7 @@ public class BacTest {
         }
     }
   
-    public void testGetCouleur() {
+    public static void testGetCouleur() {
         Bac bac = new Bac(1, "jaune");
         String couleur = bac.getCouleur();
         if("Impossible : cette couleur n'existe pas"== couleur) {

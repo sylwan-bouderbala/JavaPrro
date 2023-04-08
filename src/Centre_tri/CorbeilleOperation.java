@@ -7,7 +7,6 @@ public class CorbeilleOperation {
     private MenageCompte menageCompte;
     private int nbDechets;
     private int identifiant;
-    private Date heure;
     private float quantite;
     private String typeDechet;
     private Date date;

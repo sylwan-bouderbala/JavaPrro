@@ -13,7 +13,7 @@ public class Reduction {
 		this.setTaux(Taux);
 		this.setProduits(Produits);
 	}
-
+	
 
 	public ArrayList<String> getProduits() {
 		return Produits;

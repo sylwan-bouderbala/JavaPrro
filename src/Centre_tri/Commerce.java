@@ -1,6 +1,9 @@
 package Centre_tri;
 
+import java.io.FileWriter;
+import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Commerce {
 	private int Id;
@@ -12,8 +15,26 @@ public class Commerce {
 		this.setAdresse(adresse);
 		this.Contrats = Contrats;
 	}
-	public void NouveauContrat(Contrat Contrats) {
+	public Contrat NouveauContrat(String Name,Commerce Commerce,Date DateDebut,Date DateFin,Duration Duree) {
+		Contrat Contrat = new Contrat(Name,Commerce,DateDebut,DateFin,Duree,this.Contrats.size()+1);
+		Contrats.add(Contrat);
 		
+		
+		String chaine = String.valueOf(Contrat.getId()) +";"+ String.valueOf(this.Id)+";"+String.valueOf(DateDebut)+";"+String.valueOf(DateFin)+";"+String.valueOf(Duree)+";";
+		for(Reduction e : Contrat.ge)
+		chaine = chaine + "\n";
+        try {
+            FileWriter writer = new FileWriter("Contrats.csv");
+            BufferedWriter bufferedWriter = new BufferedWriter(writer);
+            bufferedWriter.write(chaine);
+            bufferedWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred while writing to the file.");
+            e.printStackTrace();
+        }
+		
+		return Contrat;
 	}
 	public String getAdresse() {
 		return adresse;

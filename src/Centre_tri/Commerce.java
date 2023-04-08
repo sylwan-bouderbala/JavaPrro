@@ -27,7 +27,7 @@ public class Commerce {
 		}
 		chaine = chaine + "\n";
         try {
-            FileWriter writer = new FileWriter("Contrats.csv");
+            FileWriter writer = new FileWriter("Contrats.csv",true);
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
             bufferedWriter.write(chaine);
             bufferedWriter.close();

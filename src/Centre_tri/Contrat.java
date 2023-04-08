@@ -23,17 +23,17 @@ public class Contrat {
 				if (DateDebut.compareTo(DateFin) >=0) {
 					throw new CustomException(" date de début superieur a date de fin");
 				}
-			this.setCommerce(Commerce);
-			this.setName(Name);
-			this.setDateDebut(DateDebut);
-			this.setDateFin(DateFin);
-			this.setId(Id);
-			this.Reductions = new ArrayList<Reduction>();
+				this.setCommerce(Commerce);
+				this.setName(Name);
+				this.setDateDebut(DateDebut);
+				this.setDateFin(DateFin);
+				this.setId(Id);
+				this.Reductions = new ArrayList<Reduction>();
 			}
 			catch(CustomException e) {
 				System.out.println(e.getMessage());
 			}
-			}
+		}
 	//Fonction d'ecriture dans un fichier s
 	public void NouvelleReduction(ArrayList<String> Produits,int Taux) {
 		Reduction reduction = new Reduction(Taux,Produits);
@@ -45,7 +45,7 @@ public class Contrat {
 		}
 		chaine = chaine + "\n";
         try {
-            FileWriter writer = new FileWriter("reductions.csv");
+            FileWriter writer = new FileWriter("reductions.csv",true);
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
             bufferedWriter.write(chaine);
             bufferedWriter.close();

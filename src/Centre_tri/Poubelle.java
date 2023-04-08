@@ -72,6 +72,10 @@ public class Poubelle {
 		this.codeAcces = codeAcces;
 	}
 	
+	public void setQuartier(String quartier) {
+		this.quartier = quartier;
+	}
+	
 	
 	public void identifier(CorbeilleOperation operation) {
 		System.out.println(operation.getIdentifiant());

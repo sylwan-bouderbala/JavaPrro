@@ -91,12 +91,22 @@ public class PoubelleTest {
         }
     }
 
+    public void testSetQuartier() {
+        Poubelle p = new Poubelle(1, 10, 5, 1234, "La Bourse");
+        p.setQuartier("Le Louvre");
+        if ("Le Louvre" == p.getQuartier()) {
+        	System.out.println(true);
+        } else {
+        	System.out.println(false);
+        }
+    }
+
     
    
 	 public void testCreationPoubelle() {
 	        Poubelle poubelle = new Poubelle(1, 50, 20, 1234, "Centre-ville");
 
-	        if ((1== poubelle.getIdentifiant()) && (50 == poubelle.getQuantiteMaximale()) && (50==poubelle.getQuantiteMaximale()) &&(20==poubelle.getQuantite()) 
+	        if ((1== poubelle.getIdentifiant()) && (50 == poubelle.getQuantiteMaximale()) &&(20==poubelle.getQuantite()) 
 	        && (1234 == poubelle.getCodeAcces()) && ("Centre-ville"== poubelle.getQuartier())&& (poubelle.estPleine())) {
 	        	 System.out.println("True");
 	        } else {
@@ -104,9 +114,32 @@ public class PoubelleTest {
 	        }
 	 }
 	 
+	 public void testIdentifier( ) {
+		 MenageCompte compte1 = new MenageCompte(1, "mdp123", "Quartier A", 4, 10);
+		 Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
+		 Date nvdate = new Date(122,3,8);
+		 CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte1,1,1,0.5f, "papier",nvdate, false, "jaune", 10);
+		 if (operation.poubelle.getIdentifiant() ==poubelle.identifier(operation)) {
+			 System.out.println("True");
+	     } else {
+	        System.out.println("False");
+	     }
+		 
+	 }
+	 
 	 public static void main(String[] args) {
 		 PoubelleTest test = new PoubelleTest();
+		 test.testGetIdentifiant();
+		 test.testGetQuantiteMaximale();
+		 test.testGetCodeAcces();
+		 test.testGetQuantite();
+		 test.testGetCodeAcces();
+		 test.testGetQuartier();
+		 test.testSetIdentifiant();
+		 test.testSetQuantite();
+		 test.testSetQuartier();
 	     test.testCreationPoubelle();
+	     
 	}
 		
 }

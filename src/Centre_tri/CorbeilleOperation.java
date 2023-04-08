@@ -16,7 +16,7 @@ public class CorbeilleOperation {
 
 
     public CorbeilleOperation(Poubelle poubelle, MenageCompte menageCompte, int nbDechets, int identifiant, 
-    float quantite, String typeDechet ,Date date, boolean valeurVerifier, String couleurBacUtilise, int ptsFidelite) {
+    Float quantite, String typeDechet ,Date date, boolean valeurVerifier, String couleurBacUtilise, int ptsFidelite) {
         this.poubelle = poubelle;
         this.menageCompte = menageCompte;
         this.nbDechets = nbDechets;

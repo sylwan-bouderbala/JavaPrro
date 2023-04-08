@@ -101,7 +101,6 @@ public class PoubelleTest {
         }
     }
 
-    
    
 	 public void testCreationPoubelle() {
 	        Poubelle poubelle = new Poubelle(1, 50, 20, 1234, "Centre-ville");

@@ -100,4 +100,11 @@ public class Contrat {
 		Id = id;
 	}
 	
+	public void setReductions(ArrayList<Reduction> Reductions){
+		this.Reductions = Reductions;
+	}
+
+	public ArrayList<Reduction> getReductions(){
+		return this.Reductions;
+	}
 }

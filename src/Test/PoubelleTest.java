@@ -118,12 +118,12 @@ public class PoubelleTest {
 		 Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
 		 Date nvdate = new Date(122,3,8);
 		 CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte1,1,1,0.5f, "papier",nvdate, false, "jaune", 10);
-		 if (operation.poubelle.getIdentifiant() ==poubelle.identifier(operation)) {
+		 if (operation.getPoubelle().getIdentifiant() ==operation.getPoubelle().identifier(operation)) {
 			 System.out.println("True");
 	     } else {
 	        System.out.println("False");
 	     }
-		 
+		 S
 	 }
 	 
 	 public static void main(String[] args) {

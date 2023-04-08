@@ -188,6 +188,15 @@ public class Poubelle {
 	            e.printStackTrace();
 	        }
 	    }
+	 public static void main(String[] args) {
+		 	MenageCompte compte1 = new MenageCompte(1, "mdp123", "Quartier A", 4, 10);
+		 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
+		    CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte1,1,1, "papier", "jaune", 10);
+		    Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
+		    poubelle.enregistrerStats(operation);
+		}
+	 
+	 
 }
 	
 

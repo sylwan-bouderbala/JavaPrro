@@ -8,17 +8,16 @@ import java.util.HashMap;
 
 public class Statistiques {
 	private int id;
-	private String cheminBaseDonne; //utliser jdbc
+	private String CheminBaseDonne; //utliser jdbc
 	private HashMap<String,ArrayList<Float>> moyenne_quartier;
 	private HashMap<Integer, Contrat> Contrats;
 	
 	
 	private ArrayList<String[]> Reader(){
 		ArrayList<String[]> liste = new ArrayList<String[]>();
-		try (BufferedReader reader = new BufferedReader(new FileReader(cheminBaseDonne))) {
+		try (BufferedReader reader = new BufferedReader(new FileReader(CheminBaseDonne))) {
             String line = reader.readLine();
 			liste.add(line.split(";"));
-into the Secondary Side Bar.
 
 
             while (line != null) {
@@ -56,7 +55,7 @@ into the Secondary Side Bar.
 	}
 
 	public void setCheminBaseDonne(String cheminBaseDonne) {
-		CheminBaseDonne = cheminBaseDonne;
+		this.CheminBaseDonne = cheminBaseDonne;
 	}
 	
 }

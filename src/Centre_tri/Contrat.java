@@ -3,7 +3,6 @@ package Centre_tri;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 

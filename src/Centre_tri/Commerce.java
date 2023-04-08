@@ -3,7 +3,6 @@ package Centre_tri;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -21,7 +20,7 @@ public class Commerce {
 		Contrats.add(Contrat);
 		
 		
-		String chaine = String.valueOf(Contrat.getId()) +";"+ String.valueOf(this.Id)+";"+String.valueOf(DateDebut)+";"+String.valueOf(DateFin)+";"+String.valueOf(Duree)+";";
+		String chaine = String.valueOf(Contrat.getId()) +";"+ String.valueOf(this.Id)+";"+String.valueOf(DateDebut)+";"+String.valueOf(DateFin)+";";
 		for(Reduction e : Contrat.getReductions()){
 			chaine += String.valueOf(e.getId())+";";
 		}

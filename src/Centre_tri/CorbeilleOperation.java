@@ -14,13 +14,13 @@ public class CorbeilleOperation {
     private String couleurBacUtilise;
     private int ptsFidelite;
 
-    public CorbeilleOperation(Poubelle poubelle, MenageCompte menageCompte, int nbDechets, int identifiant,
-        float quantite, String typeDechet, Date date, boolean valeurVerifier, String couleurBacUtilise, int ptsFidelite) {
+
+    public CorbeilleOperation(Poubelle poubelle, MenageCompte menageCompte, int nbDechets, int identifiant, Date heure,
+        float quantite, String typeDechet , boolean valeurVerifier, String couleurBacUtilise, int ptsFidelite) {
         this.poubelle = poubelle;
         this.menageCompte = menageCompte;
         this.nbDechets = nbDechets;
         this.identifiant = identifiant;
-        this.heure = heure;
         this.quantite = quantite;
         this.typeDechet = typeDechet;
         this.date = date;

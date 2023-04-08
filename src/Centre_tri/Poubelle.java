@@ -32,12 +32,12 @@ public class Poubelle {
 		
 	}
 	
-	public void setIdentfiant(int identifiant) {
+	public void setIdentifiant(int identifiant) {
 		this.identifiant=identifiant;
 	}
 
 	public int getIdentifiant() {
-		return this.identifiant;
+		return identifiant;
 	}
 	
 	public float getQuantiteMaximale() {
@@ -56,6 +56,9 @@ public class Poubelle {
 	    return quartier;
 	}
 
+	public Float getCapaciteMaximale() {
+		return capaciteMaximale;
+	}
 	public ArrayList<Bac> getBacs() {
 	    return bacs;
 	}

@@ -18,7 +18,7 @@ public class MenageCompte implements Serializable
 
 	private String motDePasse;
 
-	public String quartier;
+	private String quartier;
 
 	private int nbPersonnes;
 
@@ -39,7 +39,9 @@ public class MenageCompte implements Serializable
 	{
 		return identifiant;
 	}
-
+	public String getQuartier() {
+		return quartier;
+	}
 	public String getmotdePasse()
 	{
 		return motDePasse;

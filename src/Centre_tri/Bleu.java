@@ -4,11 +4,16 @@ public class Bleu extends Bac {
 	static String couleur = "bleu";
 	
 	public Bleu(int identifiant) {
-        super(identifiant, couleur);
+        super(identifiant, "bleu");
     }
 	
+	@Override
 	public String getCouleur() {
 		return "bleu";
+	}
+	
+	public void setType(String bleu) {
+		Bleu.couleur = "bleu";
 	}
 	
 }

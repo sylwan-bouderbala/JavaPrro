@@ -9,21 +9,21 @@ public class CorbeilleOperation {
     private int identifiant;
     private Date heure;
     private float quantite;
-    private String nature;
+    private String typeDechet;
     private Date date;
     private boolean valeurVerifier;
     private String couleurBacUtilise;
     private int ptsFidelite;
 
     public CorbeilleOperation(Poubelle poubelle, MenageCompte menageCompte, int nbDechets, int identifiant, Date heure,
-        float quantite, String nature, Date date, boolean valeurVerifier, String couleurBacUtilise, int ptsFidelite) {
+        float quantite, String typeDechet, Date date, boolean valeurVerifier, String couleurBacUtilise, int ptsFidelite) {
         this.poubelle = poubelle;
         this.menageCompte = menageCompte;
         this.nbDechets = nbDechets;
         this.identifiant = identifiant;
         this.heure = heure;
         this.quantite = quantite;
-        this.nature = nature;
+        this.typeDechet = typeDechet;
         this.date = date;
         this.valeurVerifier = valeurVerifier;
         this.couleurBacUtilise = couleurBacUtilise;
@@ -78,12 +78,12 @@ public class CorbeilleOperation {
         this.quantite = quantite;
     }
 
-    public String getNature() {
-        return nature;
+    public String getTypeDechet() {
+        return typeDechet;
     }
 
-    public void setNature(String nature) {
-        this.nature = nature;
+    public void setTypeDechet(String typeBac) {
+        this.typeDechet = typeBac;
     }
 
     public Date getDate() {
@@ -102,11 +102,11 @@ public class CorbeilleOperation {
         this.valeurVerifier = valeurVerifier;
     }
 
-    public String getCouleurBacUtilise() {
+    public String getCouleurBac() {
         return couleurBacUtilise;
     }
 
-    public void setCouleurBacUtilise(String couleurBacUtilise) {
+    public void setCouleurBac(String couleurBacUtilise) {
         this.couleurBacUtilise = couleurBacUtilise;
     }
 
@@ -118,12 +118,12 @@ public class CorbeilleOperation {
         this.ptsFidelite = ptsFidelite;
     }
     
-    public void ajouterDechets(int nbDechets, int identifiant, Date heure, float quantite, String nature, Date date, boolean valeurVerifier, String couleurBacUtilise, int ptsFidelite) {
+    public void ajouterDechets(int nbDechets, int identifiant, Date heure, float quantite, String typeDechet, Date date, boolean valeurVerifier, String couleurBacUtilise, int ptsFidelite) {
         this.nbDechets += nbDechets;
         this.identifiant = identifiant;
         this.heure = heure;
         this.quantite = quantite;
-        this.nature = nature;
+        this.typeDechet = typeDechet;
         this.date = date;
         this.valeurVerifier = valeurVerifier;
         this.couleurBacUtilise = couleurBacUtilise;

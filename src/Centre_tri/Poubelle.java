@@ -1,6 +1,7 @@
 package Centre_tri;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -115,11 +116,77 @@ public class Poubelle {
 		else {
 			corbeilleOperation.getMenageCompte().decrementFidelite();
 		}
-	
 	}
+	
+	public static Dechet creerDechet(CorbeilleOperation operation) {
+	    String typeDechet = operation.getTypeDechet();
+	    switch(typeDechet) {
+	        case "papier":
+	            return new Papier(operation.getQuantite());
+	        case "plastique":
+	            return new Plastique(operation.getQuantite());
+	        case "verre":
+	            return new Verre(operation.getQuantite());
+	        case "metal":
+	            return new Metal(operation.getQuantite());
+	        case "autres":
+	            return new Autres(operation.getQuantite());
+	        default:
+	            throw new IllegalArgumentException("Type de déchet inconnu : " + typeDechet);
+	    }
+	}
+	
+	public static Bac creerBac(CorbeilleOperation corbeilleOperation, String couleur) {
+	    if (couleur.equals("jaune")) {
+	        return new Jaune(corbeilleOperation.getIdentifiant());
+	    } else if (couleur.equals("vert")) {
+	        return new Vert(corbeilleOperation.getIdentifiant());
+	    } else if (couleur.equals("bleu")) {
+	        return new Bleu(corbeilleOperation.getIdentifiant());
+	    } else if (couleur.equals("classique")) {
+	        return new Classique(corbeilleOperation.getIdentifiant());
+	    } else {
+	        throw new IllegalArgumentException("Couleur de bac non valide");
+	    }
+	}
+
+	 public void enregistrerStats(CorbeilleOperation operation) {
+	        // Vérifier la valeur de l'opération
+		 	Dechet dechet = creerDechet(operation);
+		 	Bac bac = creerBac(operation, operation.getCouleurBac());
+	        boolean valeurVerifier = verifier(dechet, bac);
+
+	        // Assigner la valeur de vérification à l'opération
+	        operation.setValeurVerifier(valeurVerifier);
+
+	        // Créer un objet GsonBuilder pour configurer la sérialisation
+	        GsonBuilder builder = new GsonBuilder();
+	        builder.setPrettyPrinting();
+	        Gson gson = builder.create();
+
+	        // Créer un objet FileWriter pour écrire dans un fichier
+	        FileWriter writer;
+	        try {
+	            writer = new FileWriter("stats_poubelle.json", true); // true pour ajouter les données au fichier existant
+	            // Construire un objet StatsPoubelle avec les attributs de l'opération
+	            StatsAEnregistrer stats = new StatsAEnregistrer(operation.getMenageCompte().getIdentifiant(), operation.getMenageCompte().getQuartier(),
+	            operation.getCouleurBac(), operation.getPoubelle().getIdentifiant(), operation.getQuantite(), operation.getNbDechets(), valeurVerifier);
+
+	            // Convertir l'objet StatsPoubelle en JSON
+	            String jsonStats = gson.toJson(stats);
+
+	            // Écrire le JSON dans le fichier
+	            writer.write(jsonStats);
+	            writer.write("\n"); // ajouter une ligne vide pour faciliter la lecture
+
+	            // Fermer le FileWriter
+	            writer.close();
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+	    }
 }
 	
 
-	
 
 		    

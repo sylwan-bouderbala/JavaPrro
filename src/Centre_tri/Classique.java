@@ -5,7 +5,7 @@ public class Classique extends Bac {
 static String couleur = "classique";
 		
 	public Classique(int identifiant) {
-	    super(identifiant, couleur);
+	    super(identifiant, "classique");
 	}
 	public String getCouleur() {
 		return "classique";

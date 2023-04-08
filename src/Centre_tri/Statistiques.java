@@ -32,7 +32,11 @@ public class Statistiques {
 		return liste;
 	}
 	//ici toujte les classe de calcul
-	
+	public HashMap<String,Float> MoyenneParQuartier() {
+		HashMap<String,Float> moyenne = new HashMap<>();
+		String fichier = "stats_poubelle.csv";
+		return moyenne;
+	}
 	//GETTER ET SETTER
 	public HashMap<String,ArrayList<Float>> getMoyenne_quartier() {
 		return moyenne_quartier;

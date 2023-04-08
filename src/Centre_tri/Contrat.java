@@ -19,13 +19,21 @@ public class Contrat {
 
 	
 	public Contrat(String Name,Commerce Commerce,Date DateDebut,Date DateFin,int Id){
-		this.setCommerce(Commerce);
-		this.setName(Name);
-		this.setDateDebut(DateDebut);
-		this.setDateFin(DateFin);
-		this.setId(Id);
-		this.Reductions = new ArrayList<Reduction>();
-	}
+			try {
+				if (DateDebut.compareTo(DateFin) >=0) {
+					throw new CustomException(" date de début superieur a date de fin");
+				}
+			this.setCommerce(Commerce);
+			this.setName(Name);
+			this.setDateDebut(DateDebut);
+			this.setDateFin(DateFin);
+			this.setId(Id);
+			this.Reductions = new ArrayList<Reduction>();
+			}
+			catch(CustomException e) {
+				System.out.println(e.getMessage());
+			}
+			}
 	//Fonction d'ecriture dans un fichier s
 	public void NouvelleReduction(ArrayList<String> Produits,int Taux) {
 		Reduction reduction = new Reduction(Taux,Produits);

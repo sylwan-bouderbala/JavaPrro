@@ -9,8 +9,6 @@ import java.time.LocalDate;
 import java.time.LocalDate;
 import java.io.File;
 import java.io.IOException;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 
 
@@ -71,22 +69,19 @@ public class MenageCompte implements Serializable
 		return nvMenageCompte;
 	}
 
-    public void enregistrerMenageCompte(MenageCompte nouveauMenageCompte) {
-
-        // Création d'un objet Gson pour convertir l'objet MenageCompte en JSON
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-        // Conversion de l'objet MenageCompte en JSON
-        String json = gson.toJson(nouveauMenageCompte);
-
-        // Enregistrement du JSON dans un fichier
-        try (FileWriter writer = new FileWriter("compteMenage.json")) {
-            writer.write(json);
-        } catch (IOException e) {
-            System.out.printf("Erreur lors de l'enregistrement du fichier [compteMenage.json] : [%s]%n%n",
-                e.getMessage());
-        }
-    }
+	public void enregistrerMenageCompte(MenageCompte nouveauMenageCompte) {
+	    // Ouvrir le fichier CSV en mode écriture
+	    try (FileWriter writer = new FileWriter("compteMenage.csv", true)) { // true pour ajouter les données à la fin du fichier
+	        // Créer une ligne de données pour le nouvel objet MenageCompte
+	        String ligne = String.format("%s,%s,%s,%s", nouveauMenageCompte.getIdentifiant(),nouveauMenageCompte.getQuartier());
+	        // Écrire la ligne de données dans le fichier
+	        writer.write(ligne);
+	        writer.write(System.lineSeparator()); // saut de ligne pour faciliter la lecture
+	    } catch (IOException e) {
+	        System.out.printf("Erreur lors de l'enregistrement du fichier [compteMenage.csv] : [%s]%n%n",
+	            e.getMessage());
+	    }
+	}
 
 	public void utiliser(int ptsFideliteAUtiliser)
 	{

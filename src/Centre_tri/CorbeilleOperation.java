@@ -7,7 +7,7 @@ public class CorbeilleOperation {
     private MenageCompte menageCompte;
     private int nbDechets;
     private int identifiant;
-    private float quantite;
+    private Float quantite;
     private String typeDechet;
     private Date date;
     private boolean valeurVerifier;
@@ -61,19 +61,12 @@ public class CorbeilleOperation {
         this.identifiant = identifiant;
     }
 
-    public Date getHeure() {
-        return heure;
-    }
-
-    public void setHeure(Date heure) {
-        this.heure = heure;
-    }
-
-    public float getQuantite() {
+   
+    public Float getQuantite() {
         return quantite;
     }
 
-    public void setQuantite(float quantite) {
+    public void setQuantite(Float quantite) {
         this.quantite = quantite;
     }
 
@@ -120,7 +113,6 @@ public class CorbeilleOperation {
     public void ajouterDechets(int nbDechets, int identifiant, Date heure, float quantite, String typeDechet, Date date, boolean valeurVerifier, String couleurBacUtilise, int ptsFidelite) {
         this.nbDechets += nbDechets;
         this.identifiant = identifiant;
-        this.heure = heure;
         this.quantite = quantite;
         this.typeDechet = typeDechet;
         this.date = date;

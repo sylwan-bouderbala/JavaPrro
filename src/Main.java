@@ -3,7 +3,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Main {
-	public static void Main(String argc[]) {
+	public static void Main(String[] args) {
 		int kalo = 14;
 		int mena = 32;
 		String chaine = String.valueOf(kalo) +";"+ String.valueOf(mena);

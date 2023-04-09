@@ -44,11 +44,11 @@ public class CommerceTest {
         Test(commerce.getId()==2);
     }
     private static void TestNouveauContrat(Commerce commerce){
-        LocalDateTime localDateTime = LocalDateTime.of(2023, Month.APRIL, 8, 12, 0, 0);
+        LocalDateTime localDateTime = LocalDateTime.of(2022, Month.APRIL, 8, 12, 0, 0);
         ZoneId Zone = ZoneId.systemDefault();
         ZonedDateTime zonedDateTime = ZonedDateTime.of(localDateTime, Zone);
         Date DateDebut = Date.from(zonedDateTime.toInstant());
-        LocalDateTime localDateTime2 = LocalDateTime.of(2024, Month.APRIL, 8, 12, 0, 0);
+        LocalDateTime localDateTime2 = LocalDateTime.of(2023, Month.APRIL, 8, 12, 0, 0);
         ZoneId Zone2 = ZoneId.systemDefault();
         ZonedDateTime zonedDateTime2 = ZonedDateTime.of(localDateTime2, Zone2);
         Date DateFin = Date.from(zonedDateTime2.toInstant());

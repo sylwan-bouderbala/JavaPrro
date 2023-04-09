@@ -1,5 +1,7 @@
 package Centre_tri;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Date;
 import Centre_tri.MenageCompte;
 
@@ -96,7 +98,27 @@ public class CorbeilleOperation {
         this.couleurBacUtilise = couleurBacUtilise;
     }
  
-    public 
+    public void enregistrement_operation(Poubelle poubelle){
+        FileWriter writer;
+	    try {
+	        writer = new FileWriter("enregistement_operation.csv", true); // true pour ajouter les données au fichier existant
+	        
+	        // Écrire les données dans le fichier CSV
+	        writer.write(this.getPoubelle().getIdentifiant() + ",");
+	        writer.write(String.valueOf(nbDechets) + ",");
+	        writer.write(String.valueOf(quantite) + ",");
+	        writer.write(String.valueOf(date) + ",");
+	        writer.write(String.valueOf(valeurVerifier) + ",");
+	        writer.write(String.valueOf(couleurBacUtilise) + ",");
+	        writer.write(String.valueOf(idDechet) + ",");
+	        writer.write("\n"); // ajouter une ligne vide pour faciliter la lecture
+	        
+	        // Fermer le FileWriter
+	        writer.close();
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+    }
 
     // Pb ajouterDechets
     public void ajouterDechets(MenageCompte c, int nbDechets, CorbeilleOperation o) {

@@ -3,7 +3,7 @@ package Centre_tri;
 public class Carton extends Dechet{
 	
 	public static final String TYPE = "carton";
-	public static final float pc;
+	public final float pc;
 	
 	public Carton(int identifiant, float pc) {
 		super(identifiant, TYPE);

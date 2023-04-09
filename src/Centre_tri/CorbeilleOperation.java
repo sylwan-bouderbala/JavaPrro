@@ -1,6 +1,7 @@
 package Centre_tri;
 
 import java.io.FileWriter;
+import java.time.LocalDate;
 import java.io.IOException;
 import java.util.Date;
 import Centre_tri.MenageCompte;
@@ -11,14 +12,14 @@ public class CorbeilleOperation {
     private int nbDechets;
     private Float quantite;
     private String typeDechet;
-    private Date date;
+    private LocalDate date;
     private boolean valeurVerifier;
     private String couleurBacUtilise;
     private int idDechet;
 
 
     public CorbeilleOperation(Poubelle poubelle, MenageCompte menageCompte, int nbDechets, 
-    Float quantite, String typeDechet ,Date date, boolean valeurVerifier, String couleurBacUtilise, int idDechet) {
+    Float quantite, String typeDechet ,LocalDate date, boolean valeurVerifier, String couleurBacUtilise, int idDechet) {
         this.poubelle = poubelle;
         this.menageCompte = menageCompte;
         this.nbDechets = nbDechets;
@@ -71,11 +72,11 @@ public class CorbeilleOperation {
     	return idDechet;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

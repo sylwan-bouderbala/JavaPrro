@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class Poubelle {
 	private int identifiantP; //- identifiantP est l'identifiant de la poubelle
@@ -77,7 +78,8 @@ public class Poubelle {
 		return operation.getMenageCompte().getIdentifiant();
 	}
 	
-	public void envoyerNotifs(CorbeilleOperation operation, Poubelle p) {
+	public void envoyerNotifs(CorbeilleOperation operation) {
+		Poubelle p = operation.getPoubelle();
 		if (p.quantite >=p.quantiteMaximale) {
 			estPleine = true;
 		}
@@ -200,7 +202,7 @@ public class Poubelle {
         bacs[2] = new Bac(3, "classique");
         bacs[3] = new Bac(4, "bleu");
 	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
-	 	Date nvdate = new Date(122,3,8);
+	 	LocalDate nvdate = LocalDate.of(2023,4,9);
 	 	for (int i = 0; i < 30; i++) {
 	 		CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte1,1+i,0.5f, "papier",nvdate, false, "jaune",10+i);
 		    CorbeilleOperation operation2 = new CorbeilleOperation(poubelle,compte2,6+5*i,0.5f, "plastique",nvdate, true, "bleu",30+i);
@@ -211,6 +213,26 @@ public class Poubelle {
 	 	}
 	}
 	
+	// Cette méthode décrit le processus suivi lorsqu'un ménage jette un déchet dans la poubelle.
+	public void jeter() {
+		MenageCompte compte1 = new MenageCompte(1, "mdp123", "Quartier A", 4, 10);
+	 	Bac[] bacs = new Bac[4];
+        bacs[0] = new Bac(1, "jaune");
+        bacs[1] = new Bac(2, "vert");
+        bacs[2] = new Bac(3, "classique");
+        bacs[3] = new Bac(4, "bleu");
+	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
+	 	LocalDate nvdate = LocalDate.of(2023,4,9);
+	 	CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "jaune",10);
+	 	Dechet dechet = new Dechet(operation.getIdDechet(),operation.getTypeDechet());
+	    Bac bac = new Bac(getIdentifiantBac(operation.getCouleurBac()), operation.getCouleurBac());
+		calculer(operation);
+		verifier(dechet,bac);
+		attribuer(dechet,bac, operation);
+		envoyerNotifs(operation);
+		enregistrerStats(operation);
+		
+	}
 	 public static void main(String[] args) {
 		 Bac[] bacs = new Bac[4];
 	        bacs[0] = new Bac(1, "jaune");

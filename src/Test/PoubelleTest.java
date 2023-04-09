@@ -1,5 +1,6 @@
 package Test;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import Centre_tri.Bac;
@@ -141,7 +142,7 @@ public class PoubelleTest {
 		 bacs[2] = new Bac(2, "classique");
 		 bacs[3] = new Bac(3, "bleu");
 		 Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
-		 Date nvdate = new Date(122,3,8);
+		 LocalDate nvdate = LocalDate.of(2023,4,9);
 		 CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "jaune", 10);
 		 Test(1 == poubelle.identifier(operation)); 
 	 }
@@ -156,7 +157,7 @@ public class PoubelleTest {
 				 Test(poubelle.estPleine());
 	 }
 	 
-	 public void testVerfier() {
+	 public void testVerifier() {
 		 MenageCompte compte1 = new MenageCompte(1, "mdp123", "Quartier A", 4, 10);
 		 Bac[] bacs = new Bac[4];
 		 bacs[0] = new Bac(0, "jaune");
@@ -164,8 +165,8 @@ public class PoubelleTest {
 		 bacs[2] = new Bac(2, "classique");
 		 bacs[3] = new Bac(3, "bleu");
 		 Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
-		 Date nvdate = new Date(122,3,8);
-		 CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte1,1,0.5f, "Papier",nvdate, false, "Bleu", 10);
+		 LocalDate nvdate = LocalDate.of(2023,4,9);
+		 CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "Bleu", 10);
 		 Dechet dechet = new Dechet(operation.getIdDechet(),operation.getTypeDechet());
 		 Bac bac = new Bac(poubelle.getIdentifiantBac(operation.getCouleurBac()), operation.getCouleurBac());
 		 Test(poubelle.verifier(dechet,bac)); // On doit jetter le papier dans le bac bleu de la poubelle
@@ -180,8 +181,8 @@ public class PoubelleTest {
 		 bacs[2] = new Bac(2, "classique");
 		 bacs[3] = new Bac(3, "bleu");
 		 Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
-		 Date nvdate = new Date(122,3,8);
-		 CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte1,1,0.5f, "Papier",nvdate, false, "Bleu", 10);
+		 LocalDate nvdate = LocalDate.of(2023,4,9);
+		 CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "Bleu", 10);
 		  Dechet dechet = new Dechet(operation.getIdDechet(),operation.getTypeDechet());
 		  Bac bac = new Bac(poubelle.getIdentifiantBac(operation.getCouleurBac()), operation.getCouleurBac());
 		 poubelle.attribuer(dechet,bac,operation);
@@ -209,7 +210,7 @@ public class PoubelleTest {
 	     test.testCreationPoubelle();
 	     test.testIdentifier();
 	     test.testEnvoyerNotifs();
-	     test.testVerfier();
+	     test.testVerifier();
 	     test.testAttribuer();
 	}
 		

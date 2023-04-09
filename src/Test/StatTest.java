@@ -16,7 +16,7 @@ public class StatTest {
 	}
 
     private static void TestStatistiqueValiditéParQuartier() {
-        Statistiques stats = new Statistiques("stat_poubelle.csv");
+        
     }
     public static void main(String[] args){
         Statistiques stats = new Statistiques("stat_poubelle.csv");

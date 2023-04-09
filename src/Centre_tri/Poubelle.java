@@ -80,7 +80,9 @@ public class Poubelle {
 	
 	public void envoyerNotifs(CorbeilleOperation operation) {
 		Poubelle p = operation.getPoubelle();
-		if (p.quantite >=p.quantiteMaximale) {
+		float quantite = p.getQuantite();
+		quantiteMaximale= p.getQuantiteMaximale();
+		if (quantite >= quantiteMaximale) {
 			estPleine = true;
 		}
 	}

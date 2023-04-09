@@ -12,7 +12,7 @@ import Centre_tri.Poubelle;
 public class PoubelleTest {
 	private static void Test(boolean bool) {
 		if (bool == true) {
-			System.out.println("Vrai");
+			System.out.println("True");
 		}
 		else {
 			System.out.println("False");
@@ -153,8 +153,12 @@ public class PoubelleTest {
 		 bacs[1] = new Bac(1, "vert");
 		 bacs[2] = new Bac(2, "classique");
 		 bacs[3] = new Bac(3, "bleu");
+		 MenageCompte compte1 = new MenageCompte(1, "mdp123", "Quartier A", 4, 10);
 		 Poubelle poubelle = new Poubelle(1,50.0f,50.0f,1234,"Le Louvre",bacs);
-				 Test(poubelle.estPleine());
+		 LocalDate nvdate = LocalDate.of(2023,4,9);
+		 CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "bleu", 10);
+		 poubelle.envoyerNotifs(operation);
+		 Test(poubelle.estPleine());
 	 }
 	 
 	 public void testVerifier() {
@@ -166,8 +170,8 @@ public class PoubelleTest {
 		 bacs[3] = new Bac(3, "bleu");
 		 Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
 		 LocalDate nvdate = LocalDate.of(2023,4,9);
-		 CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "Bleu", 10);
-		 Dechet dechet = new Dechet(operation.getIdDechet(),operation.getTypeDechet());
+		 CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "bleu", 10);
+		 Dechet dechet = new Dechet(3,operation.getTypeDechet());
 		 Bac bac = new Bac(poubelle.getIdentifiantBac(operation.getCouleurBac()), operation.getCouleurBac());
 		 Test(poubelle.verifier(dechet,bac)); // On doit jetter le papier dans le bac bleu de la poubelle
 		 
@@ -191,7 +195,16 @@ public class PoubelleTest {
 	 }
 	 
 	 public void testCalculer() {
-		 
+		 MenageCompte compte1 = new MenageCompte(1, "mdp123", "Quartier A", 4, 10);
+		 Bac[] bacs = new Bac[4];
+		 bacs[0] = new Bac(0, "jaune");
+		 bacs[1] = new Bac(1, "vert");
+		 bacs[2] = new Bac(2, "classique");
+		 bacs[3] = new Bac(3, "bleu");
+		 Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
+		 LocalDate nvdate = LocalDate.of(2023,4,9);
+		 CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte1,3,0.5f, "papier",nvdate, false, "Bleu", 10);
+		 Test(3.0*0.5f==poubelle.calculer(operation));
 	 }
 	 
 	 
@@ -212,6 +225,7 @@ public class PoubelleTest {
 	     test.testEnvoyerNotifs();
 	     test.testVerifier();
 	     test.testAttribuer();
+	     test.testCalculer();
 	}
 		
 }

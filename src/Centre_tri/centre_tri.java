@@ -6,7 +6,11 @@ import java.util.ArrayList;
 public class centre_tri {
 	private int identifiant ;
 	private String nom;
+
+
 	private String adresse;
+	
+
 	public  Statistiques stats;
 	private ArrayList<Contrat> contrats;
 	private ArrayList<Poubelle> Poubelles;
@@ -47,21 +51,6 @@ public class centre_tri {
 		this.identifiant = identifiant;
 	}
 
-	public char[] getNom() {
-		return nom;
-	}
-
-	public void setNom(char[] nom) {
-		this.nom = nom;
-	}
-
-	public char[] getAdresse() {
-		return adresse;
-	}
-
-	public void setAdresse(char[] adresse) {
-		this.adresse = adresse;
-	}
 
 	public ArrayList<Contrat> getContrats() {
 		return contrats;
@@ -91,6 +80,18 @@ public class centre_tri {
 		Poubelles = poubelles;
 	}
 
+	public String getAdresse() {
+		return adresse;
+	}
 
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
+	}
+	public String getNom() {
+		return nom;
+	}
 
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
 }

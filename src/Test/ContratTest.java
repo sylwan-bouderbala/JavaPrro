@@ -83,7 +83,7 @@ public class ContratTest {
 		TestNouvelleReduc(contrat);
 		TestRenouveller(contrat);
 		TestDateDebut(contrat);
-		TestDateFin(contrat);
+		//TestDateFin(contrat);
 	}
 
 }

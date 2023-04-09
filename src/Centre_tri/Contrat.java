@@ -14,12 +14,11 @@ public class Contrat {
 	private Date DateFin;
 	private ArrayList<Reduction> Reductions;
 	
-	//TODO : quand on ajoute une reduction deal with constructor de rreduction et le faire partout aussi
-
+	
 	
 	public Contrat(String Name,Commerce Commerce,Date DateDebut,Date DateFin){
 			try{
-				if (DateDebut.compareTo(DateFin) > 0) {
+				if (DateDebut.compareTo(DateFin) > 0) { // s
 					throw new CustomException("Date début superieur Date de fin");
 				}
 				else{				
@@ -36,7 +35,7 @@ public class Contrat {
 			}
 			this.Reductions = new ArrayList<Reduction>();
 		}
-	//Fonction d'ecriture dans un fichier s
+	//Fonction d'ecriture dans un fichier des Reductions ajouter au contrat
 	public void NouvelleReduction(ArrayList<String> Produits,int Taux) {
 		Reduction reduction = new Reduction(Taux,Produits);
 		reduction.setId(this.Reductions.size());
@@ -57,7 +56,6 @@ public class Contrat {
         }
 	}
 	
-
 	public void Renouveller(Date DateFin) {
 		setDateFin(DateFin);
 	}

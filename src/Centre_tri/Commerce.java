@@ -18,6 +18,7 @@ public class Commerce {
 		this.setName(Name);
 		Contrats = new ArrayList<Contrat>();
 	}
+	//Ajout d'un contrat et impression dans un fichier du contrat
 	public Contrat NouveauContrat(String Name,Commerce Commerce,Date DateDebut,Date DateFin) {
 		Contrat Contrat = new Contrat(Name,Commerce,DateDebut,DateFin);
 		Contrat.setId(Contrats.size()+1);
@@ -41,6 +42,7 @@ public class Commerce {
 		
 		return Contrat;
 	}
+	
 	public String getAdresse() {
 		return adresse;
 	}
@@ -56,9 +58,11 @@ public class Commerce {
 	public void setId(int id) {
 		Id = id;
 	}
+	
 	public ArrayList<Contrat> getContrats() {
 		return Contrats;
 	}
+	
 	public void setContrats(ArrayList<Contrat> contrats) {
 		Contrats = contrats;
 	}

@@ -14,9 +14,9 @@ public class StatTest {
 			System.out.println("False");
 		}
 	}
-
+    
     private static void TestStatistiqueValiditéParQuartier() {
-        
+
     }
     public static void main(String[] args){
         Statistiques stats = new Statistiques("stat_poubelle.csv");

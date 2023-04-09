@@ -17,21 +17,24 @@ public class Contrat {
 	//TODO : quand on ajoute une reduction deal with constructor de rreduction et le faire partout aussi
 
 	
-	public Contrat(String Name,Commerce Commerce,Date DateDebut,Date DateFin,int Id){
-			try {
-				if (DateDebut.compareTo(DateFin) >=0) {
-					throw new CustomException(" date de début superieur a date de fin");
+	public Contrat(String Name,Commerce Commerce,Date DateDebut,Date DateFin){
+			try{
+				if (DateDebut.compareTo(DateFin) > 0) {
+					throw new CustomException("Date début superieur Date de fin");
 				}
-				this.setCommerce(Commerce);
-				this.setName(Name);
-				this.setDateDebut(DateDebut);
-				this.setDateFin(DateFin);
-				this.setId(Id);
-				this.Reductions = new ArrayList<Reduction>();
+				else{				
+					this.setCommerce(Commerce);
+					this.setName(Name);
+					this.setDateDebut(DateDebut);
+					this.setDateFin(DateFin);
+					this.Reductions = new ArrayList<Reduction>();
+				}
+
 			}
-			catch(CustomException e) {
-				System.out.println(e.getMessage());
+			catch (CustomException e){
+
 			}
+
 		}
 	//Fonction d'ecriture dans un fichier s
 	public void NouvelleReduction(ArrayList<String> Produits,int Taux) {
@@ -48,13 +51,13 @@ public class Contrat {
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
             bufferedWriter.write(chaine);
             bufferedWriter.close();
-            System.out.println("Successfully wrote to the file.");
         } catch (IOException e) {
             System.out.println("An error occurred while writing to the file.");
             e.printStackTrace();
         }
 	}
 	
+
 	public void Renouveller(Date DateFin) {
 		setDateFin(DateFin);
 	}

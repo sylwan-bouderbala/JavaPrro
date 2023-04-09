@@ -1,4 +1,8 @@
 package Test;
+import java.time.LocalDateTime;
+import java.time.Month;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -16,19 +20,18 @@ public class ContratTest {
 	
 	private static void TestAdresse() {
 
-		Commerce commerce = new Commerce("70 chemin des groux",1);
-		Test(commerce.getAdresse()=="70 chemin des groux");
 	}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		//Commerce commerce = new Commerce("70 chemin des groux",1);
-		
-		//Contrat contrat = new Contrat("Contrat",commerce,new Date(122,3,8),new Date(122,3,9),4);
-		//ArrayList<String> produits = new ArrayList<String>();
-		//produits.add("salami");
-		//produits.add("jambon");
-		//contrat.NouvelleReduction(produits, 12);
-		TestAdresse();
+		Commerce commerce = new Commerce("70 chemin des grous", 1);
+		LocalDateTime localDateTime = LocalDateTime.of(2023, Month.APRIL, 8, 12, 0, 0);
+		ZoneId zoneId = ZoneId.systemDefault();
+		ZonedDateTime zonedDateTime = ZonedDateTime.of(localDateTime, zoneId);
+		Date someDate = Date.from(zonedDateTime.toInstant());
+		LocalDateTime localDateTime2 = LocalDateTime.of(2024, Month.APRIL, 8, 12, 0, 0);
+		ZoneId zoneId2 = ZoneId.systemDefault();
+		ZonedDateTime zonedDateTime2 = ZonedDateTime.of(localDateTime, zoneId);
+		Date someDate2 = Date.from(zonedDateTime.toInstant());
+		commerce.NouveauContrat("Contrat1", commerce, someDate, someDate2);
 	}
 
 }

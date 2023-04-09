@@ -23,6 +23,7 @@ public class Statistiques {
     }
 
     //ici toujte les classe de calcul
+
 	public HashMap<String,Float> MoyenneParQuartierValidite() {
 		HashMap<String,ArrayList<Integer>> Temp = new HashMap<>();
 		String fichier = "stats_poubelle.csv";

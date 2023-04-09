@@ -5,61 +5,98 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Statistiques {
 	private int id;
 	private String CheminBaseDonne; //utliser jdbc
 	private HashMap<String,ArrayList<Float>> moyenne_quartier;
 	private HashMap<Integer, Contrat> Contrats;
-	
-	public static void Main(String[]args){
-		Statistiques stat = new Statistiques();
-		HashMap<String,Float> Moyennes = new HashMap<>();
-		Moyennes = stat.MoyenneParQuartier();
+	private ArrayList<String> ListeQuartier;
 
-		for(String e : Moyennes.keySet()){
-			System.out.println(e + " : " + Moyennes.get(e));
-		}
-	}
 	
-	private ArrayList<String[]> Reader(){
-		ArrayList<String[]> liste = new ArrayList<String[]>();
-		try (BufferedReader reader = new BufferedReader(new FileReader(CheminBaseDonne))) {
+	public Statistiques(String cheminBaseDonne) {
+		ListeQuartier = new ArrayList<>();
+        CheminBaseDonne = cheminBaseDonne;
+		GetListeQuartier();
+    }
+
+    //ici toujte les classe de calcul
+	public HashMap<String,Float> MoyenneParQuartier() {
+		HashMap<String,ArrayList<Integer>> Temp = new HashMap<>();
+		String fichier = "stats_poubelle.csv";
+		int cmpt = 0;
+        for (Map.Entry<String, ArrayList<Integer>> entry : Temp.entrySet()) {
+			ArrayList<Integer> list = new ArrayList<>();
+			list.add(0);
+			list.add(0);
+			Temp.put(ListeQuartier.get(cmpt), list);
+			cmpt +=1;
+
+        }        
+		try (BufferedReader reader = new BufferedReader(new FileReader(fichier))) {
             String line = reader.readLine();
-			liste.add(line.split(";"));
-
-
-            while (line != null) {
-                System.out.println(line);
+            while(line != null){
                 line = reader.readLine();
-				liste.add(line.split(";"));
+				if (line != null && line.trim().length() > 0){
+				String[] tab = line.split(",");
+				ArrayList<Integer> value = Temp.get(tab[1]);
+				if (value != null){
+				int AncienneValF = value.get(0);
+				int AncienneValC = value.get(1);
+				int NouvelleValF = AncienneValF;
+				if (tab[6] == "false"){
+					
+					NouvelleValF = AncienneValF+1;
+				}
+				else {
+					
+					NouvelleValF = AncienneValF;
+				}
+				int NouvelleValC = AncienneValC+1;
+				value.set(0, NouvelleValF);
+				value.set(1, NouvelleValC);
+			}
+			
             }
+		}
+
         } catch (IOException e) {
             System.out.println("An error occurred while reading the file.");
             e.printStackTrace();
         }
-		return liste;
+
+		HashMap<String, Float> Moyenne = new HashMap<>();
+        for (Map.Entry<String, ArrayList<Integer>> entry : Temp.entrySet()) {
+            String key = entry.getKey();
+            ArrayList<Integer> value = entry.getValue();
+            float sum = value.get(0) + value.get(1);
+            Moyenne.put(key, sum);
+        }
+		return Moyenne;
+		
 	}
-	//ici toujte les classe de calcul
-	public HashMap<String,Float> MoyenneParQuartier() {
-		HashMap<String,Float> moyenne = new HashMap<>();
+
+	public void GetListeQuartier(){
 		String fichier = "stats_poubelle.csv";
         try (BufferedReader reader = new BufferedReader(new FileReader(fichier))) {
             String line = reader.readLine();
-            while (line != null) {
-                System.out.println(line);
+            while(line != null){
+				
                 line = reader.readLine();
-				String[] tab = line.split(";");
-				if(tab[6] == "false"){
-					
+				if (line != null && line.trim().length() > 0){
+				String[] tab = line.split(",");
+				if (this.ListeQuartier.contains(tab[1]) == false){
+					this.ListeQuartier.add(tab[1]);
 				}
+
             }
+		}
+
         } catch (IOException e) {
             System.out.println("An error occurred while reading the file.");
             e.printStackTrace();
         }
-		return moyenne;
-		
 	}
 	//GETTER ET SETTER
 	public HashMap<String,ArrayList<Float>> getMoyenne_quartier() {
@@ -84,6 +121,22 @@ public class Statistiques {
 
 	public void setCheminBaseDonne(String cheminBaseDonne) {
 		this.CheminBaseDonne = cheminBaseDonne;
+	}
+
+	public HashMap<Integer, Contrat> getContrats() {
+		return Contrats;
+	}
+
+	public void setContrats(HashMap<Integer, Contrat> contrats) {
+		Contrats = contrats;
+	}
+
+	public ArrayList<String> getListeQuartier() {
+		return ListeQuartier;
+	}
+
+	public void setListeQuartier(ArrayList<String> listeQuartier) {
+		ListeQuartier = listeQuartier;
 	}
 	
 }

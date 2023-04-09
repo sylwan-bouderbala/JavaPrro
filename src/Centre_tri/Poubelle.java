@@ -12,7 +12,6 @@ public class Poubelle {
 	protected float quantite;
 	private int codeAcces;
 	public String quartier;
-	private centre_tri Centre;
 	private boolean estPleine;
 	private Bac[] bacs;
 
@@ -146,10 +145,10 @@ public class Poubelle {
 		      
 	public void attribuer(Dechet dechet, Bac bacs, CorbeilleOperation corbeilleOperation) {
 		if (verifier(dechet, bacs)) {
-			corbeilleOperation.getMenageCompte().incrementFidelite();
+			corbeilleOperation.getMenageCompte().incrementFidelite(corbeilleOperation.getMenageCompte().getptsFidelite());
 		}
 		else {
-			corbeilleOperation.getMenageCompte().decrementFidelite();
+			corbeilleOperation.getMenageCompte().decrementFidelite(corbeilleOperation.getMenageCompte().getptsFidelite());
 		}
 	}
 	

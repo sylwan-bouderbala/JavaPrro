@@ -92,7 +92,7 @@ public class MenageCompte implements Serializable {
 	            writer.write(System.lineSeparator()); // saut de ligne pour faciliter la lecture
 	            writer.flush(); // flush pour vider le buffer et écrire les données sur le disque
 	        } catch (IOException e) {
-	            System.out.printf("Erreur lors de l'enregistrement du fichier [compteMenage.csv] : [%s]%n%n", e.getMessage());
+	            System.out.printf("Erreur lors de l\"reductions.csv\", \"salami/jambon/\"'enregistrement du fichier [compteMenage.csv] : [%s]%n%n", e.getMessage());
 	        }
 	    }
 	
@@ -109,40 +109,43 @@ public class MenageCompte implements Serializable {
 		}
 	}
 	// Cette méthode est censée retourner la ligne où se trouve le mot cherché
-	public static String chercherMotDansCSV(String fichier, String mot) {
-	    BufferedReader br = null;
-	    String ligne = "";
-	    String separateur = ",";
+	public static String trouverLigne(String fichier, String mot) {
+	    String ligne = null;
+	    BufferedReader reader = null;
+
 	    try {
-	        br = new BufferedReader(new FileReader(fichier));
-	        while ((ligne = br.readLine()) != null) {
-	            String[] elements = ligne.split(separateur);
-	            for (String element : elements) {
-	                if (element.equals(mot)) {
-	                    return ligne;
-	                }
+	        reader = new BufferedReader(new FileReader(fichier));
+	        String currentLine;
+
+	        while ((currentLine = reader.readLine()) != null) {
+	            if (currentLine.contains(mot)) {
+	                ligne = currentLine;
+	                break;
 	            }
 	        }
 	    } catch (IOException e) {
-	        e.printStackTrace();
+	        System.err.println("Erreur lors de la lecture du fichier : " + e.getMessage());
 	    } finally {
-	        if (br != null) {
+	        if (reader != null) {
 	            try {
-	                br.close();
+	                reader.close();
 	            } catch (IOException e) {
-	                e.printStackTrace();
+	                System.err.println("Erreur lors de la fermeture du fichier : " + e.getMessage());
 	            }
 	        }
 	    }
-	    return null;
+
+	    return ligne;
 	}
+
+	  
 	
 	public int convertir(int taux, String produit, MenageCompte m) {
 		int pointsFidelite= m.getptsFidelite();
-		String mot = MenageCompte.chercherMotDansCSV("reductions.csv", "produit");
+		String mot = MenageCompte.trouverLigne("reductions.csv", produit);
 		String[] tableau = mot.split(";");
 		taux = Integer.parseInt(tableau[1]);
-		int pourcentage = pointsFidelite*taux;
+		int pourcentage = pointsFidelite*taux/100;
 		return pourcentage;
 	}
 
@@ -159,8 +162,6 @@ public class MenageCompte implements Serializable {
 	public static void main(String[] args) {
         MenageCompte menage = new MenageCompte(1, "password", "Quartier A", 4, 10);
         menage.enregistrerMenageCompte(menage);
-        String mot = MenageCompte.chercherMotDansCSV("reductions.csv", "salami/jambon/");
-        System.out.println(mot);
     }
 	
 }

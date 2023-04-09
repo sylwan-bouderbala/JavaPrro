@@ -78,17 +78,10 @@ public class MenageCompteTest {
     }
     
     public void testConvertir() {
-    	
+    	MenageCompte menage = new MenageCompte(1, "password", "Quartier A", 4, 10);
+        int a = menage.convertir(10,"salami/jambon/",menage);
+        Test(1==a);
     }
-  
-    public void testIncrementFidelite() {
-    	
-    }
-    
-    public void testDecrementFidelite() {
-    	
-    }
-    
     public static void main(String[] args) {
 		 MenageCompteTest test = new MenageCompteTest();
 		 System.out.println("Test de la classe Poubelle");
@@ -103,8 +96,6 @@ public class MenageCompteTest {
 		 test.testSetptsFidelite();
 		 test.testUtiliser();
 		 test.testConvertir();
-		 test.testIncrementFidelite();
-		 test.testDecrementFidelite();
     }
 }
 

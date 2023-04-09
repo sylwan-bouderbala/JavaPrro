@@ -72,10 +72,7 @@ public class MenageCompteTest {
         Test(20 == c.getptsFidelite()); 
     }
     
-    public void testConsulter() {
-    	MenageCompte c = new MenageCompte(1, "mdp123", "Le Louvre", 4, 10);
-    	Test(10 == c.consulter);
-    }
+  
     public void testCreerCompte() {
     	
     }
@@ -112,7 +109,6 @@ public class MenageCompteTest {
 		 test.testGetNbPersonnes();
 		 test.testgetptsFidelite();
 		 test.testSetptsFidelite();
-		 test.testConsulter();
 		 test.testCreerCompte();
 		 test.testEnregistrerMenageCompte();
 		 test.testUtiliser();

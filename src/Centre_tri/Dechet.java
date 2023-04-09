@@ -19,10 +19,13 @@ public class Dechet {
 	}
 
     public String getType() {
-    	throw new UnsupportedOperationException("Impossible : ce type de déchets n'existe pas");
+        if (type == null) {
+            throw new UnsupportedOperationException("Impossible : ce type de déchets n'existe pas");
+        }
+        return type;
     }
     
-    public String setType(Dechet dechet) {
-        return "Impossible : ce type de déchets n'existe pas";
+    public void setType(String type) {
+        this.type = type;
     }
 }

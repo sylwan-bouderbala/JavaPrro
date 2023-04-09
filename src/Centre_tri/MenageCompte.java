@@ -82,10 +82,6 @@ public class MenageCompte implements Serializable {
 		this.ptsFidelite=ptsFidelite ;
 	}
 
-	public int consulter() 
-	{
-		return getptsFidelite();
-	}
 
 	public MenageCompte creerCompte(int identifiant, String motDePasse, String quartier, int nbPersonnes,
 		int ptsFidelite)

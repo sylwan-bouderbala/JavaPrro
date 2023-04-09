@@ -1,9 +1,7 @@
 package Test;
 
 import Centre_tri.Poubelle;
-import Centre_tri.Bac;
 import Centre_tri.CorbeilleOperation;
-import Centre_tri.Dechet;
 import Centre_tri.MenageCompte;
 
 public class MenageCompteTest {
@@ -34,7 +32,10 @@ public class MenageCompteTest {
        MenageCompte c = new MenageCompte(1, "mdp123", "Le Louvre", 4, 10);
        Test("mdp123"== c.getmotdePasse());
     }
-
+    
+    public void testSetMotDePasse() {
+    	
+    }
 
     public void testGetQuartier() {
     	MenageCompte c = new MenageCompte(1, "mdp123", "Le Louvre", 4, 10);
@@ -42,11 +43,16 @@ public class MenageCompteTest {
     }
 
  
-    public void testgetNbPersonnes() {
+    public void testGetNbPersonnes() {
     	MenageCompte c = new MenageCompte(1, "mdp123", "Le Louvre", 4, 10);
-        Test(6 == c.getnbPersonnes());
+        Test(4 == c.getNbPersonnes());
     }
-
+    
+    public void testSetNbPersonnes() {
+    	MenageCompte c = new MenageCompte(1, "mdp123", "Le Louvre", 4, 10);
+    	 c.setnbPersonnes(6);
+    	 Test(6==c.getNbPersonnes());
+    }
    
     public void testSetQuartier() {
     	MenageCompte c = new MenageCompte(1, "mdp123", "Le Louvre", 4, 10);
@@ -63,7 +69,53 @@ public class MenageCompteTest {
     public void testSetptsFidelite() {
     	MenageCompte c = new MenageCompte(1, "mdp123", "Le Louvre", 4, 10);
         c.setPtsFidelite(20);
-        Test(5678 == c.getptsFidelite()); 
+        Test(20 == c.getptsFidelite()); 
+    }
+    public void testConsulter() {
+    	
+    }
+    public void testCreerCompte() {
+    	
+    }
+    
+    public void testEnregistrerMenageCompte() {
+    	
+    }
+    
+    public void testUtiliser() {
+    	
+    }
+    
+    public void testConvertir() {
+    	
+    }
+  
+    public void testIncrementFidelite() {
+    	
+    }
+    
+    public void testDecrementFidelite() {
+    	
+    }
+    
+    public static void main(String[] args) {
+		 MenageCompteTest test = new MenageCompteTest();
+		 test.testGetIdentifiant();
+		 test.testSetIdentifiant();
+		 test.testGetQuartier();
+		 test.testgetmotDePasse();
+		 test.testSetMotDePasse();
+		 test.testSetQuartier();
+		 test.testGetNbPersonnes();
+		 test.testgetptsFidelite();
+		 test.testSetptsFidelite();
+		 test.testConsulter();
+		 test.testCreerCompte();
+		 test.testEnregistrerMenageCompte();
+		 test.testUtiliser();
+		 test.testConvertir();
+		 test.testIncrementFidelite();
+		 test.testDecrementFidelite();
     }
 }
 

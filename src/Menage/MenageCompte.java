@@ -1,4 +1,4 @@
-package Centre_tri;
+package Menage;
 
 import java.io.FileReader;
 import java.io.FileWriter;

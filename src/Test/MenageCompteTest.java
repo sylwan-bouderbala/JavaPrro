@@ -1,6 +1,6 @@
 package Test;
 
-import Centre_tri.MenageCompte;
+import Menage.MenageCompte;
 
 public class MenageCompteTest {
 	

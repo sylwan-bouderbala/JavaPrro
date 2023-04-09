@@ -7,7 +7,7 @@ public class AutresTest {
     
     private static void Test(boolean bool) {
         if (bool == true) {
-            System.out.println("\033[32m Test Validé\033[0m");
+            System.out.println("\033[32mTest Validé\033[0m");
         }
         else {
             System.out.println("\033[31mEchec\033[0m");

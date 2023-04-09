@@ -1,4 +1,4 @@
-package Centre_tri;
+package Menage;
 
 import java.io.FileWriter;
 import java.time.LocalDate;

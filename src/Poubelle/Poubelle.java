@@ -4,8 +4,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 
-import Centre_tri.CorbeilleOperation;
-import Centre_tri.MenageCompte;
+import Menage.CorbeilleOperation;
+import Menage.MenageCompte;
 
 public class Poubelle {
 	private int identifiantP; //- identifiantP est l'identifiant de la poubelle

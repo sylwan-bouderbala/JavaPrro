@@ -2,8 +2,8 @@ package Test;
 
 import java.time.LocalDate;
 
-import Centre_tri.CorbeilleOperation;
-import Centre_tri.MenageCompte;
+import Menage.CorbeilleOperation;
+import Menage.MenageCompte;
 import Poubelle.Bac;
 import Poubelle.Dechet;
 import Poubelle.Poubelle;

@@ -127,16 +127,16 @@ public class Poubelle {
 	}
 
 	public boolean verifier(Dechet dechet, Bac bacs) {
-	    if (dechet.getType().equals("Verre") && bacs.getCouleur().equals("Vert")) {
+	    if (dechet.getType().equals("verre") && bacs.getCouleur().equals("vert")) {
 	        return true;
 	    }
-	    else if (dechet.getType().equals("Papier") && bacs.getCouleur().equals("Bleu")) {
+	    else if (dechet.getType().equals("papier") && bacs.getCouleur().equals("bleu")) {
 	        return true; 
 	    }
-		else if (dechet.getType().equals("Plastique") || (dechet.getType().equals("Carton") || dechet.getType().equals("Metal"))  && (bacs.getCouleur().equals("Jaune"))) {
+		else if (dechet.getType().equals("plastique") || (dechet.getType().equals("carton") || dechet.getType().equals("metal"))  && (bacs.getCouleur().equals("jaune"))) {
 	        return true; 
 		}
-	    else if (dechet.getType().equals("Autres")  && (bacs.getCouleur().equals("Classique"))) {
+	    else if (dechet.getType().equals("autres")  && (bacs.getCouleur().equals("classique"))) {
 			return true;
 	    } 
 	    else {

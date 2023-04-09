@@ -117,15 +117,4 @@ public class CorbeilleOperation {
 	        e.printStackTrace();
 	    }
     }
-
-    // Pb ajouterDechets
-    public void ajouterDechets(MenageCompte c, int nbDechets, CorbeilleOperation o) {
-        this.nbDechets += nbDechets;
-        this.quantite = quantite;
-        this.typeDechet = typeDechet;
-        this.date = date;
-        this.valeurVerifier = valeurVerifier;
-        this.couleurBacUtilise = couleurBacUtilise;
-        o.getMenageCompte().setPtsFidelite(o.getMenageCompte().getptsFidelite());
-    }
 }

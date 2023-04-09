@@ -158,6 +158,7 @@ public class Poubelle {
 	    }
 	}	
 	
+	
 	public void ajouterOperationAuFichier() {
 		MenageCompte compte1 = new MenageCompte(1, "mdp123", "Quartier A", 4, 10);
 		MenageCompte compte2 = new MenageCompte(1, "mdp123", "La Bourse", 4, 10);

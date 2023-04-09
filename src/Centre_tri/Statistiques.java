@@ -36,6 +36,26 @@ public class Statistiques {
         }  
 		try (BufferedReader reader = new BufferedReader(new FileReader(fichier))) {
             String line = reader.readLine();
+			if (line != null && line.trim().length() > 0){
+				String[] tab = line.split(",");
+				ArrayList<Integer> value = Temp.get(tab[1]);
+				if (value != null){
+				int AncienneValF = value.get(0);
+				int AncienneValC = value.get(1);
+				int NouvelleValF = AncienneValF;
+				if (tab[6].equals("false")){
+					NouvelleValF = AncienneValF+1;
+				}
+				else {
+					
+					NouvelleValF = AncienneValF;
+				}
+				int NouvelleValC = AncienneValC+1;
+				value.set(0, NouvelleValF);
+				value.set(1, NouvelleValC);
+			}
+
+            }
             while(line != null){
                 line = reader.readLine();
 				if (line != null && line.trim().length() > 0){
@@ -45,8 +65,6 @@ public class Statistiques {
 				int AncienneValF = value.get(0);
 				int AncienneValC = value.get(1);
 				int NouvelleValF = AncienneValF;
-				System.out.println(tab[6]=="false" +","+ tab[6] +"false"+",");
-				System.out.println(","+ tab[6] +","+"false"+",");
 				if (tab[6].equals("false")){
 					NouvelleValF = AncienneValF+1;
 				}
@@ -66,6 +84,7 @@ public class Statistiques {
             System.out.println("An error occurred while reading the file.");
             e.printStackTrace();
         }
+		System.out.println(Temp);
 		HashMap<String, Float> Moyenne = new HashMap<>();
         for (Map.Entry<String, ArrayList<Integer>> entry : Temp.entrySet()) {
             String key = entry.getKey();

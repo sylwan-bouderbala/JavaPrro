@@ -5,24 +5,20 @@ public class Bac
     private int identifiant;
 
 
-    public Bac(int identifiant, String couleur)
-    
-    {
+    public Bac(int identifiant, String couleur) {
         this.identifiant = identifiant;
     }
 
-    public int getIdentifiant()
-    {
+    public int getIdentifiant() {
         return identifiant;
     }
 
-    public void setIdentifiant(int identifiant)
-    {
+    public void setIdentifiant(int identifiant) {
         this.identifiant = identifiant;
     }
 
     public String getCouleur() {
-        return "Impossible : cette couleur n'existe pas";
+    	  throw new UnsupportedOperationException("Impossible : cette couleur n'existe pas");
     }
 }
 

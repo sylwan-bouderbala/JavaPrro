@@ -1,51 +1,45 @@
 package Test;
 
 import Centre_tri.Bac;
-import Centre_tri.Jaune;
-import Centre_tri.Bleu;
 import Centre_tri.Vert;
-import Centre_tri.Classique;
 
-public class BacTest {
-	
-	private static void Test(boolean bool) {
-		if (bool == true) {
-			System.out.println("Vrai");
-		}
-		else {
-			System.out.println("False");
-		}
-	}
-	
+public class VertTest {
+
+    private static void Test(boolean bool) {
+        if (bool == true) {
+            System.out.println("Vrai");
+        } else {
+            System.out.println("False");
+        }
+    }
+
     public static void testGetIdentifiant() {
-        Bac bac = new Bac(1, "jaune");
+        Bac bac = new Vert(1);
         int identifiant = bac.getIdentifiant();
         Test(1 == identifiant);
     }
-    
-  
+
     public static void testSetIdentifiant() {
-        Bac bac = new Bac(1, "jaune");
+        Bac bac = new Vert(1);
         bac.setIdentifiant(2);
         int identifiant = bac.getIdentifiant();
-        Test(2== identifiant);
+        Test(2 == identifiant);
     }
- 
+
     public static void testGetCouleur() {
-        Bac bac = new Bac(1, "noir");
+        Bac bac = new Vert(1);
         String couleur = "";
         try {
             couleur = bac.getCouleur();
         } catch (UnsupportedOperationException e) {
             couleur = e.getMessage();
         }
-        Test(couleur.equals("Impossible : cette couleur n'existe pas"));
+        Test(couleur.equals("vert"));
     }
 
     public static void main(String[] args) {
-    	testGetIdentifiant();
-    	testSetIdentifiant();
-    	testGetCouleur();
+        testGetIdentifiant();
+        testSetIdentifiant();
+        testGetCouleur();
     }
-}	
-
+}

@@ -39,12 +39,28 @@ public class MenageCompte implements Serializable {
 	{
 		return identifiant;
 	}
+	
+	public void setIdentifiant(int identifiant)
+	{
+		this.identifiant=identifiant;
+	}
+	
 	public String getQuartier() {
 		return quartier;
 	}
 	public String getmotdePasse()
 	{
 		return motDePasse;
+	}
+	
+	public void setMotdePasse(String motDePasse)
+	{
+		this.motDePasse=motDePasse;
+	}
+	
+	public void setQuartier(String quartier)
+	{
+		this.quartier=quartier;
 	}
 
 	public int getnbPersonnes()
@@ -55,6 +71,11 @@ public class MenageCompte implements Serializable {
 	public int getptsFidelite()
 	{
 		return ptsFidelite;
+	}
+	
+	public void setPtsFidelite()
+	{
+		this.ptsFidelite=ptsFidelite ;
 	}
 
 	public int consulter()

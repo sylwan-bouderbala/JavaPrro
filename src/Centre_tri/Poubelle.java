@@ -1,13 +1,15 @@
 package Centre_tri;
 
 import java.util.ArrayList;
+import Centre_tri.CorbeilleOperation;
+import Centre_tri.MenageCompte;
 import java.util.Date;
 import java.util.HashMap;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class Poubelle {
-	private int identifiant;
+	private int identifiantP; //- identifiantP est l'identifiant de la poubelle
 	protected float quantiteMaximale;
 	protected float quantite;
 	private int codeAcces;
@@ -19,7 +21,7 @@ public class Poubelle {
 
 
 	public Poubelle (int identifiant, float quantiteMaximale, float quantite, int codeAcces, String quartier) {
-		this.identifiant = identifiant;
+		this.identifiantP= identifiantP;
 		this.quantiteMaximale = quantiteMaximale;
 		this.quantite = quantite;
 		this.codeAcces = codeAcces;
@@ -28,12 +30,12 @@ public class Poubelle {
 		
 	}
 	
-	public void setIdentifiant(int identifiant) {
-		this.identifiant=identifiant;
+	public void setIdentifiant(int identifiantP){
+		this.identifiantP= identifiantP;
 	}
 
 	public int getIdentifiant() {
-		return identifiant;
+		return identifiantP;
 	}
 	
 	public float getQuantiteMaximale() {
@@ -77,14 +79,18 @@ public class Poubelle {
 	}
 	
 	
-	public void identifier(CorbeilleOperation operation) {
-		return operation.getIdentifiant();
+	public int identifier(CorbeilleOperation operation ) {
+		return operation.getMenageCompte().getIdentifiant();
 	}
 	
 	public void envoyerNotifs(CorbeilleOperation operation, Poubelle p) {
-		if (p.quantite > p.quantiteMaximale) {
+		if (p.quantite >=p.quantiteMaximale) {
 			estPleine = true;
 		}
+	}
+	
+	public void calculer(){
+		
 	}
 
 	public boolean verifier(Dechet dechet, Bac bacs) {
@@ -180,7 +186,7 @@ public class Poubelle {
 		 	MenageCompte compte1 = new MenageCompte(1, "mdp123", "Quartier A", 4, 10);
 		 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
 		 	Date nvdate = new Date(122,3,8);
-		    CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte1,1,1,0.5f, "papier",nvdate, false, "jaune", 10);
+		    CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "jaune", 10);
 		    poubelle.enregistrerStats(operation);
 		}
 	 

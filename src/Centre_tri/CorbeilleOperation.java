@@ -6,7 +6,6 @@ public class CorbeilleOperation {
     private Poubelle poubelle;
     private MenageCompte menageCompte;
     private int nbDechets;
-    private int identifiant;
     private Float quantite;
     private String typeDechet;
     private Date date;
@@ -15,12 +14,11 @@ public class CorbeilleOperation {
     private int ptsFidelite;
 
 
-    public CorbeilleOperation(Poubelle poubelle, MenageCompte menageCompte, int nbDechets, int identifiant, 
+    public CorbeilleOperation(Poubelle poubelle, MenageCompte menageCompte, int nbDechets, 
     Float quantite, String typeDechet ,Date date, boolean valeurVerifier, String couleurBacUtilise, int ptsFidelite) {
         this.poubelle = poubelle;
         this.menageCompte = menageCompte;
         this.nbDechets = nbDechets;
-        this.identifiant = identifiant;
         this.quantite = quantite;
         this.typeDechet = typeDechet;
         this.date = date;
@@ -53,15 +51,6 @@ public class CorbeilleOperation {
         this.nbDechets = nbDechets;
     }
 
-    public int getIdentifiant() {
-        return identifiant;
-    }
-
-    public void setIdentifiant(int identifiant) {
-        this.identifiant = identifiant;
-    }
-
-   
     public Float getQuantite() {
         return quantite;
     }
@@ -110,9 +99,8 @@ public class CorbeilleOperation {
         this.ptsFidelite = ptsFidelite;
     }
     
-    public void ajouterDechets(int nbDechets, int identifiant, Date heure, float quantite, String typeDechet, Date date, boolean valeurVerifier, String couleurBacUtilise, int ptsFidelite) {
+    public void ajouterDechets(int nbDechets, Date heure, float quantite, String typeDechet, Date date, boolean valeurVerifier, String couleurBacUtilise, int ptsFidelite) {
         this.nbDechets += nbDechets;
-        this.identifiant = identifiant;
         this.quantite = quantite;
         this.typeDechet = typeDechet;
         this.date = date;

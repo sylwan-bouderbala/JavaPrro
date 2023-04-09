@@ -208,7 +208,6 @@ public class PoubelleTest {
 	 
 	 public static void main(String[] args) {
 		 PoubelleTest test = new PoubelleTest();
-		 System.out.println("Test de la classe Poubelle");
 		 test.testGetIdentifiant();
 		 test.testGetQuantiteMaximale();
 		 test.testGetCodeAcces();

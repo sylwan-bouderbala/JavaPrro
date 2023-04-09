@@ -1,14 +1,9 @@
 package Centre_tri;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.time.LocalDate;
-import java.time.LocalDate;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 
 
@@ -25,7 +20,6 @@ public class MenageCompte implements Serializable {
 
 	private int ptsFidelite;
 
-	private ArrayList<CorbeilleOperation> operation;
 
 	public MenageCompte(int identifiant, String motDePasse, String quartier, int nbPersonnes, int ptsFidelite) {
 		this.identifiant = identifiant;
@@ -33,7 +27,6 @@ public class MenageCompte implements Serializable {
 		this.quartier = quartier;
 		this.nbPersonnes = nbPersonnes;
 		this.ptsFidelite = ptsFidelite;
-		operation = new ArrayList<>();
 	}
 
 	public int getIdentifiant() {

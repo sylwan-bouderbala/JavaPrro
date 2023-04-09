@@ -224,7 +224,6 @@ public class CorbeilleOperationTest {
 	
 	public static void main(String[] args) {
 		CorbeilleOperationTest test = new CorbeilleOperationTest();
-		System.out.println("Test de la classe CorbeilleOperation");
 		test.testGetPoubelle();
 		test.testSetPoubelle();
 		test.testGetMenageCompte();

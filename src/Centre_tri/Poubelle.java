@@ -157,17 +157,36 @@ public class Poubelle {
 	        e.printStackTrace();
 	    }
 	}	
+	
+	public void ajouterOperationAuFichier() {
+		MenageCompte compte1 = new MenageCompte(1, "mdp123", "Quartier A", 4, 10);
+		MenageCompte compte2 = new MenageCompte(1, "mdp123", "La Bourse", 4, 10);
+		MenageCompte compte3 = new MenageCompte(1, "mdp123", "L'Hotel de ville", 4, 10);
+	 	Bac[] bacs = new Bac[4];
+        bacs[0] = new Bac(1, "jaune");
+        bacs[1] = new Bac(2, "vert");
+        bacs[2] = new Bac(3, "classique");
+        bacs[3] = new Bac(4, "bleu");
+	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
+	 	Date nvdate = new Date(122,3,8);
+	 	for (int i = 0; i < 30; i++) {
+	 		CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte1,1+i,0.5f, "papier",nvdate, false, "jaune",10+i);
+		    CorbeilleOperation operation2 = new CorbeilleOperation(poubelle,compte2,6+5*i,0.5f, "plastique",nvdate, true, "bleu",30+i);
+		    CorbeilleOperation operation3 = new CorbeilleOperation(poubelle,compte3,6+2*i,0.5f, "carton",nvdate, true, "vert",30+i);
+		    poubelle.enregistrerStats(operation);
+		    poubelle.enregistrerStats(operation2);
+	 	    poubelle.enregistrerStats(operation3);
+	 	}
+	}
+	
 	 public static void main(String[] args) {
-		 	MenageCompte compte1 = new MenageCompte(1, "mdp123", "Quartier A", 4, 10);
-		 	Bac[] bacs = new Bac[4];
+		 Bac[] bacs = new Bac[4];
 	        bacs[0] = new Bac(1, "jaune");
 	        bacs[1] = new Bac(2, "vert");
 	        bacs[2] = new Bac(3, "classique");
 	        bacs[3] = new Bac(4, "bleu");
-		 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
-		 	Date nvdate = new Date(122,3,8);
-		    CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "jaune",10);
-		    poubelle.enregistrerStats(operation);
+		 Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
+		 poubelle.ajouterOperationAuFichier();
 		}
 	 
 	 

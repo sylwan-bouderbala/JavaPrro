@@ -67,6 +67,10 @@ public class CorbeilleOperation {
     public void setTypeDechet(String typeBac) {
         this.typeDechet = typeBac;
     }
+    
+    public int getIdDechet() {
+    	return idDechet;
+    }
 
     public Date getDate() {
         return date;
@@ -91,10 +95,7 @@ public class CorbeilleOperation {
     public void setCouleurBac(String couleurBacUtilise) {
         this.couleurBacUtilise = couleurBacUtilise;
     }
-    public int getIdDechets() {
-    	return idDechet;
-    }
-    
+ 
     public 
 
     // Pb ajouterDechets

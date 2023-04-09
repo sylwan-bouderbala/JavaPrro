@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.FileReader;
-import java.util.Scanner;
 
 public class Poubelle {
 	private int identifiantP; //- identifiantP est l'identifiant de la poubelle
@@ -27,10 +25,10 @@ public class Poubelle {
 		this.estPleine = false;
 		this.bacs=bacs;
 		bacs = new Bac[4];
-        bacs[0] = new Bac(1, "jaune");
-        bacs[1] = new Bac(2, "vert");
-        bacs[2] = new Bac(3, "classique");
-        bacs[3] = new Bac(4, "bleu");
+        bacs[0] = new Bac(0, "jaune");
+        bacs[1] = new Bac(1, "vert");
+        bacs[2] = new Bac(2, "classique");
+        bacs[3] = new Bac(3, "bleu");
 		
 	}
 	
@@ -131,7 +129,7 @@ public class Poubelle {
 	
 	public void enregistrerStats(CorbeilleOperation operation) {
 	    // Vérifier la valeur de l'opération
-	    Dechet dechet = new Dechet(operation.getIdDechets(),operation.getTypeDechet());
+	    Dechet dechet = new Dechet(operation.getIdDechet(),operation.getTypeDechet());
 	    Bac bac = new Bac(getIdentifiantBac(operation.getCouleurBac()), operation.getCouleurBac());
 	    boolean valeurVerifier = verifier(dechet, bac);
 

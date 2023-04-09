@@ -1,21 +1,24 @@
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-
+import Test.*;
 public class Main {
-	public static void Main(String[] args) {
-		int kalo = 14;
-		int mena = 32;
-		String chaine = String.valueOf(kalo) +";"+ String.valueOf(mena);
-        try {
-            FileWriter writer = new FileWriter("main.csv");
-            BufferedWriter bufferedWriter = new BufferedWriter(writer);
-            bufferedWriter.write(chaine);
-            bufferedWriter.close();
-            System.out.println("Successfully wrote to the file.");
-        } catch (IOException e) {
-            System.out.println("An error occurred while writing to the file.");
-            e.printStackTrace();
-        }
+
+	public static void main(String[] args) {
+		AutresTest.main(args);
+		BacTest.main(args);
+		BleuTest.main(args);
+		CartonTest.main(args);
+		CentretriTest.main(args);
+		ClassiqueTest.main(args);
+		CommerceTest.main(args);
+		ContratTest.main(args);
+		CorbeilleOperationTest.main(args);
+		DechetTest.main(args);
+		JauneTest.main(args);
+		MenageCompteTest.main(args);
+		MetalTest.main(args);
+		PapierTest.main(args);
+		PlastiqueTest.main(args);
+		PoubelleTest.main(args);
+		VertTest.main(args);
 	}
+
 }

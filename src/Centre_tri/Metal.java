@@ -8,7 +8,7 @@ public class Metal extends Dechet {
 	public Metal(float pm) {
 		this.pm = pm;
 		}
-	
+	@Override
 	public String getType() {
 		return "metal";
 		}

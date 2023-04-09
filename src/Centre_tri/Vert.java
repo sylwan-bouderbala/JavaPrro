@@ -7,6 +7,8 @@ static String couleur = "vert";
 	public Vert(int identifiant) {
 	    super(identifiant, "vert");
 	}
+	
+	@Override
 	public String getCouleur() {
 		return "vert";
 	}

@@ -9,6 +9,7 @@ public final float pv;
 		this.pv = pv;
 	}
 	
+	@Override
 	public String getType() {
 		return "verre";
 	}

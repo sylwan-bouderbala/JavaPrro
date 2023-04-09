@@ -7,7 +7,7 @@ public class Jaune extends Bac {
 	public Jaune(int identifiant) {
         super(identifiant, "jaune");
     }
-	
+	@Override
 	public String getCouleur() {
 		return "jaune";
 	}

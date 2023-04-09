@@ -8,7 +8,8 @@ public class Carton extends Dechet{
 	public Carton(float pc) {
 		this.pc = pc;
 
-	}
+
+	@Override
 	public String getType() {
 		return "carton";
 	}

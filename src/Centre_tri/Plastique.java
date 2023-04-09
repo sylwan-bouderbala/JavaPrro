@@ -7,6 +7,7 @@ public class Plastique extends Dechet{
 	public Plastique(float pp) {
 		this.pp = pp;
 	}
+	@Override
 	public String getType() {
 	return "plastique";
 	}

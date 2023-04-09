@@ -7,6 +7,8 @@ public class Autres extends Dechet {
 	public Autres(float poids) {
 		this.poids = poids;
 	}
+	
+	@Override
 	public String getType() {
 		return "autres";
 	}

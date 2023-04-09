@@ -11,5 +11,7 @@ public class Jaune extends Bac {
 	public String getCouleur() {
 		return "jaune";
 	}
-
+	public void setCouleur(String jaune) {
+		Jaune.couleur = "jaune";
+	}
 }

@@ -10,6 +10,8 @@ static String couleur = "classique";
 	public String getCouleur() {
 		return "classique";
 	}
-
+	public void setCouleur(String classique) {
+		Classique.couleur = "classique";
+	}
 
 }

@@ -3,6 +3,7 @@ package Centre_tri;
 public class Verre extends Dechet {
 
 public final float pv;
+	static String type = "verre";
 	
 	public Verre(float pv) {
 		this.pv = pv;
@@ -10,6 +11,10 @@ public final float pv;
 	
 	public String getType() {
 		return "verre";
+	}
+	
+	public void setType(String verre) {
+		Verre.type = "verre";
 	}
 
 }

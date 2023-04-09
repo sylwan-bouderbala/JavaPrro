@@ -90,14 +90,14 @@ public class CorbeilleOperation {
         this.couleurBacUtilise = couleurBacUtilise;
     }
 
-    
-    public void ajouterDechets(MenageCompte c, int nbDechets, Date heure, float quantite, String typeDechet, Date date, boolean valeurVerifier, String couleurBacUtilise, int ptsFidelite) {
+    // Pb ajouterDechets
+    public void ajouterDechets(MenageCompte c, int nbDechets, CorbeilleOperation o) {
         this.nbDechets += nbDechets;
         this.quantite = quantite;
         this.typeDechet = typeDechet;
         this.date = date;
         this.valeurVerifier = valeurVerifier;
         this.couleurBacUtilise = couleurBacUtilise;
-        c.setPtsFidelite(ptsFidelite+=1);
+        o.getMenageCompte().setPtsFidelite(o.getMenageCompte().getptsFidelite());
     }
 }

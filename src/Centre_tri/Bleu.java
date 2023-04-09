@@ -12,7 +12,7 @@ public class Bleu extends Bac {
 		return "bleu";
 	}
 	
-	public void setType(String bleu) {
+	public void setCouleur(String bleu) {
 		Bleu.couleur = "bleu";
 	}
 	

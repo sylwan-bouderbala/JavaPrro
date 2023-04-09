@@ -10,5 +10,8 @@ static String couleur = "vert";
 	public String getCouleur() {
 		return "vert";
 	}
+	public void setCouleur(String vert) {
+		Vert.couleur = "vert";
+	}
 }
 

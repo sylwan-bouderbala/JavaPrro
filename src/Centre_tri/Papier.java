@@ -1,8 +1,8 @@
 package Centre_tri;
 
 public class Papier extends Dechet{
-static String type ="papier";
-public final float pap;
+	static String type ="papier";
+	public final float pap;
 	
 	public Papier(float pap) {
 		this.pap = pap;

@@ -162,14 +162,12 @@ public class PoubelleTest {
 	 }
 	 
 	 public void testVerifier() {
-		 MenageCompte compte1 = new MenageCompte(1, "mdp123", "Quartier A", 4, 10);
 		 Bac[] bacs = new Bac[4];
 		 bacs[0] = new Bac(0, "jaune");
 		 bacs[1] = new Bac(1, "vert");
 		 bacs[2] = new Bac(2, "classique");
 		 bacs[3] = new Bac(3, "bleu");
 		 Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
-		 LocalDate nvdate = LocalDate.of(2023,4,9);
 		 Dechet dechet = new Dechet(6,"verre");
 		 Bac bac = new Bac(1, "vert");
 		 Test(poubelle.verifier(dechet,bac)); // On doit jetter le verre dans le bac vert de la poubelle
@@ -202,7 +200,7 @@ public class PoubelleTest {
 		 Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
 		 LocalDate nvdate = LocalDate.of(2023,4,9);
 		 CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte1,3,0.5f, "papier",nvdate, false, "Bleu", 10);
-		 Test(3.0*0.5f==poubelle.calculer(operation));
+		 Test(3.0*0.5f==Poubelle.calculer(operation));
 	 }
 	 
 	 

@@ -66,10 +66,7 @@ public class CorbeilleOperation {
         return typeDechet;
     }
 
-    public void setTypeDechet(String typeBac) {
-        this.typeDechet = typeBac;
-    }
-    
+
     public int getIdDechet() {
     	return idDechet;
     }

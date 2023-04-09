@@ -88,16 +88,15 @@ public class MenageCompte implements Serializable {
 	            System.out.printf("Erreur lors de l\"reductions.csv\", \"salami/jambon/\"'enregistrement du fichier [compteMenage.csv] : [%s]%n%n", e.getMessage());
 	        }
 	    }
-	
-	 public void consulterHistoriqueDepots() {
-		 
-	 }
 	 
-	public void utiliser(int ptsFideliteAUtiliser)
+	public void utiliser(MenageCompte m, int ptsAUtiliser)
 	{
-		if (ptsFideliteAUtiliser <= this.ptsFidelite) {
-			this.ptsFidelite -= ptsFideliteAUtiliser;
-		} else {
+		int ptsAdisposition = m.getptsFidelite();
+		if (ptsAdisposition >= ptsAUtiliser) {
+		 int ptsFidelite= m.getptsFidelite()-ptsAUtiliser;
+		 m.setPtsFidelite(ptsFidelite);
+		}
+		else {
 			System.out.println("Impossible : vous avez trop peu de points de fidélité");
 		}
 	}

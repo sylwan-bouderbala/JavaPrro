@@ -10,7 +10,6 @@ import java.util.Date;
 
 import Centre_tri.Commerce;
 import Centre_tri.Contrat;
-import Centre_tri.CustomException;
 public class ContratTest {
 	private static void Test(boolean bool) {
 		if (bool == true) {
@@ -54,16 +53,21 @@ public class ContratTest {
 		contrat.Renouveller(DateFin);
 		Test(DateFin.compareTo(contrat.getDateFin())==0);
 	}
-	private static void TestContratMauvaiseDate(Commerce commerce){
+	private static void TestDateDebut(Contrat contrat){
+		Date date = contrat.getDateDebut();
 		LocalDateTime localDateTime = LocalDateTime.of(2022, Month.APRIL, 8, 12, 0, 0);
-		ZoneId Zone = ZoneId.systemDefault();
-		ZonedDateTime zonedDateTime = ZonedDateTime.of(localDateTime, Zone);
-		Date DateDebut = Date.from(zonedDateTime.toInstant());
+        ZoneId Zone = ZoneId.systemDefault();
+        ZonedDateTime zonedDateTime = ZonedDateTime.of(localDateTime, Zone);
+        Date DateDebut = Date.from(zonedDateTime.toInstant());
+		Test(DateDebut.compareTo(date)==0);
+	}
+	private static void TestDateFin(Contrat contrat){
+		Date date = contrat.getDateFin();
 		LocalDateTime localDateTime2 = LocalDateTime.of(2023, Month.APRIL, 8, 12, 0, 0);
-		ZoneId Zone2 = ZoneId.systemDefault();
-		ZonedDateTime zonedDateTime2 = ZonedDateTime.of(localDateTime2, Zone2);
-		Date DateFin = Date.from(zonedDateTime2.toInstant());
-		Contrat contrat = new Contrat("Contrat 2",commerce,DateDebut,DateFin);
+        ZoneId Zone2 = ZoneId.systemDefault();
+        ZonedDateTime zonedDateTime2 = ZonedDateTime.of(localDateTime2, Zone2);
+        Date DateFin = Date.from(zonedDateTime2.toInstant());
+		Test(DateFin.compareTo(date)==0);
 	}
 	public static void main(String[] args) {
 		Commerce commerce = new Commerce("42 rue Alan Turing", 42, "Ada Lovelace");
@@ -78,7 +82,8 @@ public class ContratTest {
         Contrat contrat = commerce.NouveauContrat("Contrat1",commerce,DateDebut,DateFin);
 		TestNouvelleReduc(contrat);
 		TestRenouveller(contrat);
-		TestContratMauvaiseDate(commerce);
+		TestDateDebut(contrat);
+		TestDateFin(contrat);
 	}
 
 }

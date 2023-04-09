@@ -1,7 +1,6 @@
 package Centre_tri;
 
 import java.io.BufferedReader;
-import java.io.Console;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,7 +22,7 @@ public class Statistiques {
     }
 
     //ici toujte les classe de calcul
-
+	//Classe de calcul de la moyenne pour chaque quartier de la validité des dépots 1 si le dépot est mauvais 0 si il est bon
 	public HashMap<String,Float> MoyenneParQuartierValidite() {
 		HashMap<String,ArrayList<Integer>> Temp = new HashMap<>();
 		String fichier = "stats_poubelle.csv";

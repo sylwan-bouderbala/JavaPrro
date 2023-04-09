@@ -102,7 +102,7 @@ public class CorbeilleOperationTest {
 	    o.setTypeDechet("metal");
 	    Test("metal"==o.getTypeDechet());
 	}
-	
+	// A faire
 	public void testGetDate() {
 		MenageCompte compte1 = new MenageCompte(1, "mdp123", "Quartier A", 4, 10);
 	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
@@ -116,7 +116,7 @@ public class CorbeilleOperationTest {
 	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
 	 	Date nvdate = new Date(122,3,8);
 	    CorbeilleOperation o = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "jaune");
-	    
+	    Test(false==o.isValeurVerifier());
 	}
 	
 	public void testSetValeurVerifiee() {
@@ -124,6 +124,8 @@ public class CorbeilleOperationTest {
 	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
 	 	Date nvdate = new Date(122,3,8);
 	    CorbeilleOperation o = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "jaune");
+	    o.setValeurVerifier(true);
+	    Test(true==o.isValeurVerifier());
 	}
 	
 	public void testGetCouleurBac() {
@@ -131,6 +133,7 @@ public class CorbeilleOperationTest {
 	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
 	 	Date nvdate = new Date(122,3,8);
 	    CorbeilleOperation o = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "jaune");
+	    Test("jaune"==o.getCouleurBac());
 	}
 	
 	public void testSetCouleurBac() {
@@ -138,6 +141,8 @@ public class CorbeilleOperationTest {
 	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
 	 	Date nvdate = new Date(122,3,8);
 	    CorbeilleOperation o = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "jaune");
+	    o.setCouleurBac("bleu");
+	    Test("jaune"==o.getCouleurBac());
 	}
 	
 	public void testAjouterDechets() {

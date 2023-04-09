@@ -170,11 +170,9 @@ public class PoubelleTest {
 		 bacs[3] = new Bac(3, "bleu");
 		 Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
 		 LocalDate nvdate = LocalDate.of(2023,4,9);
-		 CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "bleu", 10);
-		 Dechet dechet = new Dechet(3,operation.getTypeDechet());
-		 Bac bac = new Bac(poubelle.getIdentifiantBac(operation.getCouleurBac()), operation.getCouleurBac());
-		 Test(poubelle.verifier(dechet,bac)); // On doit jetter le papier dans le bac bleu de la poubelle
-		 
+		 Dechet dechet = new Dechet(6,"verre");
+		 Bac bac = new Bac(1, "vert");
+		 Test(poubelle.verifier(dechet,bac)); // On doit jetter le verre dans le bac vert de la poubelle
 	 }
 	 
 	 public void testAttribuer() {
@@ -186,7 +184,7 @@ public class PoubelleTest {
 		 bacs[3] = new Bac(3, "bleu");
 		 Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
 		 LocalDate nvdate = LocalDate.of(2023,4,9);
-		 CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "Bleu", 10);
+		 CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "bleu", 10);
 		  Dechet dechet = new Dechet(operation.getIdDechet(),operation.getTypeDechet());
 		  Bac bac = new Bac(poubelle.getIdentifiantBac(operation.getCouleurBac()), operation.getCouleurBac());
 		 poubelle.attribuer(dechet,bac,operation);

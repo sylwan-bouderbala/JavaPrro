@@ -1,6 +1,6 @@
 package Test;
 
-import Centre_tri.Bac;
+
 import Centre_tri.Dechet;
 import Centre_tri.Carton;
 

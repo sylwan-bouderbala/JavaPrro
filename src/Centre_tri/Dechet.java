@@ -19,7 +19,7 @@ public class Dechet {
 	}
 
     public String getType() {
-        if (type == null) {
+        if (!type.equals("papier") && !type.equals("metal") && !type.equals("plastique") && !type.equals("verre") && !type.equals("carton") && !type.equals("autre")) {
             throw new UnsupportedOperationException("Impossible : ce type de déchets n'existe pas");
         }
         return type;

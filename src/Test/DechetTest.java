@@ -30,7 +30,7 @@ public class DechetTest {
 	    }
 	 
 	    public static void testGetType() {
-	        Dechet dechet = new Dechet(1,"carton");
+	        Dechet dechet = new Dechet(1,"papillon");
 	        String type = "";
 	        try {
 	            type = dechet.getType();

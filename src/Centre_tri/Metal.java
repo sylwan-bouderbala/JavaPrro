@@ -5,7 +5,8 @@ public class Metal extends Dechet {
 	public final float pm;
 	static String type = "metal";
 	
-	public Metal(float pm) {
+	public Metal(int identifiant, float pm) {
+		super(identifiant,"metal");
 		this.pm = pm;
 		}
 	@Override

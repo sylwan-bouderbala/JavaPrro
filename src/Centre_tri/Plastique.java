@@ -4,15 +4,13 @@ public class Plastique extends Dechet{
 	
 	public final float pp;
 	static String type = "plastique";
-	public Plastique(float pp) {
+	public Plastique(int identifiant, float pp) {
+		super(identifiant,"metal");
 		this.pp = pp;
-	}
+		}
 	@Override
 	public String getType() {
 	return "plastique";
 	}
-	
-	public void setType(String plastique) {
-		Plastique.type = "plastique";
-	}
+
 }

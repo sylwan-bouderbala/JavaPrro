@@ -26,8 +26,7 @@ public class MenageCompte implements Serializable {
 
 	private ArrayList<CorbeilleOperation> operation;
 
-	public MenageCompte(int identifiant, String motDePasse, String quartier, int nbPersonnes, int ptsFidelite)
-	{
+	public MenageCompte(int identifiant, String motDePasse, String quartier, int nbPersonnes, int ptsFidelite) {
 		this.identifiant = identifiant;
 		this.motDePasse = motDePasse;
 		this.quartier = quartier;
@@ -35,36 +34,30 @@ public class MenageCompte implements Serializable {
 		this.ptsFidelite = ptsFidelite;
 	}
 
-	public int getIdentifiant()
-	{
+	public int getIdentifiant() {
 		return identifiant;
 	}
 	
-	public void setIdentifiant(int identifiant)
-	{
+	public void setIdentifiant(int identifiant) {
 		this.identifiant=identifiant;
 	}
 	
 	public String getQuartier() {
 		return quartier;
 	}
-	public String getmotdePasse()
-	{
+	public String getmotdePasse() {
 		return motDePasse;
 	}
 	
-	public void setMotdePasse(String motDePasse)
-	{
+	public void setMotdePasse(String motDePasse) {
 		this.motDePasse=motDePasse;
 	}
 	
-	public void setQuartier(String quartier)
-	{
+	public void setQuartier(String quartier) {
 		this.quartier=quartier;
 	}
 
-	public int getNbPersonnes()
-	{
+	public int getNbPersonnes() {
 		return nbPersonnes;
 	}
 	
@@ -72,20 +65,17 @@ public class MenageCompte implements Serializable {
 		this.nbPersonnes = nbPersonnes;
 	}
 
-	public int getptsFidelite()
-	{
+	public int getptsFidelite() {
 		return ptsFidelite;
 	}
 	
-	public void setPtsFidelite(int ptsFidelite)
-	{
+	public void setPtsFidelite(int ptsFidelite) {
 		this.ptsFidelite=ptsFidelite ;
 	}
 
 
 	public MenageCompte creerCompte(int identifiant, String motDePasse, String quartier, int nbPersonnes,
-		int ptsFidelite)
-	{
+		int ptsFidelite) {
 		MenageCompte nvMenageCompte = new MenageCompte(identifiant, motDePasse, quartier, nbPersonnes, ptsFidelite);
 		return nvMenageCompte;
 	}
@@ -103,7 +93,11 @@ public class MenageCompte implements Serializable {
 	            System.out.printf("Erreur lors de l'enregistrement du fichier [compteMenage.csv] : [%s]%n%n", e.getMessage());
 	        }
 	    }
-
+	
+	 public void consulterHistoriqueDepots() {
+		 
+	 }
+	 
 	public void utiliser(int ptsFideliteAUtiliser)
 	{
 		if (ptsFideliteAUtiliser <= this.ptsFidelite) {
@@ -113,8 +107,7 @@ public class MenageCompte implements Serializable {
 		}
 	}
 
-	public int convertir(int taux, String produit, int ptsFidelietnecessaires)
-	{
+	public int convertir(int taux, String produit, int ptsFidelietnecessaires) {
 		if (ptsFidelietnecessaires <= this.ptsFidelite) {
 			this.ptsFidelite -= ptsFidelietnecessaires;
 			return taux;
@@ -124,13 +117,11 @@ public class MenageCompte implements Serializable {
 		}
 	}
 
-	public void incrementFidelite()
-	{
+	public void incrementFidelite() {
 		this.ptsFidelite++;
 	}
 
-	public void decrementFidelite()
-	{
+	public void decrementFidelite() {
 		this.ptsFidelite--;
 	}
 	
@@ -138,4 +129,5 @@ public class MenageCompte implements Serializable {
         MenageCompte menage = new MenageCompte(1, "password", "Quartier A", 4, 10);
         menage.enregistrerMenageCompte(menage);
     }
+	
 }

@@ -4,9 +4,10 @@ public class Autres extends Dechet {
 
 	public final float poids;
 	static String type = "autres";
-	public Autres(float poids) {
+	public Autres(int identifiant, float poids) {
+		super(identifiant,"autres");
 		this.poids = poids;
-	}
+		}
 	
 	@Override
 	public String getType() {

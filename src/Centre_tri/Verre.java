@@ -5,9 +5,10 @@ public class Verre extends Dechet {
 public final float pv;
 	static String type = "verre";
 	
-	public Verre(float pv) {
+	public Verre(int identifiant, float pv) {
+		super(identifiant,"verre");
 		this.pv = pv;
-	}
+		}
 	
 	@Override
 	public String getType() {

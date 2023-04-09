@@ -13,10 +13,10 @@ import Centre_tri.Contrat;
 public class ContratTest {
 	private static void Test(boolean bool) {
 		if (bool == true) {
-			System.out.println("True");
+			System.out.println("\033[32mTest Validé\033[0m");
 		}
 		else {
-			System.out.println("False");
+			System.out.println("\033[31mEchec\033[0m");
 		}
 	}
 	private static void TestNouvelleReduc(Contrat contrat){
@@ -61,14 +61,7 @@ public class ContratTest {
         Date DateDebut = Date.from(zonedDateTime.toInstant());
 		Test(DateDebut.compareTo(date)==0);
 	}
-	private static void TestDateFin(Contrat contrat){
-		Date date = contrat.getDateFin();
-		LocalDateTime localDateTime2 = LocalDateTime.of(2023, Month.APRIL, 8, 12, 0, 0);
-        ZoneId Zone2 = ZoneId.systemDefault();
-        ZonedDateTime zonedDateTime2 = ZonedDateTime.of(localDateTime2, Zone2);
-        Date DateFin = Date.from(zonedDateTime2.toInstant());
-		Test(DateFin.compareTo(date)==0);
-	}
+
 	public static void main(String[] args) {
 		Commerce commerce = new Commerce("42 rue Alan Turing", 42, "Ada Lovelace");
 		LocalDateTime localDateTime = LocalDateTime.of(2022, Month.APRIL, 8, 12, 0, 0);
@@ -83,7 +76,6 @@ public class ContratTest {
 		TestNouvelleReduc(contrat);
 		TestRenouveller(contrat);
 		TestDateDebut(contrat);
-		//TestDateFin(contrat);
 	}
 
 }

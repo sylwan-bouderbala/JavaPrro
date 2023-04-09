@@ -63,9 +63,13 @@ public class MenageCompte implements Serializable {
 		this.quartier=quartier;
 	}
 
-	public int getnbPersonnes()
+	public int getNbPersonnes()
 	{
 		return nbPersonnes;
+	}
+	
+	public void setnbPersonnes(int nbPersonnes) {
+		this.nbPersonnes = nbPersonnes;
 	}
 
 	public int getptsFidelite()
@@ -73,7 +77,7 @@ public class MenageCompte implements Serializable {
 		return ptsFidelite;
 	}
 	
-	public void setPtsFidelite()
+	public void setPtsFidelite(int ptsFidelite)
 	{
 		this.ptsFidelite=ptsFidelite ;
 	}
@@ -94,7 +98,7 @@ public class MenageCompte implements Serializable {
 	        // Ouvrir le fichier CSV en mode écriture
 	        try (FileWriter writer = new FileWriter("compteMenage.csv", true)) { // true pour ajouter les données à la fin du fichier
 	            // Créer une ligne de données pour le nouvel objet MenageCompte
-	            String ligne = String.format("%d,%s,%s,%d,%d", nouveauMenageCompte.getIdentifiant(), nouveauMenageCompte.getmotdePasse(), nouveauMenageCompte.getQuartier(), nouveauMenageCompte.getnbPersonnes(), nouveauMenageCompte.getptsFidelite());
+	            String ligne = String.format("%d,%s,%s,%d,%d", nouveauMenageCompte.getIdentifiant(), nouveauMenageCompte.getmotdePasse(), nouveauMenageCompte.getQuartier(), nouveauMenageCompte.getNbPersonnes(), nouveauMenageCompte.getptsFidelite());
 	            // Écrire la ligne de données dans le fichier
 	            writer.write(ligne);
 	            writer.write(System.lineSeparator()); // saut de ligne pour faciliter la lecture

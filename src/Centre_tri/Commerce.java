@@ -10,17 +10,21 @@ public class Commerce {
 	private int Id;
 	private String adresse;
 	private ArrayList<Contrat> Contrats;
+	private String Name;
 	
-	public Commerce(String adresse,int Id) {
+	public Commerce(String adresse,int Id, String Name) {
 		this.setId(Id);
 		this.setAdresse(adresse);
+		this.setName(Name);
+		Contrats = new ArrayList<Contrat>();
 	}
 	public Contrat NouveauContrat(String Name,Commerce Commerce,Date DateDebut,Date DateFin) {
-		Contrat Contrat = new Contrat(Name,Commerce,DateDebut,DateFin,this.Contrats.size()+1);
+		Contrat Contrat = new Contrat(Name,Commerce,DateDebut,DateFin);
+		Contrat.setId(Contrats.size()+1);
 		Contrats.add(Contrat);
 		
 		
-		String chaine = String.valueOf(Contrat.getId()) +";"+ String.valueOf(this.Id)+";"+String.valueOf(DateDebut)+";"+String.valueOf(DateFin)+";";
+		String chaine = String.valueOf(Contrat.getId()) +";"+ this.Name +";" +String.valueOf(this.Id)+";"+String.valueOf(DateDebut)+";"+String.valueOf(DateFin)+";";
 		for(Reduction e : Contrat.getReductions()){
 			chaine += String.valueOf(e.getId())+";";
 		}
@@ -53,5 +57,19 @@ public class Commerce {
 	public void setId(int id) {
 		Id = id;
 	}
+	public ArrayList<Contrat> getContrats() {
+		return Contrats;
+	}
+	public void setContrats(ArrayList<Contrat> contrats) {
+		Contrats = contrats;
+	}
 	
+	public String getName() {
+		return Name;
+	}
+	
+	public void setName(String name) {
+		Name = name;
+	}
 }
+

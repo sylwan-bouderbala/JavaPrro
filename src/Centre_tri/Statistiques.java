@@ -12,6 +12,15 @@ public class Statistiques {
 	private HashMap<String,ArrayList<Float>> moyenne_quartier;
 	private HashMap<Integer, Contrat> Contrats;
 	
+	public static void Main(String[]args){
+		Statistiques stat = new Statistiques();
+		HashMap<String,Float> Moyennes = new HashMap<>();
+		Moyennes = stat.MoyenneParQuartier();
+
+		for(String e : Moyennes.keySet()){
+			System.out.println(e + " : " + Moyennes.get(e));
+		}
+	}
 	
 	private ArrayList<String[]> Reader(){
 		ArrayList<String[]> liste = new ArrayList<String[]>();
@@ -35,7 +44,22 @@ public class Statistiques {
 	public HashMap<String,Float> MoyenneParQuartier() {
 		HashMap<String,Float> moyenne = new HashMap<>();
 		String fichier = "stats_poubelle.csv";
+        try (BufferedReader reader = new BufferedReader(new FileReader(fichier))) {
+            String line = reader.readLine();
+            while (line != null) {
+                System.out.println(line);
+                line = reader.readLine();
+				String[] tab = line.split(";");
+				if(tab[6] == "false"){
+					
+				}
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred while reading the file.");
+            e.printStackTrace();
+        }
 		return moyenne;
+		
 	}
 	//GETTER ET SETTER
 	public HashMap<String,ArrayList<Float>> getMoyenne_quartier() {

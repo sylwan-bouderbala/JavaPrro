@@ -72,7 +72,10 @@ public class MenageCompteTest {
     
     
     public void testUtiliser() {
-    	
+    	MenageCompte c = new MenageCompte(1, "mdp123", "Le Louvre", 4, 11);
+    	int ptsAUtiliser = 10;
+    	c.utiliser(c,ptsAUtiliser);
+    	Test(c.getptsFidelite()==1);
     }
     
     public void testConvertir() {

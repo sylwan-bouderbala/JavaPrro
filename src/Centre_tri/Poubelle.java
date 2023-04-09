@@ -13,18 +13,23 @@ public class Poubelle {
 	private int codeAcces;
 	public String quartier;
 	private centre_tri Centre;
-	private ArrayList<Bac> bacs;
-	private HashMap<Integer,Bac> Bacs;
 	private boolean estPleine;
+	private Bac[] bacs;
 
 
-	public Poubelle (int identifiant, float quantiteMaximale, float quantite, int codeAcces, String quartier) {
+	public Poubelle (int identifiantP, float quantiteMaximale, float quantite, int codeAcces, String quartier,Bac[] bacs) {
 		this.identifiantP= identifiantP;
 		this.quantiteMaximale = quantiteMaximale;
 		this.quantite = quantite;
 		this.codeAcces = codeAcces;
 		this.quartier = quartier;
 		this.estPleine = false;
+		this.bacs=bacs;
+		bacs = new Bac[4];
+        bacs[0] = new Bac(1, "jaune");
+        bacs[1] = new Bac(2, "vert");
+        bacs[2] = new Bac(3, "classique");
+        bacs[3] = new Bac(4, "bleu");
 		
 	}
 	
@@ -52,14 +57,6 @@ public class Poubelle {
 	    return quartier;
 	}
 
-	public ArrayList<Bac> getBacs() {
-	    return bacs;
-	}
-
-	public HashMap<Integer, Bac> getBacsMap() {
-	    return Bacs;
-	}
-
 	public boolean estPleine() {
 	    return estPleine;
 	}
@@ -85,6 +82,10 @@ public class Poubelle {
 		if (p.quantite >=p.quantiteMaximale) {
 			estPleine = true;
 		}
+	}
+	
+	public Bac[] getBacs() {
+		return bacs;
 	}
 	
 	public void calculer(){
@@ -118,11 +119,19 @@ public class Poubelle {
 		}
 	}
 	
+	public int getIdentifiantBac(String couleurBac) {
+        for (Bac bac : bacs) {
+            if (bac.getCouleur().equals(couleurBac)) {
+                return bac.getIdentifiant();
+            }
+        }
+        return -1; // Retourne -1 si la couleur n'est pas trouvée dans la liste de bacs
+    }
 
 	public void enregistrerStats(CorbeilleOperation operation) {
 	    // Vérifier la valeur de l'opération
 	    Dechet dechet = new Dechet(operation.getIdDechets(),operation.getTypeDechet());
-	    Bac bac = new Bac(operation., operation.getCouleurBac());
+	    Bac bac = new Bac(getIdentifiantBac(operation.getCouleurBac()), operation.getCouleurBac());
 	    boolean valeurVerifier = verifier(dechet, bac);
 
 	    // Assigner la valeur de vérification à l'opération
@@ -151,9 +160,14 @@ public class Poubelle {
 	}	
 	 public static void main(String[] args) {
 		 	MenageCompte compte1 = new MenageCompte(1, "mdp123", "Quartier A", 4, 10);
-		 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
+		 	Bac[] bacs = new Bac[4];
+	        bacs[0] = new Bac(1, "jaune");
+	        bacs[1] = new Bac(2, "vert");
+	        bacs[2] = new Bac(3, "classique");
+	        bacs[3] = new Bac(4, "bleu");
+		 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
 		 	Date nvdate = new Date(122,3,8);
-		    CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "jaune");
+		    CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "jaune",10);
 		    poubelle.enregistrerStats(operation);
 		}
 	 

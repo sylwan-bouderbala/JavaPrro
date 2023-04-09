@@ -55,21 +55,15 @@ public class ContratTest {
 		Test(DateFin.compareTo(contrat.getDateFin())==0);
 	}
 	private static void TestContratMauvaiseDate(Commerce commerce){
-		try {
-			LocalDateTime localDateTime = LocalDateTime.of(2022, Month.APRIL, 8, 12, 0, 0);
-        	ZoneId Zone = ZoneId.systemDefault();
-        	ZonedDateTime zonedDateTime = ZonedDateTime.of(localDateTime, Zone);
-        	Date DateDebut = Date.from(zonedDateTime.toInstant());
-        	LocalDateTime localDateTime2 = LocalDateTime.of(2023, Month.APRIL, 8, 12, 0, 0);
-        	ZoneId Zone2 = ZoneId.systemDefault();
-        	ZonedDateTime zonedDateTime2 = ZonedDateTime.of(localDateTime2, Zone2);
-        	Date DateFin = Date.from(zonedDateTime2.toInstant());
-			Contrat contrat = new Contrat("Contrat 2",commerce,DateDebut,DateFin);	
-		}
-		catch (CustomException e) {	
-			e.printStackTrace();
-			System.out.println("Hello");
-		}
+		LocalDateTime localDateTime = LocalDateTime.of(2022, Month.APRIL, 8, 12, 0, 0);
+		ZoneId Zone = ZoneId.systemDefault();
+		ZonedDateTime zonedDateTime = ZonedDateTime.of(localDateTime, Zone);
+		Date DateDebut = Date.from(zonedDateTime.toInstant());
+		LocalDateTime localDateTime2 = LocalDateTime.of(2023, Month.APRIL, 8, 12, 0, 0);
+		ZoneId Zone2 = ZoneId.systemDefault();
+		ZonedDateTime zonedDateTime2 = ZonedDateTime.of(localDateTime2, Zone2);
+		Date DateFin = Date.from(zonedDateTime2.toInstant());
+		Contrat contrat = new Contrat("Contrat 2",commerce,DateDebut,DateFin);
 	}
 	public static void main(String[] args) {
 		Commerce commerce = new Commerce("42 rue Alan Turing", 42, "Ada Lovelace");

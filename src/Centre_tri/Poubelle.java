@@ -121,7 +121,7 @@ public class Poubelle {
 
 	public void enregistrerStats(CorbeilleOperation operation) {
 	    // Vérifier la valeur de l'opération
-	    Dechet dechet = new Dechet(operation);
+	    Dechet dechet = new Dechet(operation.getIdDechets(),operation.getTypeDechet());
 	    Bac bac = new Bac(operation., operation.getCouleurBac());
 	    boolean valeurVerifier = verifier(dechet, bac);
 

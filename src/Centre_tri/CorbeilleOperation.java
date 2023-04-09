@@ -12,10 +12,11 @@ public class CorbeilleOperation {
     private Date date;
     private boolean valeurVerifier;
     private String couleurBacUtilise;
+    private int idDechet;
 
 
     public CorbeilleOperation(Poubelle poubelle, MenageCompte menageCompte, int nbDechets, 
-    Float quantite, String typeDechet ,Date date, boolean valeurVerifier, String couleurBacUtilise) {
+    Float quantite, String typeDechet ,Date date, boolean valeurVerifier, String couleurBacUtilise, int idDechet) {
         this.poubelle = poubelle;
         this.menageCompte = menageCompte;
         this.nbDechets = nbDechets;
@@ -24,6 +25,7 @@ public class CorbeilleOperation {
         this.date = date;
         this.valeurVerifier = valeurVerifier;
         this.couleurBacUtilise = couleurBacUtilise;
+        this.idDechet=idDechet;
     }
 
     public Poubelle getPoubelle() {
@@ -89,6 +91,11 @@ public class CorbeilleOperation {
     public void setCouleurBac(String couleurBacUtilise) {
         this.couleurBacUtilise = couleurBacUtilise;
     }
+    public int getIdDechets() {
+    	return idDechet;
+    }
+    
+    public 
 
     // Pb ajouterDechets
     public void ajouterDechets(MenageCompte c, int nbDechets, CorbeilleOperation o) {

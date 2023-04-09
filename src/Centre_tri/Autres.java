@@ -14,8 +14,8 @@ public class Autres extends Dechet {
 		return "autres";
 	}
 	
-	public void setType(String autres) {
-		Autres.type= "autres";
+	public final float getPoids() {
+		return poids;
 	}
 
 }

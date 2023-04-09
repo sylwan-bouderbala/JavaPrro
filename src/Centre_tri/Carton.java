@@ -3,7 +3,7 @@ package Centre_tri;
 public class Carton extends Dechet{
 	
 	public static final String TYPE = "carton";
-	private float pc;
+	public static final float pc;
 	
 	public Carton(int identifiant, float pc) {
 		super(identifiant, TYPE);
@@ -14,9 +14,6 @@ public class Carton extends Dechet{
 		return pc;
 	}
 	
-	public void setPoids(float pc) {
-		this.pc = pc;
-	}
 	
 	@Override
 	public String getType() {

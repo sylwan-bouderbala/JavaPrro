@@ -12,5 +12,8 @@ public class Plastique extends Dechet{
 	public String getType() {
 	return "plastique";
 	}
-
+	
+	public final float getPoids() {
+		return pp;
+	}
 }

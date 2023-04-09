@@ -13,8 +13,7 @@ public class Papier extends Dechet{
 	return "papier";
 	}
 	
-	public void setType(String papier) {
-		Papier.type = "papier";
+	public final float getPoids() {
+		return pap;
 	}
-
 }

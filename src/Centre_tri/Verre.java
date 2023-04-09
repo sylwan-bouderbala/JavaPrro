@@ -18,5 +18,9 @@ public final float pv;
 	public void setType(String verre) {
 		Verre.type = "verre";
 	}
+	
+	public final float getPoids() {
+		return pv;
+	}
 
 }

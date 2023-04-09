@@ -87,8 +87,39 @@ public class Poubelle {
 		return bacs;
 	}
 	
-	public void calculer(){
+	public static float calculer(CorbeilleOperation operation){
 		
+		float nbDechets = operation.getNbDechets();
+		if (operation.getTypeDechet().equals("verre")){
+			Verre verre = new Verre(1, 0.5f);
+			float poids = verre.pv;
+			return poids*nbDechets;
+		}
+		else if (operation.getTypeDechet().equals("papier")) {
+			Papier papier = new Papier(1,0.5f);
+			float poids = papier.pap;
+			return poids*nbDechets;
+		}
+		else if (operation.getTypeDechet().equals("carton")) {
+			Carton carton = new Carton(1,0.5f);
+			float poids = carton.pc;
+			return poids*nbDechets;
+		}
+		else if (operation.getTypeDechet().equals("metal")) {
+			Metal metal = new Metal(1,0.5f);
+			float poids = metal.pm;
+			return poids*nbDechets;
+		}
+		else if (operation.getTypeDechet().equals("plastique")) {
+			Plastique plastique = new Plastique(1,0.5f);
+			float poids = plastique.pp;
+			return poids*nbDechets;
+		}
+		else {
+			Autres autres = new Autres(1,0.5f);
+			float poids = autres.poids;
+			return poids*nbDechets;
+		}
 	}
 
 	public boolean verifier(Dechet dechet, Bac bacs) {

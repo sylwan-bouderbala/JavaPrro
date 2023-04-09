@@ -14,8 +14,8 @@ public class Metal extends Dechet {
 		return "metal";
 		}
 	
-	public void setType(String metal) {
-		Metal.type = "metal";
+	public final float getPoids() {
+		return pm;
 	}
 
 }

@@ -1,6 +1,7 @@
 package Centre_tri;
 
 import java.util.Date;
+import Centre_tri.MenageCompte;
 
 public class CorbeilleOperation {
     private Poubelle poubelle;
@@ -11,11 +12,10 @@ public class CorbeilleOperation {
     private Date date;
     private boolean valeurVerifier;
     private String couleurBacUtilise;
-    private int ptsFidelite;
 
 
     public CorbeilleOperation(Poubelle poubelle, MenageCompte menageCompte, int nbDechets, 
-    Float quantite, String typeDechet ,Date date, boolean valeurVerifier, String couleurBacUtilise, int ptsFidelite) {
+    Float quantite, String typeDechet ,Date date, boolean valeurVerifier, String couleurBacUtilise) {
         this.poubelle = poubelle;
         this.menageCompte = menageCompte;
         this.nbDechets = nbDechets;
@@ -24,7 +24,6 @@ public class CorbeilleOperation {
         this.date = date;
         this.valeurVerifier = valeurVerifier;
         this.couleurBacUtilise = couleurBacUtilise;
-        this.ptsFidelite = ptsFidelite;
     }
 
     public Poubelle getPoubelle() {
@@ -91,21 +90,14 @@ public class CorbeilleOperation {
         this.couleurBacUtilise = couleurBacUtilise;
     }
 
-    public int getPtsFidelite() {
-        return ptsFidelite;
-    }
-
-    public void setPtsFidelite(int ptsFidelite) {
-        this.ptsFidelite = ptsFidelite;
-    }
     
-    public void ajouterDechets(int nbDechets, Date heure, float quantite, String typeDechet, Date date, boolean valeurVerifier, String couleurBacUtilise, int ptsFidelite) {
+    public void ajouterDechets(MenageCompte c, int nbDechets, Date heure, float quantite, String typeDechet, Date date, boolean valeurVerifier, String couleurBacUtilise, int ptsFidelite) {
         this.nbDechets += nbDechets;
         this.quantite = quantite;
         this.typeDechet = typeDechet;
         this.date = date;
         this.valeurVerifier = valeurVerifier;
         this.couleurBacUtilise = couleurBacUtilise;
-        this.ptsFidelite += ptsFidelite;
+        c.setPtsFidelite(ptsFidelite+=1);
     }
 }

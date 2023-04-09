@@ -71,8 +71,10 @@ public class MenageCompteTest {
         c.setPtsFidelite(20);
         Test(20 == c.getptsFidelite()); 
     }
+    
     public void testConsulter() {
-    	
+    	MenageCompte c = new MenageCompte(1, "mdp123", "Le Louvre", 4, 10);
+    	Test(10 == c.consulter);
     }
     public void testCreerCompte() {
     	
@@ -100,6 +102,7 @@ public class MenageCompteTest {
     
     public static void main(String[] args) {
 		 MenageCompteTest test = new MenageCompteTest();
+		 System.out.println("Test de la classe Poubelle");
 		 test.testGetIdentifiant();
 		 test.testSetIdentifiant();
 		 test.testGetQuartier();

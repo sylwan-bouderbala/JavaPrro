@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.time.LocalDate;
 import java.time.LocalDate;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 
@@ -32,6 +33,7 @@ public class MenageCompte implements Serializable {
 		this.quartier = quartier;
 		this.nbPersonnes = nbPersonnes;
 		this.ptsFidelite = ptsFidelite;
+		operation = new ArrayList<>();
 	}
 
 	public int getIdentifiant() {
@@ -124,7 +126,7 @@ public class MenageCompte implements Serializable {
 	public void decrementFidelite() {
 		this.ptsFidelite--;
 	}
-	
+
 	public static void main(String[] args) {
         MenageCompte menage = new MenageCompte(1, "password", "Quartier A", 4, 10);
         menage.enregistrerMenageCompte(menage);

@@ -27,14 +27,14 @@ public class Contrat {
 					this.setName(Name);
 					this.setDateDebut(DateDebut);
 					this.setDateFin(DateFin);
-					this.Reductions = new ArrayList<Reduction>();
 				}
 
 			}
 			catch (CustomException e){
-
+				System.out.println("Erreur : "+e.getMessage());
+				System.exit(1);
 			}
-
+			this.Reductions = new ArrayList<Reduction>();
 		}
 	//Fonction d'ecriture dans un fichier s
 	public void NouvelleReduction(ArrayList<String> Produits,int Taux) {

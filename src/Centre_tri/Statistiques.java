@@ -1,6 +1,7 @@
 package Centre_tri;
 
 import java.io.BufferedReader;
+import java.io.Console;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,18 +23,17 @@ public class Statistiques {
     }
 
     //ici toujte les classe de calcul
-	public HashMap<String,Float> MoyenneParQuartier() {
+	public HashMap<String,Float> MoyenneParQuartierValidite() {
 		HashMap<String,ArrayList<Integer>> Temp = new HashMap<>();
 		String fichier = "stats_poubelle.csv";
-		int cmpt = 0;
-        for (Map.Entry<String, ArrayList<Integer>> entry : Temp.entrySet()) {
+        for (String entry : ListeQuartier) {
 			ArrayList<Integer> list = new ArrayList<>();
 			list.add(0);
 			list.add(0);
-			Temp.put(ListeQuartier.get(cmpt), list);
-			cmpt +=1;
+			
+			Temp.put(entry, list);
 
-        }        
+        }  
 		try (BufferedReader reader = new BufferedReader(new FileReader(fichier))) {
             String line = reader.readLine();
             while(line != null){
@@ -45,8 +45,9 @@ public class Statistiques {
 				int AncienneValF = value.get(0);
 				int AncienneValC = value.get(1);
 				int NouvelleValF = AncienneValF;
-				if (tab[6] == "false"){
-					
+				System.out.println(tab[6]=="false" +","+ tab[6] +"false"+",");
+				System.out.println(","+ tab[6] +","+"false"+",");
+				if (tab[6].equals("false")){
 					NouvelleValF = AncienneValF+1;
 				}
 				else {
@@ -57,7 +58,7 @@ public class Statistiques {
 				value.set(0, NouvelleValF);
 				value.set(1, NouvelleValC);
 			}
-			
+
             }
 		}
 
@@ -65,12 +66,11 @@ public class Statistiques {
             System.out.println("An error occurred while reading the file.");
             e.printStackTrace();
         }
-
 		HashMap<String, Float> Moyenne = new HashMap<>();
         for (Map.Entry<String, ArrayList<Integer>> entry : Temp.entrySet()) {
             String key = entry.getKey();
             ArrayList<Integer> value = entry.getValue();
-            float sum = value.get(0) + value.get(1);
+            float sum = (float) value.get(0) / value.get(1);
             Moyenne.put(key, sum);
         }
 		return Moyenne;

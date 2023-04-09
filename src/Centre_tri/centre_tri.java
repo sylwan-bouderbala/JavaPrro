@@ -1,42 +1,38 @@
 package Centre_tri;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 
 public class centre_tri {
 	private int identifiant ;
-	private char[] nom;
-	private char[] adresse;
+	private String nom;
+	private String adresse;
 	public  Statistiques stats;
 	private ArrayList<Contrat> contrats;
-	private HashMap<Integer,Poubelle> Poubelles;
+	private ArrayList<Poubelle> Poubelles;
 
-	public static void main(String[] args) {
-		centre_tri Centre = new centre_tri("7 chemin de vin".toCharArray(),"le centre".toCharArray(),123);
-		System.out.println(Centre);
-	}
-	public centre_tri(char[] adresse, char[] nom, int identifiant){
+
+	public centre_tri(String adresse, String nom, int identifiant){
 		this.adresse = adresse;
 		this.nom = nom;
 		this.identifiant = identifiant;
+		this.stats = new Statistiques("stats_poubelle.csv");
 	}
 	
 	public void placer(Poubelle p) {
-		Poubelles.put(p.getIdentifiant(), p);
+		Poubelles.add( p);
+		p.setIdentifiant(Poubelles.size());
 	}
-	//à voir
 	public void Retirer(Poubelle p) {
 		Poubelles.remove(p.getIdentifiant());
 	}
-	//ajouter ou placer ?
 	public void Ajouter(Poubelle p) {
-		Poubelles.put(p.getIdentifiant(), p);
+		Poubelles.add( p);
+		p.setIdentifiant(Poubelles.size());
 	}
 	public void Collecter(Poubelle p) {
-		if(Poubelles.containsKey(p.getIdentifiant())) {
+		if( p.getIdentifiant() <= Poubelles.size()) {
 			//methode pour collecter les poubelles
-			//p.vider();
 		}
 		else {
 			System.out.println("la poubelle : "+p.getIdentifiant()+" n'appartient pas au centre-de-tri");
@@ -75,14 +71,26 @@ public class centre_tri {
 		this.contrats = contrat;
 	}
 
+	public Statistiques getStats() {
+		return stats;
+	}
 
-	public HashMap<Integer,Poubelle> getPoubelles() {
+	public void setStats(Statistiques stats) {
+		this.stats = stats;
+	}
+
+	public void setContrats(ArrayList<Contrat> contrats) {
+		this.contrats = contrats;
+	}
+
+	public ArrayList<Poubelle> getPoubelles() {
 		return Poubelles;
 	}
 
-
-	public void setPoubelles(HashMap<Integer,Poubelle> poubelles) {
+	public void setPoubelles(ArrayList<Poubelle> poubelles) {
 		Poubelles = poubelles;
 	}
-	
+
+
+
 }

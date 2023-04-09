@@ -1,10 +1,6 @@
 package Test;
 
 import Centre_tri.Bac;
-import Centre_tri.Jaune;
-import Centre_tri.Bleu;
-import Centre_tri.Vert;
-import Centre_tri.Classique;
 
 public class BacTest {
 	

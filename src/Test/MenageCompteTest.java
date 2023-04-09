@@ -1,7 +1,5 @@
 package Test;
 
-import Centre_tri.Poubelle;
-import Centre_tri.CorbeilleOperation;
 import Centre_tri.MenageCompte;
 
 public class MenageCompteTest {

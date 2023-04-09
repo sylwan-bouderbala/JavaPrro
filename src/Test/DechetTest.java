@@ -2,7 +2,6 @@ package Test;
 
 
 import Centre_tri.Dechet;
-import Centre_tri.Carton;
 
 public class DechetTest {
 		

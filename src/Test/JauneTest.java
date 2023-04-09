@@ -1,6 +1,6 @@
 package Test;
 
-import Centre_tri.Bac;
+
 import Centre_tri.Jaune;
 
 public class JauneTest {

@@ -108,28 +108,59 @@ public class MenageCompte implements Serializable {
 			System.out.println("Impossible : vous avez trop peu de points de fidélité");
 		}
 	}
-
-	public int convertir(int taux, String produit, int ptsFidelietnecessaires) {
-		if (ptsFidelietnecessaires <= this.ptsFidelite) {
-			this.ptsFidelite -= ptsFidelietnecessaires;
-			return taux;
-		} else {
-			System.out.println("Impossible : vous avez trop peu de points de fidélité");
-			return 0;
-		}
+	// Cette méthode est censée retourner la ligne où se trouve le mot cherché
+	public static String chercherMotDansCSV(String fichier, String mot) {
+	    BufferedReader br = null;
+	    String ligne = "";
+	    String separateur = ",";
+	    try {
+	        br = new BufferedReader(new FileReader(fichier));
+	        while ((ligne = br.readLine()) != null) {
+	            String[] elements = ligne.split(separateur);
+	            for (String element : elements) {
+	                if (element.equals(mot)) {
+	                    return ligne;
+	                }
+	            }
+	        }
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    } finally {
+	        if (br != null) {
+	            try {
+	                br.close();
+	            } catch (IOException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	    }
+	    return null;
+	}
+	
+	public int convertir(int taux, String produit, MenageCompte m) {
+		int pointsFidelite= m.getptsFidelite();
+		String mot = MenageCompte.chercherMotDansCSV("reductions.csv", "produit");
+		String[] tableau = mot.split(";");
+		taux = Integer.parseInt(tableau[1]);
+		int pourcentage = pointsFidelite*taux;
+		return pourcentage;
 	}
 
-	public void incrementFidelite() {
-		this.ptsFidelite++;
+	public void incrementFidelite(MenageCompte m) {
+		int pointsFidelite= (m.getptsFidelite()+1);
+		m.setPtsFidelite(pointsFidelite);
 	}
 
-	public void decrementFidelite() {
-		this.ptsFidelite--;
+	public void decrementFidelite(MenageCompte m) {
+		int pointsFidelite= (m.getptsFidelite()-1);
+		m.setPtsFidelite(pointsFidelite);
 	}
 
 	public static void main(String[] args) {
         MenageCompte menage = new MenageCompte(1, "password", "Quartier A", 4, 10);
         menage.enregistrerMenageCompte(menage);
+        String mot = MenageCompte.chercherMotDansCSV("reductions.csv", "salami/jambon/");
+        System.out.println(mot);
     }
 	
 }

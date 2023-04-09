@@ -72,14 +72,6 @@ public class MenageCompteTest {
         Test(20 == c.getptsFidelite()); 
     }
     
-  
-    public void testCreerCompte() {
-    	
-    }
-    
-    public void testEnregistrerMenageCompte() {
-    	
-    }
     
     public void testUtiliser() {
     	
@@ -109,8 +101,6 @@ public class MenageCompteTest {
 		 test.testGetNbPersonnes();
 		 test.testgetptsFidelite();
 		 test.testSetptsFidelite();
-		 test.testCreerCompte();
-		 test.testEnregistrerMenageCompte();
 		 test.testUtiliser();
 		 test.testConvertir();
 		 test.testIncrementFidelite();

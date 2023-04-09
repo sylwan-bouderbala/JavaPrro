@@ -1,8 +1,11 @@
-package Centre_tri;
+package Poubelle;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
+
+import Centre_tri.CorbeilleOperation;
+import Centre_tri.MenageCompte;
 
 public class Poubelle {
 	private int identifiantP; //- identifiantP est l'identifiant de la poubelle

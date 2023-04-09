@@ -2,6 +2,9 @@ package Centre_tri;
 
 import java.io.FileWriter;
 import java.time.LocalDate;
+
+import Poubelle.Poubelle;
+
 import java.io.IOException;
 
 public class CorbeilleOperation {

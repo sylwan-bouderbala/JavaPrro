@@ -1,6 +1,6 @@
 package Test;
 
-import Centre_tri.Plastique;
+import Poubelle.Plastique;
 
 public class PlastiqueTest {
 

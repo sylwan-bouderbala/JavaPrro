@@ -2,6 +2,8 @@ package Centre_tri;
 
 import java.util.ArrayList;
 
+import Poubelle.Poubelle;
+
 
 public class centre_tri {
 	private int identifiant ;

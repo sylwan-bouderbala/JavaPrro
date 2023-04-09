@@ -1,7 +1,7 @@
 package Test;
 
-import Centre_tri.Bac;
-import Centre_tri.Classique;
+import Poubelle.Bac;
+import Poubelle.Classique;
 
 public class ClassiqueTest {
 	

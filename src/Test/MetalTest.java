@@ -1,6 +1,6 @@
 package Test;
 
-import Centre_tri.Metal;
+import Poubelle.Metal;
 
 public class MetalTest {
     

@@ -1,6 +1,6 @@
 package Test;
 
-import Centre_tri.Carton;
+import Poubelle.Carton;
 
 public class CartonTest {
 	

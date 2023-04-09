@@ -1,7 +1,7 @@
 package Test;
 
 
-import Centre_tri.Dechet;
+import Poubelle.Dechet;
 
 public class DechetTest {
 		

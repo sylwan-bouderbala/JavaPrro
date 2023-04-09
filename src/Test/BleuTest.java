@@ -1,6 +1,6 @@
 package Test;
 
-import Centre_tri.Bleu;
+import Poubelle.Bleu;
 
 public class BleuTest {
 	

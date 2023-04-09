@@ -1,7 +1,7 @@
 package Test;
 
 
-import Centre_tri.Jaune;
+import Poubelle.Jaune;
 
 public class JauneTest {
 	

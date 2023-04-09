@@ -2,11 +2,11 @@ package Test;
 
 import java.time.LocalDate;
 
-import Centre_tri.Bac;
 import Centre_tri.CorbeilleOperation;
-import Centre_tri.Dechet;
 import Centre_tri.MenageCompte;
-import Centre_tri.Poubelle;
+import Poubelle.Bac;
+import Poubelle.Dechet;
+import Poubelle.Poubelle;
 
 public class PoubelleTest {
 	private static void Test(boolean bool) {

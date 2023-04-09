@@ -1,7 +1,7 @@
 package Test;
 
-import Centre_tri.Bac;
-import Centre_tri.Vert;
+import Poubelle.Bac;
+import Poubelle.Vert;
 
 public class VertTest {
 

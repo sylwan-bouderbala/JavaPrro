@@ -1,4 +1,4 @@
-package Centre_tri;
+package Poubelle;
 
 public class Bac
 {

@@ -6,9 +6,9 @@ public class BleuTest {
 	
 	private static void test(boolean condition) {
 		if (condition) {
-			System.out.println("True");
+			System.out.println("\033[32mTest Validé\033[0m");
 		} else {
-			System.out.println("False");
+			System.out.println("\033[31mEchec\033[0m");
 		}
 	}
 	

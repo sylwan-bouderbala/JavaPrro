@@ -6,10 +6,10 @@ public class MenageCompteTest {
 	
 	private static void Test(boolean bool) {
 		if (bool == true) {
-			System.out.println("Vrai");
+			System.out.println("\033[32mTest Validé\033[0m");
 		}
 		else {
-			System.out.println("False");
+			System.out.println("\033[31mEchec\033[0m");
 		}
 	}
 	

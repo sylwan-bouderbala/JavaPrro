@@ -7,10 +7,10 @@ public class JauneTest {
 	
 	private static void test(boolean bool) {
 		if (bool) {
-			System.out.println("Vrai");
+			System.out.println("\033[32mTest Validé\033[0m");
 		}
 		else {
-			System.out.println("Faux");
+			System.out.println("\033[31mEchec\033[0m");
 		}
 	}
 	

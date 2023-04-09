@@ -3,10 +3,10 @@ import Centre_tri.centre_tri;
 public class CentretriTest {
     private static void Test(boolean bool) {
 		if (bool == true) {
-			System.out.println("True");
+			System.out.println("\033[32mTest Validé\033[0m");
 		}
 		else {
-			System.out.println("False");
+			System.out.println("\033[31mEchec\033[0m");
 		}
     }
     public static void TestAdresse(centre_tri centre) {

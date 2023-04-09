@@ -14,10 +14,10 @@ import Centre_tri.Contrat;
 public class CommerceTest {
     private static void Test(boolean bool) {
 		if (bool == true) {
-			System.out.println("Vrai");
+			System.out.println("\033[32mTest Validé\033[0m");
 		}
 		else {
-			System.out.println("False");
+			System.out.println("\033[31mEchec\033[0m");
 		}
 	}
     private static void TestAdresse(Commerce commerce){

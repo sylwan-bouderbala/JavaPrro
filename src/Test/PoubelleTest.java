@@ -11,10 +11,10 @@ import Centre_tri.Poubelle;
 public class PoubelleTest {
 	private static void Test(boolean bool) {
 		if (bool == true) {
-			System.out.println("True");
+			System.out.println("\033[32mTest Validé\033[0m");
 		}
 		else {
-			System.out.println("False");
+			System.out.println("\033[31mEchec\033[0m");
 		}
 	}
 	

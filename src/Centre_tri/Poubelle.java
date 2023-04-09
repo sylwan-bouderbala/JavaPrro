@@ -2,9 +2,10 @@ package Centre_tri;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.FileReader;
+import java.util.Scanner;
 
 public class Poubelle {
 	private int identifiantP; //- identifiantP est l'identifiant de la poubelle
@@ -127,7 +128,7 @@ public class Poubelle {
         }
         return -1; // Retourne -1 si la couleur n'est pas trouvée dans la liste de bacs
     }
-
+	
 	public void enregistrerStats(CorbeilleOperation operation) {
 	    // Vérifier la valeur de l'opération
 	    Dechet dechet = new Dechet(operation.getIdDechets(),operation.getTypeDechet());
@@ -141,7 +142,7 @@ public class Poubelle {
 	    FileWriter writer;
 	    try {
 	        writer = new FileWriter("stats_poubelle.csv", true); // true pour ajouter les données au fichier existant
-
+	        
 	        // Écrire les données dans le fichier CSV
 	        writer.write(operation.getMenageCompte().getIdentifiant() + ",");
 	        writer.write(operation.getMenageCompte().getQuartier() + ",");
@@ -151,7 +152,7 @@ public class Poubelle {
 	        writer.write(operation.getNbDechets() + ",");
 	        writer.write(valeurVerifier + ",");
 	        writer.write("\n"); // ajouter une ligne vide pour faciliter la lecture
-
+	        
 	        // Fermer le FileWriter
 	        writer.close();
 	    } catch (IOException e) {

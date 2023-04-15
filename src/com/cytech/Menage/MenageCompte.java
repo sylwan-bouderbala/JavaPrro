@@ -77,7 +77,7 @@ public class MenageCompte implements Serializable {
 
 	 public void enregistrerMenageCompte(MenageCompte nouveauMenageCompte) {
 	        // Ouvrir le fichier CSV en mode écriture
-	        try (FileWriter writer = new FileWriter("../datas/compteMenage.csv", true)) { // true pour ajouter les données à la fin du fichier
+	        try (FileWriter writer = new FileWriter("./datas/compteMenage.csv", true)) { // true pour ajouter les données à la fin du fichier
 	            // Créer une ligne de données pour le nouvel objet MenageCompte
 	            String ligne = String.format("%d,%s,%s,%d,%d", nouveauMenageCompte.getIdentifiant(), nouveauMenageCompte.getmotdePasse(), nouveauMenageCompte.getQuartier(), nouveauMenageCompte.getNbPersonnes(), nouveauMenageCompte.getptsFidelite());
 	            // Écrire la ligne de données dans le fichier
@@ -134,7 +134,7 @@ public class MenageCompte implements Serializable {
 	
 	public int convertir(int taux, String produit, MenageCompte m) {
 		int pointsFidelite= m.getptsFidelite();
-		String mot = MenageCompte.trouverLigne("reductions.csv", produit);
+		String mot = MenageCompte.trouverLigne("./datas/reductions.csv", produit);
 		String[] tableau = mot.split(";");
 		taux = Integer.parseInt(tableau[1]);
 		int pourcentage = pointsFidelite*taux/100;

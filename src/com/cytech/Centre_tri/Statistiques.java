@@ -97,7 +97,7 @@ public class Statistiques {
 	}
 
 	public void GetListeQuartier(){
-		String fichier = "stats_poubelle.csv";
+		String fichier = "./datas/stats_poubelle.csv";
         try (BufferedReader reader = new BufferedReader(new FileReader(fichier))) {
             String line = reader.readLine();
             while(line != null){

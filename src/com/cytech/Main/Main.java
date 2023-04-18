@@ -41,14 +41,15 @@ public class Main extends Application {
 
 		
 	}*/
+	
 	private VBox page;
 	private Stage primaryStage;
 	@FXML
 	private ChoiceBox<String> choiceBox;
 	@FXML
 	private Button Button;
-	
 
+	
 	@Override
     public void start(Stage stage) throws Exception {
         // Load the FXML file
@@ -75,3 +76,4 @@ public class Main extends Application {
 
 	
 }
+

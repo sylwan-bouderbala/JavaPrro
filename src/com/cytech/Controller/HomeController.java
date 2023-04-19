@@ -46,7 +46,7 @@ public class HomeController {
 	}
 	public void handleButtonClick(ActionEvent event) throws IOException {
         // Code to execute on button click
-		String absolutePath = "C:/Users/sylwa/JavaPrro/src/Views/List_poubelles.fxml";
+		String absolutePath = "H:\\Documents\\GitHub\\JavaPrro\\src\\Views\\HomePage.fxml";
 		URL url = new File(absolutePath).toURI().toURL();
 		FXMLLoader loader = new FXMLLoader(url);
 	    Parent root = loader.load();

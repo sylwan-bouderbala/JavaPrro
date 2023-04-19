@@ -23,7 +23,7 @@ public class ListPoubellesController {
 	private TableView<String> tableau;
 	public void AjoutPoubellePage(ActionEvent event) throws IOException {
         // Code to execute on button click
-		String absolutePath = "C:/Users/sylwa/JavaPrro/src/Views/AjoutPoubelle.fxml";
+		String absolutePath = "H:\\Documents\\GitHub\\JavaPrro\\src\\Views\\List_poubelles.fxml";
 		URL url = new File(absolutePath).toURI().toURL();
 		FXMLLoader loader = new FXMLLoader(url);
 	    Parent root = loader.load();

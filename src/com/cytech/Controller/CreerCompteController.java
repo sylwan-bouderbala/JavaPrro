@@ -50,7 +50,7 @@ public class CreerCompteController {
         retourButton.setOnAction(event -> {
         	try {
                      // Chargement du fichier FXML de la page "HomePage.fxml"
-               FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+               FXMLLoader loader = new FXMLLoader(getClass().getResource("H:\\Documents\\GitHub\\JavaPrro\\src\\Views\\HomePage.fxml"));
                Parent root = loader.load();
 
                      // Création d'une nouvelle scène avec la page "CreerCompte.fxml"

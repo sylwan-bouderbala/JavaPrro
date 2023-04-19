@@ -11,6 +11,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import com.cytech.Controller.*;
+import com.cytech.Menage.*;
+import javafx.collections.ObservableList;
 
 import java.io.File;
 import java.io.IOException;
@@ -48,7 +50,9 @@ public class Main extends Application {
 	private ChoiceBox<String> choiceBox;
 	@FXML
 	private Button Button;
-
+	
+	// Pour Page de compte 
+	private ObservableList<CorbeilleOperation> operationData = FXCollections.observableArrayList();
 	
 	@Override
     public void start(Stage stage) throws Exception {
@@ -68,6 +72,13 @@ public class Main extends Application {
         // Use the controller
         controller.initChoice();
     }
+	
+	// Pour page de compte 
+	
+	public ObservableList<CorbeilleOperation> getOperationData() {
+		return operationData;
+	}
+	
     public static void main(String[] args) {
 
         launch(args);

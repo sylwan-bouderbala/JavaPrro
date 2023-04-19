@@ -48,15 +48,15 @@ public PageDeCompteController() {
 @FXML
 private void initialize() {
 	// Initialize the corbeilleOperation table with the two columns.
-    identifiantColumn.setCellValueFactory(cellData -> cellData.getValue().identifiantProperty());
-    nbDechetsColumn.setCellValueFactory(cellData -> cellData.getValue().nbDechetsProperty());
+    identifiantColumn.setCellValueFactory(cellData -> cellData.getValue().getMenageCompte().getIdentifiant());
+    nbDechetsColumn.setCellValueFactory(cellData -> cellData.getValue().getNbDechets());
 }
 
 public void setMain(Main main) {
     this.main = main;
 
     // Add observable list data to the table
-    CorbeilleOperationTable.setItems(main.getCorbeilleOperationData());
+    CorbeilleOperationTable.setItems(main.getOperationData());
 }
 
 }

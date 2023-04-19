@@ -107,15 +107,15 @@ public class Main extends Application {
 	
 	public void showOperationOverview() {
 	    try {
-	        // Load person overview.
+	        // Load PageDeCompte
 	        FXMLLoader loader = new FXMLLoader();
 	        loader.setLocation(Main.class.getResource("H:\\Documents\\GitHub\\JavaPrro\\src\\Views\\PageDeCompte.fxml"));
 	        AnchorPane operationOverview = (AnchorPane) loader.load();
 
-	        // Set person overview into the center of root layout.
+	        // Set PageDeCompte into the center of root layout.
 	        rootLayout.setCenter(operationOverview);
 
-	        // Give the controller access to the main app.
+	        // Give the controller access to the main.
 	        PageDeCompteController controller = loader.getController();
 	        controller.setMain(this);
 

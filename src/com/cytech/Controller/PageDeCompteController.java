@@ -48,8 +48,8 @@ public PageDeCompteController() {
 @FXML
 private void initialize() {
 	// Initialize the corbeilleOperation table with the two columns.
-    identifiantColumn.setCellValueFactory(cellData -> cellData.getValue().getMenageCompte().getIdentifiant());
-    nbDechetsColumn.setCellValueFactory(cellData -> cellData.getValue().getNbDechets());
+    identifiantColumn.setCellValueFactory(cellData -> cellData.getValue().Integer.toString(getMenageCompte.getIdentifiant()));
+    nbDechetsColumn.setCellValueFactory(cellData -> cellData.getValue().Integer.toString(getNbDechets()));
 }
 
 public void setMain(Main main) {

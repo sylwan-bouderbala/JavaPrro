@@ -12,11 +12,16 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import com.cytech.Controller.*;
 import com.cytech.Menage.*;
+import com.cytech.Poubelle.Bac;
+import com.cytech.Poubelle.Poubelle;
+import javafx.scene.layout.AnchorPane;
+
 import javafx.collections.ObservableList;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 
 public class Main extends Application {
 
@@ -79,6 +84,45 @@ public class Main extends Application {
 		return operationData;
 	}
 	
+	public main() {
+		MenageCompte compte1 = new MenageCompte(1, "mdp123", "Quartier A", 4, 10);
+		Bac[] bacs = new Bac[4];
+		 bacs[0] = new Bac(0, "jaune");
+		 bacs[1] = new Bac(1, "vert");
+		 bacs[2] = new Bac(2, "classique");
+		 bacs[3] = new Bac(3, "bleu");
+	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
+	 	LocalDate nvdate = LocalDate.of(2023,4,9);
+	    CorbeilleOperation o = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "jaune",10);
+	    CorbeilleOperation o1 = new CorbeilleOperation(poubelle,compte1,1,0.5f, "plastique",nvdate, false, "bleu",10);
+	    CorbeilleOperation o2 = new CorbeilleOperation(poubelle,compte1,1,0.5f, "carton",nvdate, false, "vert",57);
+	    CorbeilleOperation o3 = new CorbeilleOperation(poubelle,compte1,1,0.5f, "metal",nvdate, false, "classique",57);
+	    CorbeilleOperation o4 = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "bleu",130);
+	    operationData.add(o);
+		operationData.add(o1);
+		operationData.add(o2);
+		operationData.add(o3);
+		operationData.add(o4);
+	}
+	
+	public void showOperationOverview() {
+	    try {
+	        // Load person overview.
+	        FXMLLoader loader = new FXMLLoader();
+	        loader.setLocation(Main.class.getResource("H:\\Documents\\GitHub\\JavaPrro\\src\\Views\\PageDeCompte.fxml"));
+	        AnchorPane operationOverview = (AnchorPane) loader.load();
+
+	        // Set person overview into the center of root layout.
+	        rootLayout.setCenter(operationOverview);
+
+	        // Give the controller access to the main app.
+	        PageDeCompteController controller = loader.getController();
+	        controller.setMain(this);
+
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	}
     public static void main(String[] args) {
 
         launch(args);

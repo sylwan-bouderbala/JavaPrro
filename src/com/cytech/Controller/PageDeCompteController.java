@@ -57,6 +57,8 @@ public void setMain(Main main) {
 
     // Add observable list data to the table
     CorbeilleOperationTable.setItems(main.getOperationData());
+    
 }
+
 
 }

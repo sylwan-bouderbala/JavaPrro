@@ -202,7 +202,7 @@ public class Poubelle {
         bacs[1] = new Bac(2, "vert");
         bacs[2] = new Bac(3, "classique");
         bacs[3] = new Bac(4, "bleu");
-	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
+	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
 	 	LocalDate nvdate = LocalDate.of(2023,4,9);
 	 	for (int i = 0; i < 30; i++) {
 	 		CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte1,1+i,0.5f, "papier",nvdate, false, "jaune",10+i);
@@ -222,7 +222,7 @@ public class Poubelle {
         bacs[1] = new Bac(2, "vert");
         bacs[2] = new Bac(3, "classique");
         bacs[3] = new Bac(4, "bleu");
-	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
+	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
 	 	LocalDate nvdate = LocalDate.of(2023,4,9);
 	 	CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "jaune",10);
 	 	Dechet dechet = new Dechet(operation.getIdDechet(),operation.getTypeDechet());
@@ -240,7 +240,7 @@ public class Poubelle {
 	        bacs[1] = new Bac(2, "vert");
 	        bacs[2] = new Bac(3, "classique");
 	        bacs[3] = new Bac(4, "bleu");
-		 Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
+		 Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
 		 poubelle.ajouterOperationAuFichier();
 		}
 	 

@@ -17,14 +17,13 @@ public class Poubelle {
 	private Bac[] bacs;
 
 
-	public Poubelle (int identifiantP, float quantiteMaximale, float quantite, int codeAcces, String quartier,Bac[] bacs) {
+	public Poubelle (int identifiantP, float quantiteMaximale, float quantite, int codeAcces, String quartier) {
 		this.identifiantP= identifiantP;
 		this.quantiteMaximale = quantiteMaximale;
 		this.quantite = quantite;
 		this.codeAcces = codeAcces;
 		this.quartier = quartier;
 		this.estPleine = false;
-		this.bacs=bacs;
 		bacs = new Bac[4];
         bacs[0] = new Bac(0, "jaune");
         bacs[1] = new Bac(1, "vert");

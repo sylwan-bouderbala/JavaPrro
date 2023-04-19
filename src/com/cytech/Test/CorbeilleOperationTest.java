@@ -24,7 +24,7 @@ public class CorbeilleOperationTest {
 		 bacs[1] = new Bac(1, "vert");
 		 bacs[2] = new Bac(2, "classique");
 		 bacs[3] = new Bac(3, "bleu");
-	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
+	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
 	 	LocalDate nvdate = LocalDate.of(2023,4,9);
 	    CorbeilleOperation o = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "jaune",10);
         Test(poubelle == o.getPoubelle());
@@ -37,8 +37,8 @@ public class CorbeilleOperationTest {
 		 bacs[1] = new Bac(1, "vert");
 		 bacs[2] = new Bac(2, "classique");
 		 bacs[3] = new Bac(3, "bleu");
-	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
-	 	Poubelle poubelle2 = new Poubelle(3, 50.0f, 30.0f, 1234, "La Bourse",bacs);
+	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
+	 	Poubelle poubelle2 = new Poubelle(3, 50.0f, 30.0f, 1234, "La Bourse");
 	 	LocalDate nvdate = LocalDate.of(2023,4,9);
 	    CorbeilleOperation o = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "jaune",10);
 	    o.setPoubelle(poubelle2);
@@ -52,7 +52,7 @@ public class CorbeilleOperationTest {
 		 bacs[1] = new Bac(1, "vert");
 		 bacs[2] = new Bac(2, "classique");
 		 bacs[3] = new Bac(3, "bleu");
-	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
+	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
 	 	LocalDate nvdate = LocalDate.of(2023,4,9);
 	    CorbeilleOperation o = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "jaune",10);
 	    Test(compte1==o.getMenageCompte());
@@ -65,7 +65,7 @@ public class CorbeilleOperationTest {
 		 bacs[1] = new Bac(1, "vert");
 		 bacs[2] = new Bac(2, "classique");
 		 bacs[3] = new Bac(3, "bleu");
-	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
+	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
 	 	LocalDate nvdate = LocalDate.of(2023,4,9);
 	    CorbeilleOperation o = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "jaune",10);
 	    MenageCompte compte2 = new MenageCompte(3, "mdp453", "La Bourse", 4, 10);
@@ -80,7 +80,7 @@ public class CorbeilleOperationTest {
 		 bacs[1] = new Bac(1, "vert");
 		 bacs[2] = new Bac(2, "classique");
 		 bacs[3] = new Bac(3, "bleu");
-	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
+	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
 	 	LocalDate nvdate = LocalDate.of(2023,4,9);
 	    CorbeilleOperation o = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "jaune",10);
 	    Test(1==o.getNbDechets());
@@ -93,7 +93,7 @@ public class CorbeilleOperationTest {
 		 bacs[1] = new Bac(1, "vert");
 		 bacs[2] = new Bac(2, "classique");
 		 bacs[3] = new Bac(3, "bleu");
-	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
+	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
 	 	LocalDate nvdate = LocalDate.of(2023,4,9);
 	    CorbeilleOperation o = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "jaune",10);
 	    o.setNbDechets(5);
@@ -107,7 +107,7 @@ public class CorbeilleOperationTest {
 		 bacs[1] = new Bac(1, "vert");
 		 bacs[2] = new Bac(2, "classique");
 		 bacs[3] = new Bac(3, "bleu");
-	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
+	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
 	 	LocalDate nvdate = LocalDate.of(2023,4,9);
 	    CorbeilleOperation o = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "jaune",10);
 	    Test(0.5f==o.getQuantite());
@@ -120,7 +120,7 @@ public class CorbeilleOperationTest {
 		 bacs[1] = new Bac(1, "vert");
 		 bacs[2] = new Bac(2, "classique");
 		 bacs[3] = new Bac(3, "bleu");
-	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
+	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
 	 	LocalDate nvdate = LocalDate.of(2023,4,9);
 	    CorbeilleOperation o = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "jaune",10);
 	    o.setQuantite(8.0f);
@@ -134,7 +134,7 @@ public class CorbeilleOperationTest {
 		 bacs[1] = new Bac(1, "vert");
 		 bacs[2] = new Bac(2, "classique");
 		 bacs[3] = new Bac(3, "bleu");
-	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
+	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
 	 	LocalDate nvdate = LocalDate.of(2023,4,9);
 	    CorbeilleOperation o = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "jaune",10);
 	    Test("papier"==o.getTypeDechet());
@@ -148,7 +148,7 @@ public class CorbeilleOperationTest {
 		 bacs[1] = new Bac(1, "vert");
 		 bacs[2] = new Bac(2, "classique");
 		 bacs[3] = new Bac(3, "bleu");
-	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
+	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
 	 	LocalDate nvdate = LocalDate.of(2023,4,9);
 	    CorbeilleOperation o = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "jaune",10);
 	    Test(nvdate==o.getDate());
@@ -161,7 +161,7 @@ public class CorbeilleOperationTest {
 		 bacs[1] = new Bac(1, "vert");
 		 bacs[2] = new Bac(2, "classique");
 		 bacs[3] = new Bac(3, "bleu");
-	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
+	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
 	 	LocalDate nvdate = LocalDate.of(2023,4,9);
 	    CorbeilleOperation o = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "jaune",10);
 	    Test(false==o.isValeurVerifier());
@@ -174,7 +174,7 @@ public class CorbeilleOperationTest {
 		 bacs[1] = new Bac(1, "vert");
 		 bacs[2] = new Bac(2, "classique");
 		 bacs[3] = new Bac(3, "bleu");
-	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
+	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
 	 	LocalDate nvdate = LocalDate.of(2023,4,9);
 	    CorbeilleOperation o = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "jaune",10);
 	    o.setValeurVerifier(true);
@@ -188,7 +188,7 @@ public class CorbeilleOperationTest {
 		 bacs[1] = new Bac(1, "vert");
 		 bacs[2] = new Bac(2, "classique");
 		 bacs[3] = new Bac(3, "bleu");
-	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
+	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
 	 	LocalDate nvdate = LocalDate.of(2023,4,9);
 	    CorbeilleOperation o = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "jaune",10);
 	    Test("jaune"==o.getCouleurBac());
@@ -201,7 +201,7 @@ public class CorbeilleOperationTest {
 		 bacs[1] = new Bac(1, "vert");
 		 bacs[2] = new Bac(2, "classique");
 		 bacs[3] = new Bac(3, "bleu");
-	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A",bacs);
+	 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
 	 	LocalDate nvdate = LocalDate.of(2023,4,9);
 	    CorbeilleOperation o = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "jaune",10);
 	    o.setCouleurBac("bleu");

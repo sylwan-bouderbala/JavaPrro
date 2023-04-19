@@ -2,6 +2,9 @@ package com.cytech.Controller;
 
 import java.io.File;
 import java.io.IOException;
+import com.cytech.Menage.*;
+
+import com.cytech.Menage.MenageCompte;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -39,7 +42,11 @@ public class CreerCompteController {
             String mdp = mdpField.getText();
             String nbPersonnes = nbPersonnesField.getText();
             
-            // Code pour traiter les données du formulaire de création de compte
+            int id = Integer.parseInt(identifiant);
+            int nbPers = Integer.parseInt(nbPersonnes);
+            // Code pour traiter les données du formulaire de création de compte à rajouter
+            MenageCompte compte = new MenageCompte(id,quartier,mdp,nbPers,0);
+            compte.enregistrerMenageCompte(compte);
         });
         
         retourButton.setOnAction(event -> {

@@ -53,7 +53,7 @@ public class Main extends Application {
 	@Override
     public void start(Stage stage) throws Exception {
         // Load the FXML file
-		String absolutePath = "C:/Users/sylwa/JavaPrro/src/Views/HomePage.fxml";
+		String absolutePath = "HomePage.fxml";
 		URL url = new File(absolutePath).toURI().toURL();
 		FXMLLoader loader = new FXMLLoader(url);
 		Parent root = loader.load();

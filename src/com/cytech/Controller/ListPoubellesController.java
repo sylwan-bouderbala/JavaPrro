@@ -23,7 +23,7 @@ public class ListPoubellesController {
 	private TableView<String> tableau;
 	public void AjoutPoubellePage(ActionEvent event) throws IOException {
         // Code to execute on button click
-		String absolutePath = "C:/Users/sylwa/JavaPrro/src/Views/AjoutPoubelle.fxml";
+		String absolutePath = "AjoutPoubelle.fxml";
 		URL url = new File(absolutePath).toURI().toURL();
 		FXMLLoader loader = new FXMLLoader(url);
 	    Parent root = loader.load();
@@ -34,7 +34,7 @@ public class ListPoubellesController {
 
 	}
 	public void Quiter_page(ActionEvent event) throws IOException{
-		String absolutePath = "C:/Users/sylwa/JavaPrro/src/Views/HomePage.fxml";
+		String absolutePath = "HomePage.fxml";
 		URL url = new File(absolutePath).toURI().toURL();
 		FXMLLoader loader = new FXMLLoader(url);
 	    Parent root = loader.load();

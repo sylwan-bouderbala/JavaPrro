@@ -31,11 +31,11 @@ import java.time.LocalDate;*/
 public class Main /*extends Application*/ {
 
 	public static void main(String[] args) {
-		centre_tri nouCentre_tri = new centre_tri("Los angeles", "centre de traitement intercommunal des Etrats",  "1234");
-		System.out.println(nouCentre_tri.getIdentifiant());
-		
+		centre_tri nouCentre_tri = new centre_tri("Los angeeles", "centre de traitement intercommunal des Etrats",  "1234");
+		//System.out.println(nouCentre_tri.getIdentifiant());
+		LectureFichier lecteur = new LectureFichier("C:\\Users\\sylwa\\JavaPrro\\Centre_tri.csv");
 	}
-	/* 
+	/*  
 	private VBox page;
 	private Stage primaryStage;
 	@FXML

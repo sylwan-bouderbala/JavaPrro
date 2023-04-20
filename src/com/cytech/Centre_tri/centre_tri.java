@@ -41,7 +41,15 @@ public class centre_tri {
 		this.stats = new Statistiques("stats_poubelle.csv");
 		this.Poubelles = new ArrayList<Poubelle>();
 		this.contrats = new ArrayList<Contrat>();
-
+		if (lecteur.IsinFile(1, nom)==true){
+			System.out.println("deja dans le fichier");
+		}
+		else {
+			Printline();
+		}
+	}
+	private void Printline(){
+		
 		String stringPoubelles = "";
 		for (Poubelle e : Poubelles){
 			stringPoubelles += String.valueOf(e.getIdentifiant())+"/";
@@ -65,7 +73,6 @@ public class centre_tri {
             e.printStackTrace();
         }
 	}
-	
 	public void placer(Poubelle p) {
 		Poubelles.add( p);
 		p.setIdentifiant(Poubelles.size());

@@ -1,4 +1,9 @@
 package com.cytech.Main;
+
+import com.cytech.Centre_tri.centre_tri;
+import com.cytech.Usuelles.LectureFichier;
+
+/*package com.cytech.Main;
 import com.cytech.Test.*;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -21,34 +26,16 @@ import javafx.collections.ObservableList;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
+import java.time.LocalDate;*/
 
-public class Main extends Application {
+public class Main /*extends Application*/ {
 
-	/*public static void main(String[] args) {
-		AutresTest.main(args);
-		BacTest.main(args);
-		BleuTest.main(args);
-		CartonTest.main(args);
-		CentretriTest.main(args);
-		ClassiqueTest.main(args);
-		CommerceTest.main(args);
-		ContratTest.main(args);
-		CorbeilleOperationTest.main(args);
-		DechetTest.main(args);
-		JauneTest.main(args);
-		MenageCompteTest.main(args);
-		MetalTest.main(args);
-		PapierTest.main(args);
-		PlastiqueTest.main(args);
-		PoubelleTest.main(args);
-		VertTest.main(args);
+	public static void main(String[] args) {
+		centre_tri nouCentre_tri = new centre_tri("Los angeles", "centre de traitement intercommunal des Etrats",  "1234");
+		System.out.println(nouCentre_tri.getIdentifiant());
 		
-
-
-		
-	}*/
-	
+	}
+	/* 
 	private VBox page;
 	private Stage primaryStage;
 	@FXML
@@ -88,7 +75,7 @@ public class Main extends Application {
         launch(args);
 
     }
-
+*/
 	
 }
 

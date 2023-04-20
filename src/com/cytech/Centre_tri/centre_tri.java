@@ -1,14 +1,28 @@
 package com.cytech.Centre_tri;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import com.cytech.Poubelle.Poubelle;
+//TODO : verifier que le Centre de tri est pas deja dans le fichier
+import com.cytech.Usuelles.LectureFichier;
+
 
 
 public class centre_tri {
 	private int identifiant ;
 	private String nom;
+	private String Password;
 
+	public String getPassword() {
+		return Password;
+	}
+
+	public void setPassword(String password) {
+		Password = password;
+	}
 
 	private String adresse;
 	
@@ -18,13 +32,47 @@ public class centre_tri {
 	private ArrayList<Poubelle> Poubelles;
 
 
-	public centre_tri(String adresse, String nom, int identifiant){
+	public centre_tri(String adresse, String nom, String Password){
+		LectureFichier lecteur = new LectureFichier("C:\\Users\\sylwa\\JavaPrro\\Centre_tri.csv");
 		this.adresse = adresse;
 		this.nom = nom;
-		this.identifiant = identifiant;
+		this.identifiant = (int) lecteur.countLineJava() + 1;
+		this.Password = Password;
 		this.stats = new Statistiques("stats_poubelle.csv");
+		this.Poubelles = new ArrayList<Poubelle>();
+		this.contrats = new ArrayList<Contrat>();
+		if (lecteur.IsinFile(1, nom)==true){
+			System.out.println("deja dans le fichier");
+		}
+		else {
+			Printline();
+		}
 	}
-	
+	private void Printline(){
+		
+		String stringPoubelles = "";
+		for (Poubelle e : Poubelles){
+			stringPoubelles += String.valueOf(e.getIdentifiant())+"/";
+		}
+
+		String stringContrat = "";
+		for (Contrat e : contrats){
+			stringContrat += String.valueOf(e.getId())+"/";
+		}
+
+		String chaine = String.valueOf(this.getIdentifiant()) +";"+ this.nom +";" +String.valueOf(this.Password)+";"+stringContrat+";"+stringPoubelles+";";
+
+		chaine = chaine + "\n";
+        try {
+            FileWriter writer = new FileWriter("Centre_tri.csv",true);
+            BufferedWriter bufferedWriter = new BufferedWriter(writer);
+            bufferedWriter.write(chaine);
+            bufferedWriter.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred while writing to the file.");
+            e.printStackTrace();
+        }
+	}
 	public void placer(Poubelle p) {
 		Poubelles.add( p);
 		p.setIdentifiant(Poubelles.size());

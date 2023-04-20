@@ -24,9 +24,9 @@ public class HomeController {
 	@FXML
 	private Button Button;
 	
-	private Main mainApp;
-	
 	public static boolean Connected;
+	
+	private String Choice;
 	
 	public HomeController() {
 		
@@ -36,6 +36,12 @@ public class HomeController {
     private void initialize() {
     	// Initialize the person table with the two columns.
 		initChoice();
+		ChoiceBox.setOnAction((event) -> {
+		    ChoiceBox.getSelectionModel().getSelectedIndex();
+		    ChoiceBox.getSelectionModel().getSelectedItem();
+
+		    Choice = ChoiceBox.getValue();
+		});
 
     }
 	
@@ -44,13 +50,49 @@ public class HomeController {
 		ChoiceBox.setItems(items);
 		ChoiceBox.setValue("Centre de tri");
 	}
+	
+	@FXML
 	public void handleButtonClick(ActionEvent event) throws IOException {
+
         // Code to execute on button click
-		String absolutePath = "List_poubelles.fxml";
-		URL url = new File(absolutePath).toURI().toURL();
-		FXMLLoader loader = new FXMLLoader(url);
-	    Parent root = loader.load();
-	    Scene scene = new Scene(root);
+		String absolutePath;
+		URL url;
+		FXMLLoader loader;
+		Parent root;
+		Scene scene;
+		switch (Choice) {
+				case "Commerce" :
+					absolutePath = "C:\\Users\\sylwa\\JavaPrro\\src\\Views\\HomePage.fxml";
+					url = new File(absolutePath).toURI().toURL();
+					loader = new FXMLLoader(url);
+				    root = loader.load();
+				    scene = new Scene(root);
+				    break;
+				case "Centre de tri":
+					absolutePath = "C:\\Users\\sylwa\\JavaPrro\\src\\Views\\HomePage.fxml";
+					url = new File(absolutePath).toURI().toURL();
+					loader = new FXMLLoader(url);
+				    root = loader.load();
+				    scene = new Scene(root);
+				    break;
+				case "Ménages":
+					absolutePath = "C:\\Users\\sylwa\\JavaPrro\\src\\Views\\HomePage.fxml";
+					url = new File(absolutePath).toURI().toURL();
+					loader = new FXMLLoader(url);
+				    root = loader.load();
+				    scene = new Scene(root);
+				    break;
+				default :
+					absolutePath = "C:\\Users\\sylwa\\JavaPrro\\src\\Views\\HomePage.fxml";
+					url = new File(absolutePath).toURI().toURL();
+					loader = new FXMLLoader(url);
+					root = loader.load();
+					scene = new Scene(root);
+					break;
+			
+		}
+		
+
 	    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 	    stage.setScene(scene);
 	    stage.show();

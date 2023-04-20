@@ -16,7 +16,7 @@ public class CentretriTest {
         Test(centre.getNom().equals("Centre de Bailleu"));
     }
     public static void main(String[] args) {
-        centre_tri centre = new centre_tri("Chemin al quarhizmy", "Centre de Bailleu", 0);
+        centre_tri centre = new centre_tri("Chemin al quarhizmy", "Centre de Bailleu", "1234");
         TestAdresse(centre);
         TestNom(centre);
     }

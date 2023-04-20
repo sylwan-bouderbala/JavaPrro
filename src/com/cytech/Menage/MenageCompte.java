@@ -69,12 +69,6 @@ public class MenageCompte implements Serializable {
 	}
 
 
-	public MenageCompte creerCompte(int identifiant, String motDePasse, String quartier, int nbPersonnes,
-		int ptsFidelite) {
-		MenageCompte nvMenageCompte = new MenageCompte(identifiant, motDePasse, quartier, nbPersonnes, ptsFidelite);
-		return nvMenageCompte;
-	}
-
 	 public void enregistrerMenageCompte(MenageCompte nouveauMenageCompte) {
 	        // Ouvrir le fichier CSV en mode écriture
 	        try (FileWriter writer = new FileWriter("./datas/compteMenage.csv", true)) { // true pour ajouter les données à la fin du fichier

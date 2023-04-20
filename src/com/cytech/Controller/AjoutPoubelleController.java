@@ -19,7 +19,8 @@ public class AjoutPoubelleController {
 	
 	public void QuitPage(ActionEvent event) throws IOException {
         // Code to execute on button click
-		String absolutePath = "List_poubelles.fxml";
+		
+		String absolutePath = "H:Documents\\GitHub\\JavaPrro\\src\\Views\\AjoutPoubelle.fxml";
 		URL url = new File(absolutePath).toURI().toURL();
 		FXMLLoader loader = new FXMLLoader(url);
 	    Parent root = loader.load();

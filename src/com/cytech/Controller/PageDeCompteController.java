@@ -21,6 +21,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.stage.Stage;
@@ -76,6 +77,29 @@ private void initialize() {
 	// Initialize the corbeilleOperation table with the two columns.
     identifiantColumn.setCellValueFactory(cellData -> cellData.getValue().toString(getMenageCompte.getIdentifiant()));
     nbDechetsColumn.setCellValueFactory(cellData -> cellData.getValue().toString(getNbDechets()));
+}
+public void showOperationOverview() {
+    try {
+        // Load PageDeCompte
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("H:\\Documents\\GitHub\\JavaPrro\\src\\Views\\PageDeCompte.fxml"));
+        AnchorPane operationOverview = (AnchorPane) loader.load();
+
+        // Set PageDeCompte into the center of root layout.
+        rootLayout.setCenter(operationOverview);
+
+        // Give the controller access to the main.
+        PageDeCompteController controller = loader.getController();
+        controller.setMain(this);
+
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+// Pour page de compte 
+
+public ObservableList<CorbeilleOperation> getOperationData() {
+	return operationData;
 }
 
 public void setMain(Main main) {

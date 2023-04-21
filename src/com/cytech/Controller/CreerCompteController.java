@@ -33,6 +33,19 @@ public class CreerCompteController {
     @FXML
     private Button retourButton;
     
+    public void gestionBouton(ActionEvent e)throws IOException {
+    	 FXMLLoader loader = new FXMLLoader(getClass().getResource("src\\Views\\HomePage.fxml"));
+         Parent root = loader.load();
+
+               // Création d'une nouvelle scène avec la page "CreerCompte.fxml"
+         Scene scene = new Scene(root);
+
+               // Récupération de la fenêtre principale
+         Stage stage = (Stage) retourButton.getScene().getWindow();
+
+               // Affichage de la nouvelle scène dans la fenêtre principale
+         stage.setScene(scene);
+    }
     public void initialize() {
         creerCompteButton.setOnAction(event -> {
             String identifiant = identifiantField.getText();
@@ -47,25 +60,5 @@ public class CreerCompteController {
             compte.enregistrerMenageCompte(compte);
         });
         
-        retourButton.setOnAction(event -> {
-        	try {
-                     // Chargement du fichier FXML de la page "HomePage.fxml"
-               FXMLLoader loader = new FXMLLoader(getClass().getResource("H:\\Documents\\GitHub\\JavaPrro\\src\\Views\\HomePage.fxml"));
-               Parent root = loader.load();
-
-                     // Création d'une nouvelle scène avec la page "CreerCompte.fxml"
-               Scene scene = new Scene(root);
-
-                     // Récupération de la fenêtre principale
-               Stage stage = (Stage) creerCompteButton.getScene().getWindow();
-
-                     // Affichage de la nouvelle scène dans la fenêtre principale
-               stage.setScene(scene);
-
-             } catch (Exception e) {
-            	 e.printStackTrace();
-             }
-
-        });	
     }
 }

@@ -62,28 +62,35 @@ public class HomeController {
 		Scene scene;
 		switch (Choice) {
 				case "Commerce" :
-					absolutePath = "C:\\Users\\sylwa\\JavaPrro\\src\\Views\\HomePage.fxml";
+					absolutePath = "src\\Views\\CreerCompte.fxml";
 					url = new File(absolutePath).toURI().toURL();
 					loader = new FXMLLoader(url);
 				    root = loader.load();
 				    scene = new Scene(root);
 				    break;
 				case "Centre de tri":
-					absolutePath = "C:\\Users\\sylwa\\JavaPrro\\src\\Views\\HomePage.fxml";
+					absolutePath = "src\\Views\\CreerCompte.fxml";
 					url = new File(absolutePath).toURI().toURL();
 					loader = new FXMLLoader(url);
 				    root = loader.load();
 				    scene = new Scene(root);
 				    break;
-				case "Ménages":
-					absolutePath = "C:\\Users\\sylwa\\JavaPrro\\src\\Views\\HomePage.fxml";
+				case "Creer Compte":
+					absolutePath = "src\\Views\\CreerCompte.fxml";
+					url = new File(absolutePath).toURI().toURL();
+					loader = new FXMLLoader(url);
+				    root = loader.load();
+				    scene = new Scene(root);
+				    break;
+				case "Page de compte ":
+					absolutePath = "src\\Views\\CreerCompte.fxml";
 					url = new File(absolutePath).toURI().toURL();
 					loader = new FXMLLoader(url);
 				    root = loader.load();
 				    scene = new Scene(root);
 				    break;
 				default :
-					absolutePath = "C:\\Users\\sylwa\\JavaPrro\\src\\Views\\HomePage.fxml";
+					absolutePath = "src\\Views\\CreerCompte.fxml";
 					url = new File(absolutePath).toURI().toURL();
 					loader = new FXMLLoader(url);
 					root = loader.load();

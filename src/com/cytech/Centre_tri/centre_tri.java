@@ -33,7 +33,7 @@ public class centre_tri {
 
 
 	public centre_tri(String adresse, String nom, String Password){
-		LectureFichier lecteur = new LectureFichier("C:\\Users\\sylwa\\JavaPrro\\Centre_tri.csv");
+		LectureFichier lecteur = new LectureFichier("Centre_tri.csv");
 		this.adresse = adresse;
 		this.nom = nom;
 		this.identifiant = (int) lecteur.countLineJava() + 1;

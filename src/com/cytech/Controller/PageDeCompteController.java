@@ -75,8 +75,14 @@ private void initialize() {
 	operationData.add(o3);
 	operationData.add(o4);
 	// Initialize the corbeilleOperation table with the two columns.
-    identifiantColumn.setCellValueFactory(cellData -> cellData.getValue().toString(getMenageCompte.getIdentifiant()));
+    identifiantColumn.setCellValueFactory(cellData -> cellData.getValue().getMenageCompte().getIdentifiant()));
     nbDechetsColumn.setCellValueFactory(cellData -> cellData.getValue().toString(getNbDechets()));
+}
+
+@FXML
+
+public void gestionBouton(ActionEvent e)throws IOException {
+	
 }
 public void showOperationOverview() {
     try {

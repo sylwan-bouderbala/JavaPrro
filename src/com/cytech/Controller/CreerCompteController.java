@@ -47,18 +47,7 @@ public class CreerCompteController {
          stage.setScene(scene);
     }
     public void initialize() {
-        creerCompteButton.setOnAction(event -> {
-            String identifiant = identifiantField.getText();
-            String quartier = quartierField.getText();
-            String mdp = mdpField.getText();
-            String nbPersonnes = nbPersonnesField.getText();
-            
-            int id = Integer.parseInt(identifiant);
-            int nbPers = Integer.parseInt(nbPersonnes);
-            // Code pour traiter les données du formulaire de création de compte à rajouter
-            MenageCompte compte = new MenageCompte(id,quartier,mdp,nbPers,0);
-            compte.enregistrerMenageCompte(compte);
-        });
+
         
     }
 }

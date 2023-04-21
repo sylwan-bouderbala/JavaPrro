@@ -56,7 +56,6 @@ public class HomeController {
 	public void HandleBouttonClick(ActionEvent event) throws IOException{
 		
 	}
-	
 	@FXML
 	public void handleButtonClick(ActionEvent event) throws IOException {
 
@@ -64,38 +63,15 @@ public class HomeController {
 		switch (Choice) {
 				case "Commerce" :
 
-					absolutePath = "src\\Views\\CreerCompte.fxml";
-
-					url = new File(absolutePath).toURI().toURL();
-					loader = new FXMLLoader(url);
-				    root = loader.load();
-				    scene = new Scene(root);
+					
 				    break;
 				case "Centre de tri":
-
-					absolutePath = "src\\Views\\CreerCompte.fxml";
-
-					
-
-					url = new File(absolutePath).toURI().toURL();
-					loader = new FXMLLoader(url);
-				    root = loader.load();
-				    scene = new Scene(root);
-
+					Creation_Compte.setVisible(true);
 				    break;
-
-				case "Creer Compte":
-					absolutePath = "src\\Views\\CreerCompte.fxml";
-					url = new File(absolutePath).toURI().toURL();
-					loader = new FXMLLoader(url);
-				    root = loader.load();
-				    scene = new Scene(root);
-				    break;
-				case "Page de compte ":
 
 				case "Ménages":
 
-					Boutton Creation_Compte.setVisible(true);
+					Creation_Compte.setVisible(true);
 
 				    break;
 				default :

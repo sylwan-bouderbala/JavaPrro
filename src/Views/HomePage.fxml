@@ -98,6 +98,7 @@
             </Text>
             <Button fx:id="Button" layoutX="285.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleButtonClick" text="Se Connecter" />
             <Button fx:id="Creation_Compte" layoutX="284.0" layoutY="318.0" mnemonicParsing="false" onAction="#HandleBouttonClick" text="Creer Compte" visible="false" />
+            <Button fx:id="Se_connecter" layoutX="294.0" layoutY="281.0" mnemonicParsing="false" onAction="#HandleConnection" text="Se connecter" visible="false" />
          </children>
     </AnchorPane>
   </children>

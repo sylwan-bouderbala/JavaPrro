@@ -26,6 +26,8 @@ public class HomeController {
 	private Button Button;
 	@FXML 
 	private Button Creation_Compte;
+	@FXML
+	private Button Se_connecter;
 	
 	public static boolean Connected;
 	
@@ -44,6 +46,7 @@ public class HomeController {
 		    ChoiceBox.getSelectionModel().getSelectedItem();
 		    
 		    Choice = ChoiceBox.getValue();
+		    
 		});
 
     }
@@ -58,13 +61,27 @@ public class HomeController {
 		
 	}
 	@FXML
+	public void HandleConnection (ActionEvent event)throws IOException{
+		
+	}
+	@FXML
 	public void handleButtonClick(ActionEvent event) throws IOException {
-
+		Stage stage = new Stage();
+		Scene scene;
+		Parent root;
         // Code to execute on button click
 		switch (Choice) {
 				case "Commerce" :
 
-					
+					String absolutePath = "src\\Views\\CreerCompte.fxml";
+
+					URL url = new File(absolutePath).toURI().toURL();
+					FXMLLoader loader = new FXMLLoader(url);
+					root = loader.load();
+			        // Set the scene
+			        scene = new Scene(root);
+			        stage.setScene(scene);
+			        stage.show();
 					Creation_Compte.setVisible(true);
 				    break;
 				case "Centre de tri":

@@ -25,7 +25,9 @@ public class Main extends Application {
 	@Override
     public void start(Stage stage) throws Exception {
         // Load the FXML file
-		String absolutePath = "H:\\Documents\\GitHub\\JavaPrro\\src\\com\\cytech\\Main\\HomePage.fxml";
+
+		String absolutePath = "src\\Views\\HomePage.fxml";
+
 		URL url = new File(absolutePath).toURI().toURL();
 		FXMLLoader loader = new FXMLLoader(url);
 		Parent root = loader.load();

@@ -26,7 +26,7 @@ public class HomeController {
 	
 	public static boolean Connected;
 	
-	private String Choice;
+	private String Choice = "vide";
 	
 	public HomeController() {
 		
@@ -39,7 +39,7 @@ public class HomeController {
 		ChoiceBox.setOnAction((event) -> {
 		    ChoiceBox.getSelectionModel().getSelectedIndex();
 		    ChoiceBox.getSelectionModel().getSelectedItem();
-
+		    
 		    Choice = ChoiceBox.getValue();
 		});
 
@@ -62,19 +62,26 @@ public class HomeController {
 		Scene scene;
 		switch (Choice) {
 				case "Commerce" :
+
 					absolutePath = "src\\Views\\CreerCompte.fxml";
+
 					url = new File(absolutePath).toURI().toURL();
 					loader = new FXMLLoader(url);
 				    root = loader.load();
 				    scene = new Scene(root);
 				    break;
 				case "Centre de tri":
+
 					absolutePath = "src\\Views\\CreerCompte.fxml";
+
+					
+
 					url = new File(absolutePath).toURI().toURL();
 					loader = new FXMLLoader(url);
 				    root = loader.load();
 				    scene = new Scene(root);
 				    break;
+
 				case "Creer Compte":
 					absolutePath = "src\\Views\\CreerCompte.fxml";
 					url = new File(absolutePath).toURI().toURL();
@@ -83,6 +90,9 @@ public class HomeController {
 				    scene = new Scene(root);
 				    break;
 				case "Page de compte ":
+
+				case "Ménages":
+
 					absolutePath = "src\\Views\\CreerCompte.fxml";
 					url = new File(absolutePath).toURI().toURL();
 					loader = new FXMLLoader(url);
@@ -90,7 +100,9 @@ public class HomeController {
 				    scene = new Scene(root);
 				    break;
 				default :
-					absolutePath = "src\\Views\\CreerCompte.fxml";
+
+
+					absolutePath = "src\\Views\\HomePage.fxml";
 					url = new File(absolutePath).toURI().toURL();
 					loader = new FXMLLoader(url);
 					root = loader.load();

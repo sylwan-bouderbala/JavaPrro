@@ -1,5 +1,6 @@
 package com.cytech.Controller;
 
+import java.beans.EventHandler;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -23,7 +24,8 @@ public class HomeController {
 	private ChoiceBox<String> ChoiceBox;
 	@FXML
 	private Button Button;
-	
+	@FXML 
+	private Button Creation_Compte;
 	public static boolean Connected;
 	
 	private String Choice = "vide";
@@ -50,52 +52,33 @@ public class HomeController {
 		ChoiceBox.setItems(items);
 		ChoiceBox.setValue("Centre de tri");
 	}
+	@FXML
+	public void HandleBouttonClick(ActionEvent event) throws IOException{
+		
+	}
 	
 	@FXML
 	public void handleButtonClick(ActionEvent event) throws IOException {
 
         // Code to execute on button click
-		String absolutePath;
-		URL url;
-		FXMLLoader loader;
-		Parent root;
-		Scene scene;
 		switch (Choice) {
 				case "Commerce" :
-					absolutePath = "src\\Views\\List_poubelles.fxml";
-					url = new File(absolutePath).toURI().toURL();
-					loader = new FXMLLoader(url);
-				    root = loader.load();
-				    scene = new Scene(root);
+					
+				    Boutton Creation_Compte.setVisible(true);
 				    break;
 				case "Centre de tri":
-					absolutePath = "src\\Views\\List_poubelles.fxml";
-					url = new File(absolutePath).toURI().toURL();
-					loader = new FXMLLoader(url);
-				    root = loader.load();
-				    scene = new Scene(root);
+					Boutton Creation_Compte.setVisible(true);
 				    break;
 				case "Ménages":
-					absolutePath = "src\\Views\\CreerCompte.fxml";
-					url = new File(absolutePath).toURI().toURL();
-					loader = new FXMLLoader(url);
-				    root = loader.load();
-				    scene = new Scene(root);
+					Boutton Creation_Compte.setVisible(true);
+
 				    break;
 				default :
-					absolutePath = "src\\Views\\HomePage.fxml";
-					url = new File(absolutePath).toURI().toURL();
-					loader = new FXMLLoader(url);
-					root = loader.load();
-					scene = new Scene(root);
+
 					break;
 			
 		}
 		
-
-	    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-	    stage.setScene(scene);
-	    stage.show();
 
     }
 

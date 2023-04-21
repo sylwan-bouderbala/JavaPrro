@@ -26,6 +26,7 @@ public class HomeController {
 	private Button Button;
 	@FXML 
 	private Button Creation_Compte;
+	
 	public static boolean Connected;
 	
 	private String Choice = "vide";
@@ -64,6 +65,7 @@ public class HomeController {
 				case "Commerce" :
 
 					
+					Creation_Compte.setVisible(true);
 				    break;
 				case "Centre de tri":
 					Creation_Compte.setVisible(true);

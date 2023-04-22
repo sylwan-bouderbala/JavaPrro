@@ -7,7 +7,7 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.Console;
-public class LectureFichier {
+public class LectureFichier<Type> {
 	private String fichier ;
 	private int NombreNormalElement;
 
@@ -31,6 +31,7 @@ public class LectureFichier {
 	      }
 	      return lines;
     }
+	
 	public String getFichier() {
 		return fichier;
 	}
@@ -74,6 +75,11 @@ public class LectureFichier {
 			}
 			return false;
 		}
+	}
+	public <T> T create_object() {
+		T object = null;
+		return object;
+		
 	}
 	public boolean IsinFile(int id,String element){
 		String fichier = new String();

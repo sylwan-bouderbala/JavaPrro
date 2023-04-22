@@ -15,7 +15,7 @@
       <Pane layoutX="24.0" layoutY="24.0" prefHeight="359.0" prefWidth="453.0">
          <children>
             <Separator layoutX="316.0" layoutY="81.0" orientation="VERTICAL" prefHeight="200.0" />
-            <TableView layoutX="14.0" layoutY="46.0" prefHeight="271.0" prefWidth="292.0">
+            <TableView fx:id="tableau" layoutX="14.0" layoutY="46.0" prefHeight="271.0" prefWidth="292.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="C1" />
                 <TableColumn prefWidth="75.0" text="C2" />

@@ -4,6 +4,10 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
+import com.cytech.Centre_tri.centre_tri;
+import com.cytech.Poubelle.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +25,12 @@ public class ListPoubellesController {
 	private Button boutton_quitter;
 	@FXML
 	private TableView<String> tableau;
+	
+	private centre_tri centretri;
+	public void initialize() {
+		
+		ObservableList<Poubelle> observableList = FXCollections.observableArrayList(this.centretri.getPoubelles());
+	}
 	public void AjoutPoubellePage(ActionEvent event) throws IOException {
         // Code to execute on button click
 		String absolutePath = "H:\\Documents\\GitHub\\JavaPrro\\src\\Views\\List_poubelles.fxml";
@@ -42,5 +52,11 @@ public class ListPoubellesController {
 	    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 	    stage.setScene(scene);
 	    stage.show();
+	}
+	public centre_tri getCentretri() {
+		return centretri;
+	}
+	public void setCentretri(centre_tri centretri) {
+		this.centretri = centretri;
 	}
 }

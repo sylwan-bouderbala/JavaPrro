@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane fx:controller="com.cytech.Controller.Creer_centre_triController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="CreerCentreTri" layoutX="243.0" layoutY="337.0" mnemonicParsing="false" onAction="#HandleCreerCentreTri" text="Créer Centre de tri" />
+      <Text layoutX="187.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Creer un centre de tri">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="adresse" layoutX="300.0" layoutY="125.0" />
+      <TextField fx:id="nom" layoutX="300.0" layoutY="188.0" />
+      <PasswordField fx:id="mot_de_passe" layoutX="300.0" layoutY="262.0" />
+      <Text layoutX="86.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse   :">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Text layoutX="86.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom :">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Text layoutX="86.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mot de passe :">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

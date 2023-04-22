@@ -34,6 +34,47 @@ public class LectureFichier {
 	public String getFichier() {
 		return fichier;
 	}
+	
+	public boolean Check_password(int columnp, int columnn, String p , String n) {
+		if (!this.IsinFile(columnn, n)){
+			return false;
+		}
+		else {
+			String fichier = new String();
+			try {
+	            FileReader reader = new FileReader("Centre_tri.csv");
+	            try (BufferedReader bufferedReader = new BufferedReader(reader)) {
+					String line = bufferedReader.readLine();
+					if (line != null && line.trim().length() > 0){
+						fichier += line;
+		
+					}
+					while(line != null){
+						line = bufferedReader.readLine();
+						fichier += line;
+					}
+				}
+	        } catch (IOException e) {
+	            System.out.println("An error occurred while writing to the file.");
+	            e.printStackTrace();
+	        }
+			String[] temp = fichier.split("\n");
+			if (temp == null || (temp[0].split(";").length == 1)){
+				return false;
+			}
+			for (String i : temp){
+				if (i.split(";")[columnn].equals(n)){
+					if (i.split(";")[columnp].equals(p)) {
+						return true;
+					}
+					else {
+						return false;
+					}
+				}
+			}
+			return false;
+		}
+	}
 	public boolean IsinFile(int id,String element){
 		String fichier = new String();
 		try {

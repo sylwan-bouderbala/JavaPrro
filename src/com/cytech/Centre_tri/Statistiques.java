@@ -1,6 +1,7 @@
 package com.cytech.Centre_tri;
 
 import java.io.BufferedReader;
+import java.io.Console;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -84,7 +85,6 @@ public class Statistiques {
             System.out.println("An error occurred while reading the file.");
             e.printStackTrace();
         }
-		System.out.println(Temp);
 		HashMap<String, Float> Moyenne = new HashMap<>();
         for (Map.Entry<String, ArrayList<Integer>> entry : Temp.entrySet()) {
             String key = entry.getKey();
@@ -100,56 +100,40 @@ public class Statistiques {
 		
 		String fichier = "datas\\stats_poubelle.csv";
         for (String entry : ListeQuartier) {
-			ArrayList<Integer> list = new ArrayList<>();
-			list.add(0);
-			list.add(0);
-			
-			Temp.put(entry, list);
+        	HashMap<String,Float> list = new HashMap<>();
+			list.put("vert", (float)0);
+			list.put("jaune", (float)0);
+			list.put("Bleu", (float)0);
+			//System.out.println(entry);
+			tableau.put(entry, list);
 
-        }  
+        }
 		try (BufferedReader reader = new BufferedReader(new FileReader(fichier))) {
+			//Console.out.println(line);
             String line = reader.readLine();
+			//System.out.println(line);
 			if (line != null && line.trim().length() > 0){
 				String[] tab = line.split(",");
-				ArrayList<Integer> value = Temp.get(tab[1]);
-				if (value != null){
-				int AncienneValF = value.get(0);
-				int AncienneValC = value.get(1);
-				int NouvelleValF = AncienneValF;
-				if (tab[6].equals("false")){
-					NouvelleValF = AncienneValF+1;
+				HashMap<String,Float> values = new HashMap();
+				if (tableau.containsKey(tab[1])){
+					values = tableau.get(tab[1]);
 				}
 				else {
-					
-					NouvelleValF = AncienneValF;
-				}
-				int NouvelleValC = AncienneValC+1;
-				value.set(0, NouvelleValF);
-				value.set(1, NouvelleValC);
-			}
 
+				}
+				if (values != null && tableau.containsKey(tab[1])){
+					System.out.println(tab[2]);
+					tableau.get(tab[1]).put(tab[2], Float.valueOf(tableau.get(tab[1]).get(tab[4]) + tab[1]));
+				}
             }
             while(line != null){
                 line = reader.readLine();
 				if (line != null && line.trim().length() > 0){
 				String[] tab = line.split(",");
-				ArrayList<Integer> value = Temp.get(tab[1]);
+				HashMap<String,Float> value = tableau.get(tab[1]);
 				if (value != null){
-				int AncienneValF = value.get(0);
-				int AncienneValC = value.get(1);
-				int NouvelleValF = AncienneValF;
-				if (tab[6].equals("false")){
-					NouvelleValF = AncienneValF+1;
+					tableau.get(tab[1]).put(tab[2], Float.valueOf(tableau.get(tab[1]).get(tab[4]) + tab[1]));
 				}
-				else {
-					
-					NouvelleValF = AncienneValF;
-				}
-				int NouvelleValC = AncienneValC+1;
-				value.set(0, NouvelleValF);
-				value.set(1, NouvelleValC);
-			}
-
             }
 		}
 
@@ -157,16 +141,6 @@ public class Statistiques {
             System.out.println("An error occurred while reading the file.");
             e.printStackTrace();
         }
-		System.out.println(Temp);
-		HashMap<String, Float> Moyenne = new HashMap<>();
-        for (Map.Entry<String, ArrayList<Integer>> entry : Temp.entrySet()) {
-            String key = entry.getKey();
-            ArrayList<Integer> value = entry.getValue();
-            float sum = (float) value.get(0) / value.get(1);
-            Moyenne.put(key, sum);
-        }
-		return Moyenne;
-		
 		return tableau;
 	}
 	public void GetListeQuartier(){

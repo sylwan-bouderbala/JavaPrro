@@ -173,7 +173,7 @@ public class Poubelle {
 	    // Créer un objet FileWriter pour écrire dans un fichier CSV
 	    FileWriter writer;
 	    try {
-	        writer = new FileWriter("stats_poubelle.csv", true); // true pour ajouter les données au fichier existant
+	        writer = new FileWriter("datas\\stats_poubelle.csv", true); // true pour ajouter les données au fichier existant
 	        
 	        // Écrire les données dans le fichier CSV
 	        writer.write(operation.getMenageCompte().getIdentifiant() + ",");

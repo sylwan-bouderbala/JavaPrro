@@ -5,9 +5,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
+
+import com.cytech.Centre_tri.centre_tri;
+
 import java.io.BufferedReader;
 import java.io.Console;
-public class LectureFichier<Type> {
+public class LectureFichier {
 	private String fichier ;
 	private int NombreNormalElement;
 
@@ -76,11 +79,22 @@ public class LectureFichier<Type> {
 			return false;
 		}
 	}
-	public <T> T create_object() {
-		T object = null;
-		return object;
+	
+	public centre_tri create_object_centre_tri(int selecteur,String selectant) {
+		centre_tri centre_tri = new centre_tri(fichier, fichier, fichier);
 		
+		
+		return centre_tri;
 	}
+	
+	public int Isinlinenth(int id, String element) {
+		int nbline = 0;
+		if (IsinFile(id, element)) {
+			
+		}
+		return nbline;
+	}
+	
 	public boolean IsinFile(int id,String element){
 		String fichier = new String();
 		try {

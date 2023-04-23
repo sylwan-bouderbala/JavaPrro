@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.TilePane;
 import com.cytech.Main.Main;
 
 import javafx.collections.FXCollections;
@@ -72,27 +74,23 @@ public class HomeController {
 	}
 	@FXML
 	public void HandleConnection (ActionEvent event)throws IOException{
-		
+		Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information Dialog");
+        alert.setHeaderText("Look, an Information Dialog");
+        alert.setContentText("I have a great message for you!");
+        alert.showAndWait();
 	}
 	@FXML
 	public void handleButtonClick(ActionEvent event) throws IOException {
-		Scene scene = ((Node) event.getSource()).getScene();
-		Stage stage = (Stage) scene.getWindow();
-		String absolutePath = "src\\Views\\List_poubelles.fxml";
 
-		URL url = new File(absolutePath).toURI().toURL();
-		FXMLLoader loader = new FXMLLoader(url);
-		Parent root = loader.load();
-		scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
         // Code to execute on button click
 		switch (Choice) {
 				case "Commerce" :
-
-
+					ChampPassword.setVisible(true);
+					ChampUsername.setVisible(true);
 					Creation_Compte.setVisible(true);
-					
+					Se_connecter.setVisible(true);
+					Button.setVisible(false);
 				    break;
 				case "Centre de tri":
 					ChampPassword.setVisible(true);

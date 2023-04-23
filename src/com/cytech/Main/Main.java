@@ -8,14 +8,19 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
+
+import com.cytech.Centre_tri.Statistiques;
+import com.cytech.Centre_tri.centre_tri;
 import com.cytech.Controller.*;
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Main extends Application {
 
-
-	@FXML
+ 
+  	@FXML
 	private ChoiceBox<String> choiceBox;
 	@FXML
 	private Button Button;
@@ -51,6 +56,7 @@ public class Main extends Application {
 
     }
 
+
+
 	
 }
-

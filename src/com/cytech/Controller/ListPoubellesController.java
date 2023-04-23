@@ -29,11 +29,10 @@ public class ListPoubellesController {
 	private centre_tri centretri;
 	public void initialize() {
 		
-		ObservableList<Poubelle> observableList = FXCollections.observableArrayList(this.centretri.getPoubelles());
 	}
 	public void AjoutPoubellePage(ActionEvent event) throws IOException {
         // Code to execute on button click
-		String absolutePath = "H:\\Documents\\GitHub\\JavaPrro\\src\\Views\\List_poubelles.fxml";
+		String absolutePath = "src\\Views\\List_poubelles.fxml";
 		URL url = new File(absolutePath).toURI().toURL();
 		FXMLLoader loader = new FXMLLoader(url);
 	    Parent root = loader.load();
@@ -44,7 +43,7 @@ public class ListPoubellesController {
 
 	}
 	public void Quiter_page(ActionEvent event) throws IOException{
-		String absolutePath = "HomePage.fxml";
+		String absolutePath = "src\\Views\\HomePage.fxml";
 		URL url = new File(absolutePath).toURI().toURL();
 		FXMLLoader loader = new FXMLLoader(url);
 	    Parent root = loader.load();

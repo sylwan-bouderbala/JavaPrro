@@ -95,7 +95,80 @@ public class Statistiques {
 		return Moyenne;
 		
 	}
+	public HashMap<String, HashMap<String,Float>> MoyenneQuantitéParQuartier (){
+		HashMap<String, HashMap<String,Float>> tableau = new HashMap<String, HashMap<String, Float>>();
+		
+		String fichier = "datas\\stats_poubelle.csv";
+        for (String entry : ListeQuartier) {
+			ArrayList<Integer> list = new ArrayList<>();
+			list.add(0);
+			list.add(0);
+			
+			Temp.put(entry, list);
 
+        }  
+		try (BufferedReader reader = new BufferedReader(new FileReader(fichier))) {
+            String line = reader.readLine();
+			if (line != null && line.trim().length() > 0){
+				String[] tab = line.split(",");
+				ArrayList<Integer> value = Temp.get(tab[1]);
+				if (value != null){
+				int AncienneValF = value.get(0);
+				int AncienneValC = value.get(1);
+				int NouvelleValF = AncienneValF;
+				if (tab[6].equals("false")){
+					NouvelleValF = AncienneValF+1;
+				}
+				else {
+					
+					NouvelleValF = AncienneValF;
+				}
+				int NouvelleValC = AncienneValC+1;
+				value.set(0, NouvelleValF);
+				value.set(1, NouvelleValC);
+			}
+
+            }
+            while(line != null){
+                line = reader.readLine();
+				if (line != null && line.trim().length() > 0){
+				String[] tab = line.split(",");
+				ArrayList<Integer> value = Temp.get(tab[1]);
+				if (value != null){
+				int AncienneValF = value.get(0);
+				int AncienneValC = value.get(1);
+				int NouvelleValF = AncienneValF;
+				if (tab[6].equals("false")){
+					NouvelleValF = AncienneValF+1;
+				}
+				else {
+					
+					NouvelleValF = AncienneValF;
+				}
+				int NouvelleValC = AncienneValC+1;
+				value.set(0, NouvelleValF);
+				value.set(1, NouvelleValC);
+			}
+
+            }
+		}
+
+        } catch (IOException e) {
+            System.out.println("An error occurred while reading the file.");
+            e.printStackTrace();
+        }
+		System.out.println(Temp);
+		HashMap<String, Float> Moyenne = new HashMap<>();
+        for (Map.Entry<String, ArrayList<Integer>> entry : Temp.entrySet()) {
+            String key = entry.getKey();
+            ArrayList<Integer> value = entry.getValue();
+            float sum = (float) value.get(0) / value.get(1);
+            Moyenne.put(key, sum);
+        }
+		return Moyenne;
+		
+		return tableau;
+	}
 	public void GetListeQuartier(){
 		String fichier = "./datas/stats_poubelle.csv";
         try (BufferedReader reader = new BufferedReader(new FileReader(fichier))) {

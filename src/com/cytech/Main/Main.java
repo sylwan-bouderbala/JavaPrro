@@ -12,14 +12,14 @@ import javafx.stage.Stage;
 import com.cytech.Centre_tri.Statistiques;
 import com.cytech.Centre_tri.centre_tri;
 import com.cytech.Controller.*;
+import com.cytech.Usuelles.LectureFichier;
+
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Main extends Application {
-
- 
   	@FXML
 	private ChoiceBox<String> choiceBox;
 	@FXML
@@ -46,17 +46,8 @@ public class Main extends Application {
         controller.initChoice();
     }
 	
-
-	
-
 	
     public static void main(String[] args) {
-
-        launch(args);
-
-    }
-
-
-
-	
+    	launch(args);
+    }	
 }

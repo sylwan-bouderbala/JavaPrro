@@ -1,15 +1,9 @@
 package com.cytech.Usuelles;
 
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Reader;
+import java.io.*;
 import java.util.ArrayList;
 
 import com.cytech.Centre_tri.centre_tri;
-
-import java.io.BufferedReader;
-import java.io.Console;
 public class LectureFichier {
 	private String fichier ;
 	private int NombreNormalElement;
@@ -46,7 +40,7 @@ public class LectureFichier {
 		else {
 			String fichier = new String();
 			try {
-	            FileReader reader = new FileReader("Centre_tri.csv");
+	            FileReader reader = new FileReader("datas\\Centre_tri.csv");
 	            try (BufferedReader bufferedReader = new BufferedReader(reader)) {
 					String line = bufferedReader.readLine();
 					if (line != null && line.trim().length() > 0){
@@ -81,48 +75,114 @@ public class LectureFichier {
 	}
 	
 	public centre_tri create_object_centre_tri(int selecteur,String selectant) {
-		centre_tri centre_tri = new centre_tri(fichier, fichier, fichier);
 		
-		
+        File file = new File("datas\\Centre_tri.csv");
+        BufferedReader reader = null;
+		try {
+			reader = new BufferedReader(new FileReader(file));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        String line = null;
+        int lineNumber = 0;
+        int targetLineNumber = this.Isinlinenth(selecteur, selectant); // the line number you want to read
+
+        try {
+			while ((line = reader.readLine()) != null) {
+			    lineNumber++;
+			    if (lineNumber == targetLineNumber) {
+			        System.out.println(line);
+			        break;
+			    }
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+        try {
+			reader.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        centre_tri centre_tri = new centre_tri(line.split(";")[6], line.split(";")[1], line.split(";")[2]);
+        if (line.split(";")[3] !=null) {
+			
+		}
 		return centre_tri;
+
 	}
 	
 	public int Isinlinenth(int id, String element) {
-		int nbline = 0;
+		int nbline = 1;
 		if (IsinFile(id, element)) {
-			
+			try {
+	            FileReader reader = new FileReader("Centre_tri.csv");
+	            try (BufferedReader bufferedReader = new BufferedReader(reader)) {
+					String line = bufferedReader.readLine();
+					if (line != null && line.trim().length() > 0){
+						if (line.split(";")[id].equals(element)) {
+							return nbline ++;
+						}
+						else {
+							nbline ++;
+						}
+					}
+					while(line != null){
+						line = bufferedReader.readLine();
+						if (line != null) {
+						if (line.split(";")[id].equals(element)) {
+							return nbline ++;
+						}
+						else {
+							nbline ++;
+						}
+						
+						}
+					}
+				}
+	        } catch (IOException e) {
+	            System.out.println("An error occurred while writing to the file.");
+	            e.printStackTrace();
+	        }
+
 		}
 		return nbline;
 	}
 	
 	public boolean IsinFile(int id,String element){
-		String fichier = new String();
+		String lignetemp = new String();
 		try {
             FileReader reader = new FileReader("Centre_tri.csv");
             try (BufferedReader bufferedReader = new BufferedReader(reader)) {
 				String line = bufferedReader.readLine();
-				if (line != null && line.trim().length() > 0){
-					fichier += line;
+				System.out.println(line);
+				lignetemp = line ;
+				if (lignetemp != null && line.trim().length() > 0){
+					if (lignetemp.split(";")[id].equals(element)){
+						
+						return true;
+					}
 	
 				}
-				while(line != null){
+				while(lignetemp != null){
 					line = bufferedReader.readLine();
-					fichier += line;
+					lignetemp = line;
+					if (lignetemp != null) {
+						if (lignetemp.split(";")[id].equals(element)){
+							return true;
+						}
+					}
+
 				}
 			}
         } catch (IOException e) {
             System.out.println("An error occurred while writing to the file.");
             e.printStackTrace();
         }
-		String[] temp = fichier.split("\n");
-		if (temp == null || (temp[0].split(";").length == 1)){
-			return false;
-		}
-		for (String i : temp){
-			if (i.split(";")[id].equals(element)){
-				return true;
-			}
-		}
+
 		return false;
 	}
 	public void setFichier(String fichier) {

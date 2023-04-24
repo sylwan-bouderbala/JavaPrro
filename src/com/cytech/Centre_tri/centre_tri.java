@@ -60,7 +60,7 @@ public class centre_tri {
 			stringContrat += String.valueOf(e.getId())+"/";
 		}
 
-		String chaine = String.valueOf(this.getIdentifiant()) +";"+ this.nom +";" +String.valueOf(this.Password)+";"+stringContrat+";"+stringPoubelles+";";
+		String chaine = String.valueOf(this.getIdentifiant()) +";"+ this.nom +";" +String.valueOf(this.Password)+";"+stringContrat+";"+stringPoubelles+";"+this.adresse+";";
 
 		chaine = chaine + "\n";
         try {

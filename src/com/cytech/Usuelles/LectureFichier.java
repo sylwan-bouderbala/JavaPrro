@@ -107,7 +107,8 @@ public class LectureFichier {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        centre_tri centre_tri = new centre_tri(line.split(";")[6], line.split(";")[1], line.split(";")[2]);
+        System.out.println(line+"Catogan");
+        centre_tri centre_tri = new centre_tri("random", line.split(";")[1], line.split(";")[2]);
         if (line.split(";")[3] !=null) {
 			
 		}

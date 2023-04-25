@@ -89,8 +89,8 @@ public class HomeController {
 	        scene = new Scene(root);
 	        stage.setScene(scene);
 	        stage.show();
-	        Creer_centre_triController controller = new Creer_centre_triController();
-	        controller = loader.getController();
+	        //Creer_centre_triController controller = new Creer_centre_triController();
+	        //controller = loader.getController();
 	        break;
 		case "Ménages":
 			absolutepath = "src\\Views\\CreerCompte.fxml";

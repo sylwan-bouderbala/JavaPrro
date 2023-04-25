@@ -35,9 +35,10 @@ public class HomeController {
 	private TextField ChampUsername;
 	@FXML
 	private TextField ChampPassword;
+
 	public static boolean Connected;
 	
-	private String Choice = "vide";
+	private String Choice = "Centre de tri";
 	
 	public HomeController() {
 		
@@ -70,14 +71,51 @@ public class HomeController {
 	}
 	@FXML
 	public void HandleBouttonClick(ActionEvent event) throws IOException{
+		String absolutepath = new String();
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		FXMLLoader loader;
+		Parent root;
+		Scene scene;
+		URL url;
+		switch (Choice) {
+		case "Centre de tri":
+			System.out.println(Choice);
+			absolutepath = "src\\Views\\Creer_centretri.fxml";
+
+			url = new File(absolutepath).toURI().toURL();
+			loader = new FXMLLoader(url);
+			root = loader.load();
+	        // Set the scene
+	        scene = new Scene(root);
+	        stage.setScene(scene);
+	        stage.show();
+	        Creer_centre_triController controller = new Creer_centre_triController();
+	        controller = loader.getController();
+	        break;
+		case "Ménages":
+			absolutepath = "src\\Views\\CreerCompte.fxml";
+
+			url = new File(absolutepath).toURI().toURL();
+			loader = new FXMLLoader(url);
+			root = loader.load();
+	        // Set the scene
+	        scene = new Scene(root);
+	        stage.setScene(scene);
+	        stage.show();
+	        CreerCompteController controller2 = new CreerCompteController();
+	        controller2 = loader.getController();
+	        break;
+		default :
+			break;
+		}
 		
 	}
+
 	@FXML
 	public void HandleConnection (ActionEvent event)throws IOException{
-		Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Information Dialog");
-        alert.setHeaderText("Look, an Information Dialog");
-        alert.setContentText("I have a great message for you!");
+		Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle("Mot de passe incorect");
+        alert.setHeaderText("Votre mot de passeet nom ne correspondent pas");
         alert.showAndWait();
 	}
 	@FXML

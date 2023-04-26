@@ -33,7 +33,7 @@ public class centre_tri {
 
 
 	public centre_tri(String adresse, String nom, String Password){
-		LectureFichier lecteur = new LectureFichier("Centre_tri.csv");
+		LectureFichier lecteur = new LectureFichier("datas\\Centre_tri.csv");
 		this.adresse = adresse;
 		this.nom = nom;
 		this.identifiant = (int) lecteur.countLineJava() + 1;
@@ -64,7 +64,7 @@ public class centre_tri {
 
 		chaine = chaine + "\n";
         try {
-            FileWriter writer = new FileWriter("Centre_tri.csv",true);
+            FileWriter writer = new FileWriter("datas\\Centre_tri.csv",true);
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
             bufferedWriter.write(chaine);
             bufferedWriter.close();

@@ -44,11 +44,18 @@ public class Creer_centre_triController {
 	    stage.setScene(scene);
 	    stage.show();
 	}
-	
+
 	@FXML
 	public void HandleCreerCentreTri(ActionEvent event)throws IOException {
 		LectureFichier lecture = new LectureFichier("src\\datas\\Centre_trri.csv");
-		if (lecture.IsinFile(1, nom.getText())) {
+
+		if (nom.getText().isEmpty() || mot_de_passe.getText().isEmpty() || adresse.getText().isEmpty()){
+			Alert alert = new Alert(AlertType.ERROR);
+	        alert.setTitle("Pas de champs null");
+	        alert.setHeaderText("l'un des champs est nul");
+	        alert.showAndWait();
+		}
+		else if (lecture.IsinFile(1, nom.getText())) {
 			Alert alert = new Alert(AlertType.ERROR);
 	        alert.setTitle("Le compte existe deja");
 	        alert.setHeaderText("le nom de compte est déja présent dans notre base");
@@ -56,14 +63,14 @@ public class Creer_centre_triController {
 		}
 		else {
 			centre_tri centre = new centre_tri(adresse.getText(), nom.getText(), mot_de_passe.getText());
+			String absolutePath = "src\\Views\\HomePage.fxml";
+			URL url = new File(absolutePath).toURI().toURL();
+			FXMLLoader loader = new FXMLLoader(url);
+		    Parent root = loader.load();
+		    Scene scene = new Scene(root);
+		    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		    stage.setScene(scene);
+		    stage.show();
 		}
-		String absolutePath = "src\\Views\\HomePage.fxml";
-		URL url = new File(absolutePath).toURI().toURL();
-		FXMLLoader loader = new FXMLLoader(url);
-	    Parent root = loader.load();
-	    Scene scene = new Scene(root);
-	    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-	    stage.setScene(scene);
-	    stage.show();
 	}
 }

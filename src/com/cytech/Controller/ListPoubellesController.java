@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class ListPoubellesController {
@@ -25,10 +26,11 @@ public class ListPoubellesController {
 	private Button boutton_quitter;
 	@FXML
 	private TableView<String> tableau;
+	@FXML
+	private Text nom;
 	
 	private centre_tri centretri;
 	public void initialize() {
-		
 	}
 	public void AjoutPoubellePage(ActionEvent event) throws IOException {
         // Code to execute on button click
@@ -41,6 +43,10 @@ public class ListPoubellesController {
 	    stage.setScene(scene);
 	    stage.show();
 
+	}
+	@FXML
+	public void update() {
+		nom.setText("Bonjour" + this.centretri.getNom());
 	}
 	public void Quiter_page(ActionEvent event) throws IOException{
 		String absolutePath = "src\\Views\\HomePage.fxml";

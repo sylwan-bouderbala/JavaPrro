@@ -10,6 +10,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.TilePane;
 import com.cytech.Main.Main;
+import com.cytech.Usuelles.LectureFichier;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,6 +19,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+
+import com.cytech.Centre_tri.centre_tri;
 import com.cytech.Main.*;
 import javafx.scene.*;
 import javafx.stage.Stage;
@@ -85,6 +88,7 @@ public class HomeController {
 			url = new File(absolutepath).toURI().toURL();
 			loader = new FXMLLoader(url);
 			root = loader.load();
+
 	        // Set the scene
 	        scene = new Scene(root);
 	        stage.setScene(scene);
@@ -114,9 +118,53 @@ public class HomeController {
 	@FXML
 	public void HandleConnection (ActionEvent event)throws IOException{
 		Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle("Mot de passe incorect");
-        alert.setHeaderText("Votre mot de passeet nom ne correspondent pas");
-        alert.showAndWait();
+		String absolutepath = new String();
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		FXMLLoader loader;
+		Parent root;
+		Scene scene;
+		URL url;
+		switch (this.Choice) {
+		case "Centre de tri":
+			LectureFichier lecteur = new LectureFichier("datas\\Centre_tri.csv");
+			System.out.println(ChampUsername.getText() + ChampPassword.getText());
+			if(lecteur.Check_password(2, 1,ChampPassword.getText(),ChampUsername.getText())) {
+				System.out.println("connecterr");
+			}
+			centre_tri centre;
+			LectureFichier lecteur2 = new LectureFichier("datas\\Centre_tri.csv");
+			centre = lecteur2.create_object_centre_tri(1, ChampUsername.getText());
+			absolutepath = "src\\Views\\List_poubelles.fxml";
+
+			url = new File(absolutepath).toURI().toURL();
+			loader = new FXMLLoader(url);
+			root = loader.load();
+			ListPoubellesController controller = loader.getController();
+			controller.setCentretri(centre);
+	        // Set the scene
+	        scene = new Scene(root);
+	        stage.setScene(scene);
+	        stage.show();
+	        controller.update();
+			break;
+		case "Commerce":
+			
+	        alert.setTitle("Mot de passe incorect");
+	        alert.setHeaderText("Votre mot de passeet nom ne correspondent pas");
+	        alert.showAndWait();
+	        break;
+		case "Ménages":
+	        alert.setTitle("Mot de passe incorect");
+	        alert.setHeaderText("Votre mot de passeet nom ne correspondent pas");
+	        alert.showAndWait();
+	        break;
+		default:
+	        alert.setTitle("Mot de passe incorect");
+	        alert.setHeaderText("Votre mot de passeet nom ne correspondent pas");
+	        alert.showAndWait();
+	        break;
+			
+		}
 	}
 	@FXML
 	public void handleButtonClick(ActionEvent event) throws IOException {

@@ -44,7 +44,7 @@ public class LectureFichier {
 	            try (BufferedReader bufferedReader = new BufferedReader(reader)) {
 					String line = bufferedReader.readLine();
 					if (line != null && line.trim().length() > 0){
-						fichier += line;
+						fichier += line+ "\n";
 		
 					}
 					while(line != null){
@@ -62,17 +62,21 @@ public class LectureFichier {
 				return false;
 				
 			}
+
 			for (String i : temp){
 				//System.out.println(i.split(";")[columnn]);
 				//System.out.println(n);
-				if (i.split(";")[columnn].equals(n)){
+				if (!i.isBlank() && !i.isEmpty() && i.split(";").length==6) {
+					if (i.split(";")[columnn].equals(n)){
 					//System.out.println("Noms egaux");
-
-					if (i.split(";")[columnp].equals(p)) {
+						System.out.println(i.split(";")[columnp]);
+						if (i.split(";")[columnp].equals(p)) {
+							
 						return true;
 					}
 				}
 			}
+		}
 			return false;
 		}
 	}
@@ -110,11 +114,11 @@ public class LectureFichier {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        System.out.println(line+"Catogan");
-        centre_tri centre_tri = new centre_tri("random", line.split(";")[1], line.split(";")[2]);
-        if (line.split(";")[3] !=null) {
+        //System.out.println(line+"Catogan");
+        centre_tri centre_tri = new centre_tri(line.split(";")[5], line.split(";")[1], line.split(";")[2]);
+        /*if (line.split(";")[3] !=null) {
 			
-		}
+		}*/
 		return centre_tri;
 
 	}
@@ -164,7 +168,7 @@ public MenageCompte create_object_menage_compte(int selecteur,String selectant) 
 		int nbline = 1;
 		if (IsinFile(id, element)) {
 			try {
-	            FileReader reader = new FileReader("Centre_tri.csv");
+	            FileReader reader = new FileReader("datas\\Centre_tri.csv");
 	            try (BufferedReader bufferedReader = new BufferedReader(reader)) {
 					String line = bufferedReader.readLine();
 					if (line != null && line.trim().length() > 0){
@@ -200,7 +204,7 @@ public MenageCompte create_object_menage_compte(int selecteur,String selectant) 
 	public boolean IsinFile(int id,String element){
 		String lignetemp = new String();
 		try {
-            FileReader reader = new FileReader("Centre_tri.csv");
+            FileReader reader = new FileReader("datas\\Centre_tri.csv");
             try (BufferedReader bufferedReader = new BufferedReader(reader)) {
 				String line = bufferedReader.readLine();
 				System.out.println(line);

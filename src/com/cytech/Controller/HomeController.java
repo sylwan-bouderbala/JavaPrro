@@ -108,6 +108,7 @@ public class HomeController {
 	        stage.show();
 	        CreerCompteController controller2 = new CreerCompteController();
 	        controller2 = loader.getController();
+	        
 	        break;
 		default :
 			break;
@@ -154,6 +155,9 @@ public class HomeController {
 	        alert.showAndWait();
 	        break;
 		case "Ménages":
+			MenageCompte compte;
+			compte = handleLogin(ChampUsername.getText(),ChampPassword.getText();
+);
 	        alert.setTitle("Mot de passe incorect");
 	        alert.setHeaderText("Votre mot de passeet nom ne correspondent pas");
 	        alert.showAndWait();

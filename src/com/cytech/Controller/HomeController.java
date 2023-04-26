@@ -158,6 +158,8 @@ public class HomeController {
 			LectureFichier lecteur3 = new LectureFichier("datas\\compteMenage.csv");
 			MenageCompte compte;
 			compte = lecteur3.handleLogin(ChampUsername.getText(),ChampPassword.getText());
+			PageDeCompteController controller3 = loader.getController();
+			controller.setMenageCompte(compte);
 			if (compte == null) {
 				alert.setTitle("Mot de passe incorect");
 	        	alert.setHeaderText("Votre mot de passeet nom ne correspondent pas");

@@ -188,7 +188,7 @@ public MenageCompte handleLogin(String id,String mdp) {
 private MenageCompte login(String identifiant, String motDePasse) {
     try {
         // Ouverture du fichier des comptes
-        File file = new File("this.fichier");
+        File file = new File(this.fichier);
         Scanner scanner = new Scanner(file);
 
         while (scanner.hasNextLine()) {

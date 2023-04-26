@@ -155,14 +155,23 @@ public class HomeController {
 	        alert.showAndWait();
 	        break;
 		case "Ménages":
-			LectureFichier lecteur3 = new LectureFichier("datas\\MenageCompte.csv");
+			LectureFichier lecteur3 = new LectureFichier("datas\\compteMenage.csv");
 			MenageCompte compte;
 			compte = lecteur3.handleLogin(ChampUsername.getText(),ChampPassword.getText());
 			if (compte == null) {
 				alert.setTitle("Mot de passe incorect");
 	        	alert.setHeaderText("Votre mot de passeet nom ne correspondent pas");
 	        	alert.showAndWait();
+	        	break;
 			}
+			absolutepath = "src\\Views\\PageDeCompte.fxml";
+
+			url = new File(absolutepath).toURI().toURL();
+			loader = new FXMLLoader(url);
+			root = loader.load();
+			 scene = new Scene(root);
+		        stage.setScene(scene);
+		        stage.show();
 	        break;
 		default:
 	        alert.setTitle("Mot de passe incorect");

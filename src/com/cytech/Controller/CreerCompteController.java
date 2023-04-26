@@ -2,11 +2,13 @@ package com.cytech.Controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import com.cytech.Menage.MenageCompte;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -33,21 +35,20 @@ public class CreerCompteController {
     @FXML
     private Button retourButton;
     
-    public void gestionBouton(ActionEvent e)throws IOException {
-    	 FXMLLoader loader = new FXMLLoader(getClass().getResource("src\\Views\\HomePage.fxml"));
-         Parent root = loader.load();
-
-               // Création d'une nouvelle scène avec la page "CreerCompte.fxml"
-         Scene scene = new Scene(root);
-
-               // Récupération de la fenêtre principale
-         Stage stage = (Stage) retourButton.getScene().getWindow();
-
-               // Affichage de la nouvelle scène dans la fenêtre principale
-         stage.setScene(scene);
-    }
-    public void initialize() {
-
-        
-    }
+    @FXML
+	public void retourButton(ActionEvent event) throws IOException{
+		String absolutePath = "src\\Views\\HomePage.fxml";
+		URL url = new File(absolutePath).toURI().toURL();
+		FXMLLoader loader = new FXMLLoader(url);
+	    Parent root = loader.load();
+	    Scene scene = new Scene(root);
+	    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+	    stage.setScene(scene);
+	    stage.show();
+	}
+	
+	@FXML
+	public void HandleMenageCompte(ActionEvent event)throws IOException {
+		
+	}
 }

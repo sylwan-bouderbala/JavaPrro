@@ -115,6 +115,47 @@ public class LectureFichier {
 
 	}
 	
+public MenageCompte create_object_menage_compte(int selecteur,String selectant) {
+		
+        File file = new File("datas\\compteMenage.csv");
+        BufferedReader reader = null;
+		try {
+			reader = new BufferedReader(new FileReader(file));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        String line = null;
+        int lineNumber = 0;
+        int targetLineNumber = this.Isinlinenth(selecteur, selectant); // the line number you want to read
+
+        try {
+			while ((line = reader.readLine()) != null) {
+			    lineNumber++;
+			    if (lineNumber == targetLineNumber) {
+			        System.out.println(line);
+			        break;
+			    }
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+        try {
+			reader.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        centre_tri centre_tri = new centre_tri(line.split(";")[6], line.split(";")[1], line.split(";")[2]);
+        if (line.split(";")[3] !=null) {
+			
+		}
+		return centre_tri;
+
+	}
+
 	public int Isinlinenth(int id, String element) {
 		int nbline = 1;
 		if (IsinFile(id, element)) {

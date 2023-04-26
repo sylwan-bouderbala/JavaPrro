@@ -30,15 +30,15 @@ import java.util.Scanner;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import java.io.FileNotFoundException;
+import com.cytech.Poubelle.*;
 
 public class PageDeCompteController {
-	private ObservableList<CorbeilleOperation> operationData = FXCollections.observableArrayList();
 	@FXML
-    private TableView<CorbeilleOperation> CorbeilleOperationTable;
+    private TableView<Depot> DepotTable;
     @FXML
-    private TableColumn<CorbeilleOperation, String> identifiantColumn;
+    private TableColumn<Depot, String> identifiantColumn;
     @FXML
-    private TableColumn<CorbeilleOperation, String> nbDechetsColumn;
+    private TableColumn<Depot, String> quartierColumn;
 
     @FXML
     private Label identifiantLabel;
@@ -52,12 +52,10 @@ public class PageDeCompteController {
     private Label couleurBacUtilise;
     @FXML
     private Label idDechet;
-    
     @FXML
-	private TextField ChampUsername;
-	@FXML
-	private TextField ChampPassword;
-
+    private Label quartier;
+    
+private HomeController homeController;
 
 
 public PageDeCompteController() {

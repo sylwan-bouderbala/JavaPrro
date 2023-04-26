@@ -49,7 +49,7 @@ public class LectureFichier {
 					}
 					while(line != null){
 						line = bufferedReader.readLine();
-						fichier += line;
+						fichier += line + "\n";
 					}
 				}
 	        } catch (IOException e) {
@@ -58,15 +58,18 @@ public class LectureFichier {
 	        }
 			String[] temp = fichier.split("\n");
 			if (temp == null || (temp[0].split(";").length == 1)){
+				//System.out.println("pb ici");
 				return false;
+				
 			}
 			for (String i : temp){
+				//System.out.println(i.split(";")[columnn]);
+				//System.out.println(n);
 				if (i.split(";")[columnn].equals(n)){
+					//System.out.println("Noms egaux");
+
 					if (i.split(";")[columnp].equals(p)) {
 						return true;
-					}
-					else {
-						return false;
 					}
 				}
 			}
@@ -92,7 +95,7 @@ public class LectureFichier {
 			while ((line = reader.readLine()) != null) {
 			    lineNumber++;
 			    if (lineNumber == targetLineNumber) {
-			        System.out.println(line);
+			        //System.out.println(line);
 			        break;
 			    }
 			}

@@ -17,8 +17,7 @@
 		</accessrules>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFxSDK"/>
-
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Javafx"/>
-
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFX"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

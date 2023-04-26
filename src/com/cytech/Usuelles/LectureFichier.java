@@ -40,7 +40,7 @@ public class LectureFichier {
 		else {
 			String fichier = new String();
 			try {
-	            FileReader reader = new FileReader("datas\\Centre_tri.csv");
+	            FileReader reader = new FileReader(this.fichier);
 	            try (BufferedReader bufferedReader = new BufferedReader(reader)) {
 					String line = bufferedReader.readLine();
 					if (line != null && line.trim().length() > 0){
@@ -83,7 +83,7 @@ public class LectureFichier {
 	
 	public centre_tri create_object_centre_tri(int selecteur,String selectant) {
 		
-        File file = new File("datas\\Centre_tri.csv");
+        File file = new File(this.fichier);
         BufferedReader reader = null;
 		try {
 			reader = new BufferedReader(new FileReader(file));
@@ -125,7 +125,7 @@ public class LectureFichier {
 	
 public MenageCompte create_object_menage_compte(int selecteur,String selectant) {
 		
-        File file = new File("datas\\compteMenage.csv");
+        File file = new File(this.fichier);
         BufferedReader reader = null;
 		try {
 			reader = new BufferedReader(new FileReader(file));
@@ -168,7 +168,7 @@ public MenageCompte create_object_menage_compte(int selecteur,String selectant) 
 		int nbline = 1;
 		if (IsinFile(id, element)) {
 			try {
-	            FileReader reader = new FileReader("datas\\Centre_tri.csv");
+	            FileReader reader = new FileReader(this.fichier);
 	            try (BufferedReader bufferedReader = new BufferedReader(reader)) {
 					String line = bufferedReader.readLine();
 					if (line != null && line.trim().length() > 0){
@@ -204,7 +204,7 @@ public MenageCompte create_object_menage_compte(int selecteur,String selectant) 
 	public boolean IsinFile(int id,String element){
 		String lignetemp = new String();
 		try {
-            FileReader reader = new FileReader("datas\\Centre_tri.csv");
+            FileReader reader = new FileReader(this.fichier);
             try (BufferedReader bufferedReader = new BufferedReader(reader)) {
 				String line = bufferedReader.readLine();
 				System.out.println(line);

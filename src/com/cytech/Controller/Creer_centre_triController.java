@@ -47,7 +47,7 @@ public class Creer_centre_triController {
 
 	@FXML
 	public void HandleCreerCentreTri(ActionEvent event)throws IOException {
-		LectureFichier lecture = new LectureFichier("src\\datas\\Centre_trri.csv");
+		LectureFichier lecture = new LectureFichier("datas\\Centre_tri.csv");
 
 		if (nom.getText().isEmpty() || mot_de_passe.getText().isEmpty() || adresse.getText().isEmpty()){
 			Alert alert = new Alert(AlertType.ERROR);

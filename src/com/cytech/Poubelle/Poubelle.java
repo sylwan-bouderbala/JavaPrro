@@ -1,4 +1,7 @@
 package com.cytech.Poubelle;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -6,6 +9,7 @@ import java.time.LocalDate;
 
 import com.cytech.Menage.CorbeilleOperation;
 import com.cytech.Menage.MenageCompte;
+import com.cytech.Usuelles.LectureFichier;
 
 public class Poubelle {
 	private int identifiantP; //- identifiantP est l'identifiant de la poubelle
@@ -18,6 +22,25 @@ public class Poubelle {
 
 
 	public Poubelle (int identifiantP, float quantiteMaximale, float quantite, int codeAcces, String quartier) {
+		LectureFichier lecteur = new LectureFichier("datas\\poubelles.csv");
+		if (lecteur.IsinFile(0, String.valueOf(identifiantP))) {
+			System.out.println("deja dans le fichoer");
+			
+		}
+		else {
+			 try {
+					String chaine = String.valueOf(identifiantP) + ";" + String.valueOf(quantiteMaximale) + ";" + String.valueOf(quantite) + ";" + String.valueOf(codeAcces) + ";" + "\n";
+			        
+		            FileWriter writer = new FileWriter("datas\\poubelles.csv",true);
+		            BufferedWriter bufferedWriter = new BufferedWriter(writer);
+		            bufferedWriter.write(chaine);
+		            bufferedWriter.close();
+
+		        } catch (IOException e) {
+		            System.out.println("An error occurred.");
+		            e.printStackTrace();
+		        }
+		}
 		this.identifiantP= identifiantP;
 		this.quantiteMaximale = quantiteMaximale;
 		this.quantite = quantite;

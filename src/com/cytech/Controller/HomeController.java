@@ -128,25 +128,29 @@ public class HomeController {
 		switch (this.Choice) {
 		case "Centre de tri":
 			LectureFichier lecteur = new LectureFichier("datas\\Centre_tri.csv");
-			System.out.println(ChampUsername.getText() + ChampPassword.getText());
 			if(lecteur.Check_password(2, 1,ChampPassword.getText(),ChampUsername.getText())) {
-				System.out.println("connecterr");
-			}
-			centre_tri centre;
-			LectureFichier lecteur2 = new LectureFichier("datas\\Centre_tri.csv");
-			centre = lecteur2.create_object_centre_tri(1, ChampUsername.getText());
-			absolutepath = "src\\Views\\List_poubelles.fxml";
+				centre_tri centre;
+				LectureFichier lecteur2 = new LectureFichier("datas\\Centre_tri.csv");
+				centre = lecteur2.create_object_centre_tri(1, ChampUsername.getText());
+				absolutepath = "src\\Views\\List_poubelles.fxml";
 
-			url = new File(absolutepath).toURI().toURL();
-			loader = new FXMLLoader(url);
-			root = loader.load();
-			ListPoubellesController controller = loader.getController();
-			controller.setCentretri(centre);
-	        // Set the scene
-	        scene = new Scene(root);
-	        stage.setScene(scene);
-	        stage.show();
-	        controller.update();
+				url = new File(absolutepath).toURI().toURL();
+				loader = new FXMLLoader(url);
+				root = loader.load();
+				ListPoubellesController controller = loader.getController();
+				controller.setCentretri(centre);
+		        // Set the scene
+		        scene = new Scene(root);
+		        stage.setScene(scene);
+		        stage.show();
+		        controller.update();
+			}
+			else {
+		        alert.setTitle("Mot de passe incorect");
+		        alert.setHeaderText("Votre mot de passeet nom ne correspondent pas");
+		        alert.showAndWait();
+			}
+			
 			break;
 		case "Commerce":
 			
@@ -158,8 +162,8 @@ public class HomeController {
 			LectureFichier lecteur3 = new LectureFichier("datas\\compteMenage.csv");
 			MenageCompte compte;
 			compte = lecteur3.handleLogin(ChampUsername.getText(),ChampPassword.getText());
-			PageDeCompteController controller3 = loader.getController();
-			controller.setMenageCompte(compte);
+			//PageDeCompteController controller3 = loader.getController();
+			//controller.setMenageCompte(compte);
 			if (compte == null) {
 				alert.setTitle("Mot de passe incorect");
 	        	alert.setHeaderText("Votre mot de passeet nom ne correspondent pas");

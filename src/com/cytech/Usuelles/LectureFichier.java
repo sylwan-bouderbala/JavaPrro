@@ -181,11 +181,6 @@ public MenageCompte handleLogin(String id,String mdp) {
         return compte;
     } else {
         // Les identifiants sont incorrects, on affiche une alerte
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Erreur de connexion");
-        alert.setHeaderText(null);
-        alert.setContentText("Nom d'utilisateur ou mot de passe incorrect");
-        alert.showAndWait();
         return null;
     }
 }

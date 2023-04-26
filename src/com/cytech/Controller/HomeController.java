@@ -155,12 +155,13 @@ public class HomeController {
 	        alert.showAndWait();
 	        break;
 		case "Ménages":
+			LectureFichier lecteur3 = new LectureFichier("datas\\MenageCompte.csv");
 			MenageCompte compte;
-			compte = handleLogin(ChampUsername.getText(),ChampPassword.getText();
-);
-	        alert.setTitle("Mot de passe incorect");
-	        alert.setHeaderText("Votre mot de passeet nom ne correspondent pas");
-	        alert.showAndWait();
+			compte = handleLogin(ChampUsername.getText(),ChampPassword.getText());
+			if compte == null:
+				alert.setTitle("Mot de passe incorect");
+	        	alert.setHeaderText("Votre mot de passeet nom ne correspondent pas");
+	        	alert.showAndWait();
 	        break;
 		default:
 	        alert.setTitle("Mot de passe incorect");

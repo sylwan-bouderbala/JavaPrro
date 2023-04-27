@@ -122,11 +122,17 @@ public class LectureFichier {
 		}
         //System.out.println(line+"Catogan");
         centre_tri centre_tri = new centre_tri(line.split(";")[5], line.split(";")[1], line.split(";")[2]);
-        if (line.split(";")[4] !=" ") {
-			if (line.split(";")[4].split("/")!= null) {
+        for (String e :line.split(";")[4].split("/") ) {
+        	System.out.println("elemnt pbo : "+e);
+        }
+        if (line.split(";")[4] !="/") {
+			if (line.split(";")[4].split("/") != null) {
 				for (String e : line.split(";")[4].split("/")) {
-					System.out.println(e);
+					System.out.println("il rentre ");
+					if (e != "") {
 					centre_tri.getPoubelles().add(this.CreatePoubelle(Integer.parseInt(e)));
+				
+					}
 				}
 			}
 		}
@@ -259,7 +265,7 @@ public MenageCompte login(String identifiant, String motDePasse) {
 		Poubelle poubelle = null;
 		try {
 	        // Ouverture du fichier des comptes
-	        File file = new File(this.fichier);
+	        File file = new File("datas\\poubelles.csv");
 	        Scanner scanner = new Scanner(file);
 
 	        while (scanner.hasNextLine()) {

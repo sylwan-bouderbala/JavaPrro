@@ -14,5 +14,6 @@ public class Testlecteurfichier {
 		Poubelle p2 = new Poubelle(0, 11, 4, 2234, "Quartier1");
 		centre2.Ajouter(p2);
 		centre2.Ajouter(p);
+		Poubelle pp = lecteur.CreatePoubelle(12);
 	}
 }

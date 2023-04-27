@@ -157,7 +157,7 @@ public MenageCompte login(String identifiant, String motDePasse) {
         try (Scanner scanner = new Scanner(file)) {
 			while (scanner.hasNextLine()) {
 			    String line = scanner.nextLine();
-			    String[] elements = line.split(",");
+			    String[] elements = line.split(";");
 
 			    // V�rification si les identifiants sont corrects
 			    if (elements[0].equals(identifiant) && elements[1].equals(motDePasse)) {

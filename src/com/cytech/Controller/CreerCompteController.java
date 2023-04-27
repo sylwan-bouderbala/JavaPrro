@@ -53,9 +53,7 @@ public class CreerCompteController {
 	
     @FXML
 	public void HandleCreerMenageCompte(ActionEvent event)throws IOException {
-    	System.out.println("1");
 		LectureFichier lecture = new LectureFichier("datas\\compteMenage.csv");
-		System.out.println("2");
 		if (identifiant.getText().isEmpty() || quartier.getText().isEmpty() || mdp.getText().isEmpty() || nbPersonnes.getText().isEmpty()) {
 			System.out.println("3");
 			Alert alert = new Alert(AlertType.ERROR);
@@ -76,8 +74,6 @@ public class CreerCompteController {
 			int id = Integer.parseInt(idT);
 			String nbPersT = nbPersonnes.getText();
 			int nbPers = Integer.parseInt(nbPersT);
-			System.out.println("5");
-			System.out.println("ici");
 			MenageCompte compte = new MenageCompte(id,mdp.getText(),quartier.getText(),nbPers,0);
 			compte.enregistrerMenageCompte(compte);
 			System.out.println("Votre Compte a bien été créé");

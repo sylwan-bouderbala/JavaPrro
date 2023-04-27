@@ -165,7 +165,7 @@ public class HomeController {
 		        stage.setScene(scene);
 		        stage.show();
 		        controller.update();
-		        controller.initiate();
+		        //controller.initiate();
 			}
 			else {
 		        alert.setTitle("Mot de passe incorect");

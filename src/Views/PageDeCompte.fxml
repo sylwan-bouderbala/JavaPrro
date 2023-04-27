@@ -15,7 +15,7 @@
             <Font name="System Bold" size="28.0" />
          </font>
       </Text>
-      <TableView layoutX="22.0" layoutY="100.0" prefHeight="200.0" prefWidth="494.0">
+      <TableView fx:id="DepotTable" layoutX="22.0" layoutY="100.0" prefHeight="200.0" prefWidth="494.0">
         <columns>
           <TableColumn fx:id="identifiantColumn" prefWidth="75.0" text="Identifiant" />
           <TableColumn fx:id="quartierColumn" prefWidth="75.0" text="Quartier" />

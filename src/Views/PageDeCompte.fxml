@@ -18,13 +18,12 @@
       <TableView fx:id="DepotTable" layoutX="22.0" layoutY="100.0" prefHeight="200.0" prefWidth="494.0">
         <columns>
           <TableColumn fx:id="identifiantColumn" prefWidth="75.0" text="Identifiant" />
-          <TableColumn fx:id="quartierColumn" prefWidth="75.0" text="Quartier" />
-            <TableColumn fx:id="quantiteColumn" prefWidth="75.0" text="Quantite" />
-            <TableColumn fx:id="couleurColumn" prefWidth="75.0" text="couleurColumn" />
-            <TableColumn fx:id="nbDechetColumn" prefWidth="75.0" text="nbDechetsColumn" />
+          <TableColumn fx:id="quartierColumn" prefWidth="89.5999755859375" text="Quartier" />
+            <TableColumn fx:id="quantiteColumn" prefWidth="74.4000244140625" text="Quantite" />
+            <TableColumn fx:id="couleurColumn" prefWidth="108.79998779296875" text="couleurColumn" />
+            <TableColumn fx:id="nbDechetColumn" minWidth="0.0" prefWidth="146.40008544921875" text="nbDechetsColumn" />
         </columns>
       </TableView>
-      <Text layoutX="452.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vos points de fidélité :" />
-      <Button fx:id="retourButton" layoutX="417.0" layoutY="352.0" mnemonicParsing="false" style="-fx-background-color: blue;" text="Retour à la page d'accueil" textFill="WHITE" />
+      <Button fx:id="retourButton" layoutX="417.0" layoutY="352.0" mnemonicParsing="false" onAction="#retourBouton" style="-fx-background-color: blue;" text="Retour à la page d'accueil" textFill="WHITE" />
    </children>
 </AnchorPane>

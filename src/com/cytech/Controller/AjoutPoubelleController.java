@@ -21,7 +21,7 @@ public class AjoutPoubelleController {
 	@FXML
 	private Button boutton;
 	@FXML
-	private TextField Nom,Quartier,Quantité,quantitémax,Code;
+	private TextField Nom,Quartier,Quantit�,quantitémax,Code;
 	
 	private centre_tri centre;
 	

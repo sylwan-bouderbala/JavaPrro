@@ -24,8 +24,8 @@ import com.cytech.Centre_tri.centre_tri;
 import com.cytech.Main.*;
 import javafx.scene.*;
 import javafx.stage.Stage;
-import com.cytech.Poubelle.*;
 import com.cytech.Poubelle.Depot;
+import javafx.scene.layout.AnchorPane;
 
 
 
@@ -66,10 +66,31 @@ public class HomeController {
 	public ObservableList<Depot> getDepotData() {
 		return depotData;
 	}
+	
+	/**
+	 * Shows the person overview inside the root layout.
+	 */
+	public void showPageDeCompte() {
+	    try {
+	        // Load person overview.
+	        FXMLLoader loader = new FXMLLoader();
+	        loader.setLocation(HomeController.class.getResource("view/PageDeCompte.fxml"));
+	        AnchorPane pageDeCompte = (AnchorPane) loader.load();
 
+	        // Set person overview into the center of root layout.
+	        rootLayout.setCenter(pageDeCompte);
+
+	        // Give the controller access to the main app.
+	        PageDeCompteController controller = loader.getController();
+	        controller.setHomeController(this);
+
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	}
+	
 	@FXML
     private void initialize() {
-    	// Initialize the person table with the two columns.
 		initChoice();
 		ChoiceBox.setOnAction((event) -> {
 		    ChoiceBox.getSelectionModel().getSelectedIndex();

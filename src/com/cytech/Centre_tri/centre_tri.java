@@ -1,10 +1,11 @@
 package com.cytech.Centre_tri;
 
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-
+import java.io.*;
 import com.cytech.Poubelle.Poubelle;
 //TODO : verifier que le Centre de tri est pas deja dans le fichier
 import com.cytech.Usuelles.LectureFichier;
@@ -73,16 +74,54 @@ public class centre_tri {
             e.printStackTrace();
         }
 	}
-	public void placer(Poubelle p) {
-		Poubelles.add( p);
-		p.setIdentifiant(Poubelles.size());
-	}
+
 	public void Retirer(Poubelle p) {
 		Poubelles.remove(p.getIdentifiant());
 	}
 	public void Ajouter(Poubelle p) {
-		Poubelles.add( p);
-		p.setIdentifiant(Poubelles.size());
+		this.Poubelles.add(p);
+		try {
+            // Open the input and output files
+            BufferedReader reader = new BufferedReader(new FileReader("datas\\Centre_tri.csv"));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("datas\\Centre_tri.csv"));
+            LectureFichier lecteur = new LectureFichier("datas\\Centre_tri.csv");
+            // Read each line of the input file and write it to the output file,
+            // changing the line that needs to be updated
+            String line;
+            String stringPoubelles = "";
+    		for (Poubelle e : Poubelles){
+    			stringPoubelles += String.valueOf(e.getIdentifiant())+"/";
+    		}
+
+    		String stringContrat = "";
+    		for (Contrat e : contrats){
+    			stringContrat += String.valueOf(e.getId())+"/";
+    		}
+
+    		line = String.valueOf(this.getIdentifiant()) +";"+ this.nom +";" +String.valueOf(this.Password)+";"+stringContrat+";"+stringPoubelles+";"+this.adresse+";";
+            int lineNumber = 1;
+            while ((line = reader.readLine()) != null) {
+                if (lineNumber == lecteur.Isinlinenth(0, String.valueOf(this.identifiant))) { // change line number 3
+                    line = "This is the new line.";
+                }
+                writer.write(line + "\n");
+                lineNumber++;
+            }
+
+            // Close the input and output files
+            reader.close();
+            writer.close();
+
+            // Replace the input file with the output file
+            File inputFile = new File("input.txt");
+            File outputFile = new File("output.txt");
+            inputFile.delete();
+            outputFile.renameTo(inputFile);
+
+            System.out.println("Line updated successfully!");
+        } catch (IOException e) {
+            System.out.println("Error updating line: " + e.getMessage());
+        }
 	}
 	public void Collecter(Poubelle p) {
 		if( p.getIdentifiant() <= Poubelles.size()) {

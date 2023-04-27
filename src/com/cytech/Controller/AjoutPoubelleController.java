@@ -1,8 +1,12 @@
 package com.cytech.Controller;
 
+import java.awt.TextField;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+
+import com.cytech.Centre_tri.centre_tri;
+import com.cytech.Poubelle.Poubelle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,6 +20,10 @@ import javafx.stage.Stage;
 public class AjoutPoubelleController {
 	@FXML
 	private Button boutton;
+	@FXML
+	private TextField Nom,Quartier,Quantité,quantitémax,Code;
+	
+	private centre_tri centre;
 	
 	public void QuitPage(ActionEvent event) throws IOException {
         // Code to execute on button click
@@ -29,5 +37,18 @@ public class AjoutPoubelleController {
 	    stage.setScene(scene);
 	    stage.show();
 
+	}
+	
+	centre_tri getCentre() {
+		return centre;
+	}
+	
+	void SetCentre(centre_tri centre) {
+		this.centre = centre;
+	}
+	@FXML
+	void Ajouter_Poubelles (ActionEvent event) throws IOException{
+		
+		centre.Ajouter(new Poubelle(0, 0, 0, 0, null));
 	}
 }

@@ -28,6 +28,8 @@ public class ListPoubellesController {
 	private TableView<String> tableau;
 	@FXML
 	private Text nom;
+	@FXML
+	private Button Quitter;
 	
 	private centre_tri centretri;
 	public void initialize() {
@@ -44,11 +46,7 @@ public class ListPoubellesController {
 	    stage.show();
 
 	}
-	@FXML
-	public void update() {
-		nom.setText("Bonjour" + this.centretri.getNom());
-	}
-	public void Quiter_page(ActionEvent event) throws IOException{
+	public void BounttonQuiter(ActionEvent event) throws IOException{
 		String absolutePath = "src\\Views\\HomePage.fxml";
 		URL url = new File(absolutePath).toURI().toURL();
 		FXMLLoader loader = new FXMLLoader(url);
@@ -57,6 +55,10 @@ public class ListPoubellesController {
 	    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 	    stage.setScene(scene);
 	    stage.show();
+	}
+	@FXML
+	public void update() {
+		nom.setText("Bonjour" + this.centretri.getNom());
 	}
 	public centre_tri getCentretri() {
 		return centretri;

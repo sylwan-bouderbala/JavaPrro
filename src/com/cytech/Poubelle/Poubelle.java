@@ -23,13 +23,9 @@ public class Poubelle {
 
 	public Poubelle (int identifiantP, float quantiteMaximale, float quantite, int codeAcces, String quartier) {
 		LectureFichier lecteur = new LectureFichier("datas\\poubelles.csv");
-		if (lecteur.IsinFile(0, String.valueOf(identifiantP))) {
-			System.out.println("deja dans le fichoer");
-			
-		}
-		else {
+		
 			 try {
-					String chaine = String.valueOf(identifiantP) + ";" + String.valueOf(quantiteMaximale) + ";" + String.valueOf(quantite) + ";" + String.valueOf(codeAcces) + ";" + "\n";
+					String chaine = String.valueOf(lecteur.sizefile()+1) + ";" + String.valueOf(quantiteMaximale) + ";" + String.valueOf(quantite) + ";" + String.valueOf(codeAcces) + ";" + quartier +"\n";
 			        
 		            FileWriter writer = new FileWriter("datas\\poubelles.csv",true);
 		            BufferedWriter bufferedWriter = new BufferedWriter(writer);
@@ -40,8 +36,8 @@ public class Poubelle {
 		            System.out.println("An error occurred.");
 		            e.printStackTrace();
 		        }
-		}
-		this.identifiantP= identifiantP;
+		
+		this.identifiantP= lecteur.sizefile();
 		this.quantiteMaximale = quantiteMaximale;
 		this.quantite = quantite;
 		this.codeAcces = codeAcces;

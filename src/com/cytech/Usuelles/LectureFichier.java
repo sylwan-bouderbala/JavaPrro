@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import com.cytech.Centre_tri.centre_tri;
 import com.cytech.Menage.MenageCompte;
+import com.cytech.Poubelle.Poubelle;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -286,4 +287,45 @@ private MenageCompte login(String identifiant, String motDePasse) {
 	}
 	
 	
+	public Poubelle CreatePoubelle(int id) {
+		Poubelle poubelle = null;
+		try {
+	        // Ouverture du fichier des comptes
+	        File file = new File(this.fichier);
+	        Scanner scanner = new Scanner(file);
+
+	        while (scanner.hasNextLine()) {
+	            String line = scanner.nextLine();
+	            String[] elements = line.split(";");
+	            if (elements == null) {
+	            	return null;
+	            }
+	            // V�rification si les identifiants sont corrects
+	            if (elements[0].equals(id)) {
+	            	int id1 = Integer.parseInt(elements[0]);
+	            	float Quantitémax = Float.parseFloat(elements[1]);
+	            	float Quantité =Float.parseFloat(elements[2]);
+	            	int CodeAcces = Integer.parseInt(elements[3]);
+	            	String quartier = elements[4];
+	                return new Poubelle(id1, Quantitémax,Quantité ,CodeAcces,quartier);
+	            }
+	        }
+	        scanner.close();
+	    } catch (FileNotFoundException e) {
+	        System.out.println("Fichier de comptes non trouv�");
+	    }
+		return poubelle;
+	}
+	public int sizefile() {
+		try {
+            BufferedReader reader = new BufferedReader(new FileReader(this.fichier));
+            int lines = 0;
+            while (reader.readLine() != null) lines++;
+            reader.close();
+            return lines;
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+		return 0;
+	}
 }

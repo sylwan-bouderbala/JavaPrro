@@ -13,19 +13,25 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <TextField layoutX="162.0" layoutY="119.0" />
-      <Text layoutX="39.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom   :">
+      <TextField fx:id="Nom" layoutX="162.0" layoutY="98.0" />
+      <Text layoutX="39.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom   :">
          <font>
             <Font size="13.0" />
          </font>
       </Text>
-      <Button layoutX="81.0" layoutY="304.0" mnemonicParsing="false" text="Ajouter" />
+      <Button layoutX="81.0" layoutY="304.0" mnemonicParsing="false" onAction="#Ajouter_Poubelles" text="Ajouter" />
       <Button layoutX="202.0" layoutY="304.0" mnemonicParsing="false" onAction="#QuitPage" text="Quitter" />
-      <TextField layoutX="162.0" layoutY="159.0" />
-      <Text layoutX="39.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quartier   :" wrappingWidth="66.9814453125">
+      <TextField fx:id="Quartier" layoutX="162.0" layoutY="140.0" />
+      <Text layoutX="39.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quartier   :" wrappingWidth="66.9814453125">
          <font>
             <Font size="13.0" />
          </font>
       </Text>
+      <TextField fx:id="Quantité" layoutX="162.0" layoutY="179.0" />
+      <TextField fx:id="quantitémax" layoutX="162.0" layoutY="218.0" />
+      <TextField fx:id="Code" layoutX="162.0" layoutY="255.0" />
+      <Text layoutX="39.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantité :" />
+      <Text layoutX="39.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantité Maximale : " />
+      <Text layoutX="39.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Code d'acces" />
    </children>
 </AnchorPane>

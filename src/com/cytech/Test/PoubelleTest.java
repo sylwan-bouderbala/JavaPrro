@@ -204,7 +204,7 @@ public class PoubelleTest {
 	 
 	 
 	 public static void main(String[] args) {
-		 PoubelleTest test = new PoubelleTest();
+		 /*PoubelleTest test = new PoubelleTest();
 		 test.testGetIdentifiant();
 		 test.testGetQuantiteMaximale();
 		 test.testGetCodeAcces();
@@ -219,7 +219,9 @@ public class PoubelleTest {
 	     test.testEnvoyerNotifs();
 	     test.testVerifier();
 	     test.testAttribuer();
-	     test.testCalculer();
+	     test.testCalculer();*/
+		 Poubelle poubelle = new Poubelle(0, 12, 14, 1234, "Quartier D");
+		 System.out.println("test" + poubelle.getIdentifiant());
 	}
 		
 }

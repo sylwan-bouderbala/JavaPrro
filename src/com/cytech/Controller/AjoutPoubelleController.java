@@ -22,9 +22,11 @@ public class AjoutPoubelleController {
 	@FXML
 	private Button boutton;
 	@FXML
+
 	private Button Quitter_page;
 	@FXML
 	private TextField Nom,Quartier,Quantité,quantitémax,Code;
+
 	
 	private centre_tri centre;
 	

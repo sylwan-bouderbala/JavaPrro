@@ -95,7 +95,7 @@ public class Statistiques {
 		return Moyenne;
 		
 	}
-	public HashMap<String, HashMap<String,Float>> MoyenneQuantitéParQuartier (){
+	/*public HashMap<String, HashMap<String,Float>> MoyenneQuantitéParQuartier (){
 		HashMap<String, HashMap<String,Float>> tableau = new HashMap<String, HashMap<String, Float>>();
 		
 		String fichier = "datas\\stats_poubelle.csv";
@@ -142,7 +142,7 @@ public class Statistiques {
             e.printStackTrace();
         }
 		return tableau;
-	}
+	}*/
 	public void GetListeQuartier(){
 		String fichier = "./datas/stats_poubelle.csv";
         try (BufferedReader reader = new BufferedReader(new FileReader(fichier))) {

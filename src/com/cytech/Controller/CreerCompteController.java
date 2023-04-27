@@ -71,19 +71,13 @@ public class CreerCompteController {
 	        alert.showAndWait();
 		}
 		else {
-<<<<<<< HEAD
+
 			String idT = identifiant.getText();
 			int id = Integer.parseInt(idT);
 			String nbPersT = nbPersonnes.getText();
 			int nbPers = Integer.parseInt(nbPersT);
-=======
 			System.out.println("5");
-			int id = Integer.parseInt(identifiant.getText());
 			System.out.println("ici");
-			System.out.println(id);
-			
-			int nbPers = Integer.parseInt(nbPersonnes.getText());
->>>>>>> 9bd24a610f0409f5ef651eef7abfce5f1ea6ae3b
 			MenageCompte compte = new MenageCompte(id,mdp.getText(),quartier.getText(),nbPers,0);
 			compte.enregistrerMenageCompte(compte);
 			System.out.println("Votre Compte a bien été créé");

@@ -77,10 +77,8 @@ public class MenageCompte {
 	        writer.write(ligne);
 	        writer.write(System.lineSeparator()); // saut de ligne pour faciliter la lecture
 	        writer.flush(); // flush pour vider le buffer et écrire les données sur le disque
-<<<<<<< HEAD
 	        writer.close();
-=======
->>>>>>> 9bd24a610f0409f5ef651eef7abfce5f1ea6ae3b
+
 	    } catch (IOException e) {
 	        System.out.printf("Erreur lors de l'enregistrement du fichier [compteMenage.csv] : [%s]%n%n", e.getMessage());
 	    }

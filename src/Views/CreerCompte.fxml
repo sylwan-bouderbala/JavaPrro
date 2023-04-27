@@ -10,7 +10,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cytech.Controller.CreerCompteController">
    <children>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" />
-    <Button layoutX="446.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="139.0" style="-fx-background-color: blue;" text="Créer un compte" textFill="WHITE">
+    <Button fx:id="creerCompteButton" layoutX="446.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="139.0" style="-fx-background-color: blue;" text="Créer un compte" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>

@@ -21,7 +21,7 @@
           <TableColumn fx:id="quartierColumn" prefWidth="75.0" text="Quartier" />
             <TableColumn fx:id="quantiteColumn" prefWidth="75.0" text="Quantite" />
             <TableColumn fx:id="couleurColumn" prefWidth="75.0" text="couleurColumn" />
-            <TableColumn prefWidth="75.0" text="nbDechetsColumn" />
+            <TableColumn fx:id="nbDechetColumn" prefWidth="75.0" text="nbDechetsColumn" />
         </columns>
       </TableView>
       <Text layoutX="452.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vos points de fidélité :" />

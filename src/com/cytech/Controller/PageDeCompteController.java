@@ -76,10 +76,7 @@ public void setMenageCompte(MenageCompte compte) {
 	this.compte = compte;
 }
 
-@FXML
-public void update() {
-	identifiant.setText("Bonjour" + this.compte.getIdentifiant());
-}
+
 @FXML
 public void gestionBouton(ActionEvent e)throws IOException {
 	

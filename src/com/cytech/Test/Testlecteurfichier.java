@@ -15,5 +15,6 @@ public class Testlecteurfichier {
 		centre2.Ajouter(p2);
 		centre2.Ajouter(p);
 		Poubelle pp = lecteur.CreatePoubelle(12);
+		System.out.println(pp.quartier);
 	}
 }

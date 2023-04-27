@@ -275,7 +275,7 @@ public MenageCompte login(String identifiant, String motDePasse) {
 	            	return null;
 	            }
 	            // V�rification si les identifiants sont corrects
-	            if (elements[0].equals(id)) {
+	            if (elements[0].equals(String.valueOf(id))) {
 	            	int id1 = Integer.parseInt(elements[0]);
 	            	float Quantitémax = Float.parseFloat(elements[1]);
 	            	float Quantité =Float.parseFloat(elements[2]);

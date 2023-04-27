@@ -9,13 +9,14 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cytech.Controller.ListPoubellesController">
    <children>
-      <Text fx:id="nom" layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+      <Text fx:id="nom" layoutX="189.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
          <font>
             <Font size="24.0" />
          </font></Text>
@@ -25,9 +26,21 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="tableau" layoutX="22.0" layoutY="48.0" prefHeight="217.0" prefWidth="255.0" />
-                        <ListView layoutX="350.0" layoutY="57.0" prefHeight="200.0" prefWidth="200.0" />
-                        <Button fx:id="AjoutPoubelle" layoutX="402.0" layoutY="265.0" mnemonicParsing="false" onAction="#AjoutPoubelle" text="Ajouter Poubelles" />
+                        <TableView fx:id="tableau" layoutX="14.0" layoutY="47.0" prefHeight="217.0" prefWidth="255.0" />
+                        <ListView layoutX="285.0" layoutY="42.0" prefHeight="215.0" prefWidth="294.0" />
+                        <Button fx:id="Ajouter" layoutX="402.0" layoutY="265.0" mnemonicParsing="false" onAction="#Ajouter_Poubelles" text="Ajouter Poubelles" />
+                        <Text layoutX="300.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quartier   :" wrappingWidth="66.9814453125">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="Quartier" layoutX="423.0" layoutY="75.0" />
+                        <Text layoutX="300.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantité :" />
+                        <TextField fx:id="Quantité" layoutX="423.0" layoutY="120.0" />
+                        <Text layoutX="297.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantité Maximale : " />
+                        <TextField fx:id="quantitémax" layoutX="423.0" layoutY="170.0" />
+                        <Text layoutX="300.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Code d'acces :" />
+                        <TextField fx:id="Code" layoutX="423.0" layoutY="212.0" />
                      </children>
                   </AnchorPane>
             </content>

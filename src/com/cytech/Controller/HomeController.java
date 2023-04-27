@@ -160,12 +160,11 @@ public class HomeController {
 				root = loader.load();
 				ListPoubellesController controller = loader.getController();
 				controller.setCentretri(centre);
-		        // Set the scene
 		        scene = new Scene(root);
 		        stage.setScene(scene);
 		        stage.show();
-		        controller.update();
-		        //controller.initiate();
+		        controller.upjour();
+		        controller.initiate();
 			}
 			else {
 		        alert.setTitle("Mot de passe incorect");
@@ -193,7 +192,6 @@ public class HomeController {
 				root = loader.load();
 				PageDeCompteController controller = loader.getController();
 				controller.setMenageCompte(compte);
-		        // Set the scene
 		        scene = new Scene(root);
 		        stage.setScene(scene);
 		        stage.show();
@@ -216,7 +214,7 @@ public class HomeController {
 	@FXML
 	public void handleButtonClick(ActionEvent event) throws IOException {
 
-        // Code to execute on button click
+
 		switch (Choice) {
 				case "Commerce" :
 					ChampPassword.setVisible(true);

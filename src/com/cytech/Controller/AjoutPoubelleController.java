@@ -31,7 +31,7 @@ public class AjoutPoubelleController {
 	private centre_tri centre;
 	@FXML
 	public void QuitPage(ActionEvent event) throws IOException {
-        // Code to execute on button click
+        
 		
 		String absolutePath = "src\\Views\\List_poubelles.fxml";
 		URL url = new File(absolutePath).toURI().toURL();
@@ -41,6 +41,8 @@ public class AjoutPoubelleController {
 	    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 	    stage.setScene(scene);
 	    stage.show();
+	    ListPoubellesController controller = loader.getController();
+	    controller.setCentretri(centre);
 
 	}
 	

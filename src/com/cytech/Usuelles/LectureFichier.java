@@ -129,48 +129,9 @@ public class LectureFichier {
 
 	}
 	
-public MenageCompte create_object_menage_compte(int selecteur,String selectant) {
-		
-        File file = new File(this.fichier);
-        BufferedReader reader = null;
-		try {
-			reader = new BufferedReader(new FileReader(file));
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        String line = null;
-        int lineNumber = 0;
-        int targetLineNumber = this.Isinlinenth(selecteur, selectant); // the line number you want to read
 
-        try {
-			while ((line = reader.readLine()) != null) {
-			    lineNumber++;
-			    if (lineNumber == targetLineNumber) {
-			        System.out.println(line);
-			        break;
-			    }
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
-        try {
-			reader.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        centre_tri centre_tri = new centre_tri(line.split(";")[6], line.split(";")[1], line.split(";")[2]);
-        if (line.split(";")[3] !=null) {
-			
-		}
-		return centre_tri;
 
-	}
-
-@FXML
 public MenageCompte handleLogin(String id,String mdp) {
     String identifiant = id;
     String motDePasse = mdp;
@@ -186,25 +147,28 @@ public MenageCompte handleLogin(String id,String mdp) {
     }
 }
 
-private MenageCompte login(String identifiant, String motDePasse) {
+public MenageCompte login(String identifiant, String motDePasse) {
     try {
         // Ouverture du fichier des comptes
         File file = new File(this.fichier);
-        Scanner scanner = new Scanner(file);
+        try (Scanner scanner = new Scanner(file)) {
+			while (scanner.hasNextLine()) {
+			    String line = scanner.nextLine();
+			    String[] elements = line.split(",");
 
-        while (scanner.hasNextLine()) {
-            String line = scanner.nextLine();
-            String[] elements = line.split(",");
-
-            // V�rification si les identifiants sont corrects
-            if (elements[0].equals(identifiant) && elements[1].equals(motDePasse)) {
-            	int id = Integer.parseInt(elements[0]);
-            	int nbPts = Integer.parseInt(elements[3]);
-            	int nbPers =Integer.parseInt(elements[4]);
-                return new MenageCompte(id, elements[1],elements[2],nbPts,nbPers);
-            }
-        }
-        scanner.close();
+			    // V�rification si les identifiants sont corrects
+			    if (elements[0].equals(identifiant) && elements[1].equals(motDePasse)) {
+			    	int id = Integer.parseInt(elements[0]);
+			    	int nbPts = Integer.parseInt(elements[3]);
+			    	int nbPers =Integer.parseInt(elements[4]);
+			        return new MenageCompte(id, elements[1],elements[2],nbPts,nbPers);
+			    }
+			}
+			scanner.close();
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     } catch (FileNotFoundException e) {
         System.out.println("Fichier de comptes non trouv�");
     }

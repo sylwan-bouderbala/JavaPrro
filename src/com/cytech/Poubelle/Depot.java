@@ -13,13 +13,6 @@ public class Depot {
 	private float quantite;
 	private int nbDechets;
 	private boolean valeurVerifier;
-
-	/**
-	 * Default constructor.
-	 */
-	public Depot() {
-		this(null, null);
-	}
 	
 	/**
 	 * Constructor with some initial data.

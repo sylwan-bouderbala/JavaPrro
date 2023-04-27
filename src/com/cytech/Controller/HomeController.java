@@ -74,7 +74,7 @@ public class HomeController {
 	    try {
 	        // Load person overview.
 	        FXMLLoader loader = new FXMLLoader();
-	        loader.setLocation(HomeController.class.getResource("view/PageDeCompte.fxml"));
+	        loader.setLocation(HomeController.class.getResource("src\\Views\\PageDeCompte.fxml"));
 	        AnchorPane pageDeCompte = (AnchorPane) loader.load();
 
 	        // Set person overview into the center of root layout.

@@ -4,6 +4,9 @@ import java.io.IOException;
 
 import com.cytech.Centre_tri.centre_tri;
 import com.cytech.Poubelle.*;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
@@ -26,6 +29,9 @@ public class PageDeCompteController {
     private TableColumn<Depot, String> couleurColumn;
     @FXML
     private TableColumn<Depot, String> nbDechetColumn;
+    
+
+	private ObservableList<Depot> depotData = FXCollections.observableArrayList();
 
     @FXML
     private Label identifiantLabel;
@@ -41,7 +47,7 @@ public class PageDeCompteController {
     private Label valeurVerIfierLabel;
 
     
-private HomeController homeController;
+    private HomeController homeController;
 
 
 public PageDeCompteController() {
@@ -50,6 +56,8 @@ public PageDeCompteController() {
 @FXML
 private void initialize() {
 	// Initialize the person table with the two columns.
+	DepotTable.setItems(depotData);
+	setValue();
     identifiantColumn.setCellValueFactory(cellData -> cellData.getValue().identifiantProperty().asString());
     quartierColumn.setCellValueFactory(cellData -> cellData.getValue().quartierProperty());
     quantiteColumn.setCellValueFactory(cellData -> cellData.getValue().quantiteProperty().asString());
@@ -76,6 +84,14 @@ public void setMenageCompte(MenageCompte compte) {
 	this.compte = compte;
 }
 
+public void setValue() {
+	
+	depotData.add(new Depot(10, "Latin","jaune",0.5f,5));
+	depotData.add(new Depot(10, "Latin","jaune",0.5f,5));
+	depotData.add(new Depot(10, "Latin","jaune",0.5f,5));
+	depotData.add(new Depot(10, "Latin","jaune",0.5f,5));
+	
+}
 
 @FXML
 public void gestionBouton(ActionEvent e)throws IOException {

@@ -1,5 +1,10 @@
 package com.cytech.Poubelle;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.StringProperty;
+import javafx.beans.property.SimpleStringProperty;
+
 public class Depot {
 	private int identifiant;
 	public String quartier;
@@ -25,6 +30,16 @@ public void setIdentifiant(int identifiant){
 
 public int getIdentifiant() {
 	return identifiant;
+}
+
+public StringProperty quartierProperty() {
+	StringProperty quartierProperty = new SimpleStringProperty(quartier);
+	return quartierProperty;
+}
+
+public IntegerProperty identifiantProperty() {
+	IntegerProperty identifiantProperty = new SimpleIntegerProperty(identifiant);
+	return identifiantProperty;
 }
 
 public int getNbDechets() {

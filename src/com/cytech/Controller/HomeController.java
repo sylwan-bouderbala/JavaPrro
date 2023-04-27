@@ -88,7 +88,7 @@ public class HomeController {
     }
 	
 	public void initChoice() {
-		ObservableList<String> items = FXCollections.observableArrayList("Commerce", "Centre de tri", "MÃ©nages");
+		ObservableList<String> items = FXCollections.observableArrayList("Commerce", "Centre de tri", "Ménages");
 		ChoiceBox.setItems(items);
 		ChoiceBox.setValue("Centre de tri");
 
@@ -117,7 +117,7 @@ public class HomeController {
 	        //Creer_centre_triController controller = new Creer_centre_triController();
 	        //controller = loader.getController();
 	        break;
-		case "MÃ©nages":
+		case "Ménages":
 			absolutepath = "src\\Views\\CreerCompte.fxml";
 
 			url = new File(absolutepath).toURI().toURL();
@@ -179,7 +179,7 @@ public class HomeController {
 	        alert.setHeaderText("Votre mot de passeet nom ne correspondent pas");
 	        alert.showAndWait();
 	        break;
-		case "MÃ©nages":
+		case "Ménages":
 			LectureFichier lecteur3 = new LectureFichier("datas\\compteMenage.csv");
 			System.out.print("monde");
 			MenageCompte compte;
@@ -231,7 +231,7 @@ public class HomeController {
 					Button.setVisible(false);
 				    break;
 
-				case "MÃ©nages":
+				case "Ménages":
 					ChampPassword.setVisible(true);
 					ChampUsername.setVisible(true);
 					Creation_Compte.setVisible(true);

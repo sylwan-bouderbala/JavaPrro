@@ -40,9 +40,6 @@ public class JeterDechetController {
 	    private TextField quantite;
 	    
 	    @FXML
-	    private TextField dateT;
-	    
-	    @FXML
 	    private TextField couleurBac;
 	    
 	    @FXML
@@ -69,11 +66,6 @@ public class JeterDechetController {
 		}
 	    
 	    public void jeterbis(MenageCompte compte, Poubelle poubelle) {
-		 // Récupération de la valeur saisie dans le TextField
-		 	String dateString = dateT.getText();
-
-		 	// Conversion de la chaîne de caractères en LocalDate
-		 	LocalDate date = LocalDate.parse(dateString);
 		 	int nbDe = Integer.parseInt(nbDechets.getText());
 		 	String couleurB = couleurBac.getText();
 		 	String typeDe = typeDechet.getText();
@@ -81,8 +73,8 @@ public class JeterDechetController {
 		 	float quant =  Float.parseFloat(quanti);
 		 	int idP = Integer.parseInt(identifiantP.getText());
 		 	// Utilisation de la méthode LocalDate.of pour créer une instance de LocalDate
-		 	LocalDate nvdate = LocalDate.of(date.getYear(), date.getMonth(), date.getDayOfMonth());
-		 	CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte,idP,quant, typeDe,nvdate, false, couleurB,nbDe);
+		 	LocalDate nvdate1 = LocalDate.of(2023, 26, 4);
+		 	CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte,idP,quant, typeDe,nvdate1, false, couleurB,nbDe);
 		 	Dechet dechet = new Dechet(operation.getIdDechet(),operation.getTypeDechet());
 		    Bac bac = new Bac(poubelle.getIdentifiantBac(operation.getCouleurBac()), operation.getCouleurBac());
 			Poubelle.calculer(operation);
@@ -90,6 +82,7 @@ public class JeterDechetController {
 			poubelle.attribuer(dechet,bac, operation);
 			poubelle.envoyerNotifs(operation);
 			poubelle.enregistrerStats(operation);	
+			System.out.println("Vous avez bien jeté votre dechet");
 		}	    
 
 	    
@@ -99,7 +92,7 @@ public class JeterDechetController {
 	public void HandleJeter(ActionEvent event)throws IOException {
 		LectureFichier lecture = new LectureFichier("datas\\compteMenage.csv");
 
-		if (identifiant.getText().isEmpty() || identifiantP.getText().isEmpty() || typeDechet.getText().isEmpty() || dateT.getText().isEmpty() || couleurBac.getText().isEmpty() || nbDechets.getText().isEmpty()) {
+		if (identifiant.getText().isEmpty() || identifiantP.getText().isEmpty() || typeDechet.getText().isEmpty() || couleurBac.getText().isEmpty() || nbDechets.getText().isEmpty()) {
 			Alert alert = new Alert(AlertType.ERROR);
 	        alert.setTitle("Pas de champs null");
 	        alert.setHeaderText("l'un des champs est nul");
@@ -107,7 +100,8 @@ public class JeterDechetController {
 		}
 	
 		else {
-			int idP = Integer.parseInt(identifiantP.getText());
+			String idT = identifiant.getText();
+			int idP = Integer.parseInt(idT);
 			String idS = identifiant.getText();
 			String motdp = mdp.getText();
 			MenageCompte compte = lecture.handleLogin(idS,motdp);

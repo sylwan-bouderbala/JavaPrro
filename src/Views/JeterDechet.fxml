@@ -5,19 +5,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cytech.Controller.JeterDechetController">
    <children>
       <Text layoutX="231.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jeter un déchet " />
-      <Button fx:id="Jeter" layoutX="467.0" layoutY="336.0" mnemonicParsing="false" text="Jeter" />
-      <TextField fx:id="identifiantP" layoutX="172.0" layoutY="107.0" prefHeight="26.0" prefWidth="211.0" text="Donner l'identifiant de la poubelle" />
-      <TextField fx:id="typeDechet" layoutX="172.0" layoutY="143.0" prefHeight="26.0" prefWidth="211.0" text="Donner le type de dechets" />
-      <TextField fx:id="date" layoutX="172.0" layoutY="208.0" prefHeight="26.0" prefWidth="211.0" text="Donner la date" />
-      <TextField fx:id="couleurBac" layoutX="86.0" layoutY="246.0" prefHeight="26.0" prefWidth="402.0" text="Donner la couleur du Bac dans lequel vous souhaitez jeter votre dechet" />
-      <TextField fx:id="nbDechets" layoutX="86.0" layoutY="280.0" prefHeight="26.0" prefWidth="402.0" text="Donner le nombre de dechets que vous souhaiitez jeter " />
-      <Button fx:id="retourButton" layoutX="32.0" layoutY="336.0" mnemonicParsing="false" text="Retour vers page de compte" />
-      <TextField fx:id="identifiant" layoutX="172.0" layoutY="41.0" prefHeight="26.0" prefWidth="211.0" text="Donner l'identifiant de votre compte" />
-      <TextField fx:id="mdp" layoutX="172.0" layoutY="73.0" prefHeight="26.0" prefWidth="211.0" text="Donner votre mot de passe" />
-      <TextField fx:id="quantite" layoutX="172.0" layoutY="177.0" prefHeight="26.0" prefWidth="211.0" text="Donner la quantite de dechets" />
+      <Button fx:id="Jeter" layoutX="467.0" layoutY="336.0" mnemonicParsing="false" onAction="#HandleJeter" text="Jeter" />
+      <Button fx:id="retourButton" layoutX="32.0" layoutY="336.0" mnemonicParsing="false" onAction="#retourBoutonCompte" text="Retour vers page de compte" />
+      <TextField fx:id="identifiant" layoutX="172.0" layoutY="41.0" prefHeight="26.0" prefWidth="211.0" />
+      <Text layoutX="25.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Identifiant Compte" wrappingWidth="123.533203125" />
+      <Text layoutX="25.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mot de passe" wrappingWidth="84.533203125" />
+      <Text layoutX="32.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TypeDechets" wrappingWidth="70.142578125" />
+      <Text layoutX="25.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Identifiant Poubelle" wrappingWidth="117.142578125" />
+      <Text layoutX="32.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantite" wrappingWidth="70.142578125" />
+      <Text layoutX="32.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="couleurBac" wrappingWidth="70.142578125" />
+      <Text layoutX="25.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nombreDechets" wrappingWidth="84.533203125" />
+      <TextField fx:id="mdp" layoutX="172.0" layoutY="82.0" prefHeight="26.0" prefWidth="211.0" />
+      <TextField fx:id="IdentifiantP" layoutX="172.0" layoutY="116.0" prefHeight="26.0" prefWidth="211.0" />
+      <TextField fx:id="typeDechet" layoutX="172.0" layoutY="188.0" prefHeight="26.0" prefWidth="211.0" />
+      <TextField fx:id="quantite" layoutX="172.0" layoutY="228.0" prefHeight="26.0" prefWidth="211.0" />
+      <TextField fx:id="nbDechets" layoutX="172.0" layoutY="275.0" prefHeight="26.0" prefWidth="211.0" />
+      <TextField fx:id="typeDechet" layoutX="172.0" layoutY="151.0" prefHeight="26.0" prefWidth="211.0" />
    </children>
 </AnchorPane>

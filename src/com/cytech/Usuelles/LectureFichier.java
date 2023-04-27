@@ -255,7 +255,6 @@ private MenageCompte login(String identifiant, String motDePasse) {
             FileReader reader = new FileReader(this.fichier);
             try (BufferedReader bufferedReader = new BufferedReader(reader)) {
 				String line = bufferedReader.readLine();
-				System.out.println(line);
 				lignetemp = line ;
 				if (lignetemp != null && line.trim().length() > 0){
 					if (lignetemp.split(";")[id].equals(element)){

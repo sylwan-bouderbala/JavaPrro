@@ -24,6 +24,12 @@ import com.cytech.Centre_tri.centre_tri;
 import com.cytech.Main.*;
 import javafx.scene.*;
 import javafx.stage.Stage;
+import com.cytech.Poubelle.Depot;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+
+
+
 
 public class HomeController {
 	@FXML
@@ -43,13 +49,28 @@ public class HomeController {
 	
 	private String Choice = "Centre de tri";
 	
+	private ObservableList<Depot> depotData = FXCollections.observableArrayList();
+	
 	public HomeController() {
+		
+		depotData.add(new Depot(10, "Latin","jaune",0.5f,5));
+		depotData.add(new Depot(10, "Latin","jaune",0.5f,5));
+		depotData.add(new Depot(10, "Latin","jaune",0.5f,5));
+		depotData.add(new Depot(10, "Latin","jaune",0.5f,5));
 		
 	}
 	
+	/**
+	 * Returns the data as an observable list of Persons. 
+	 * @return
+	 */
+	public ObservableList<Depot> getDepotData() {
+		return depotData;
+	}
+	
+	
 	@FXML
     private void initialize() {
-    	// Initialize the person table with the two columns.
 		initChoice();
 		ChoiceBox.setOnAction((event) -> {
 		    ChoiceBox.getSelectionModel().getSelectedIndex();

@@ -122,9 +122,14 @@ public class LectureFichier {
 		}
         //System.out.println(line+"Catogan");
         centre_tri centre_tri = new centre_tri(line.split(";")[5], line.split(";")[1], line.split(";")[2]);
-        /*if (line.split(";")[3] !=null) {
-			
-		}*/
+        if (line.split(";")[4] !=" ") {
+			if (line.split(";")[4].split("/")!= null) {
+				for (String e : line.split(";")[4].split("/")) {
+					System.out.println(e);
+					centre_tri.getPoubelles().add(this.CreatePoubelle(Integer.parseInt(e)));
+				}
+			}
+		}
 		return centre_tri;
 
 	}
@@ -132,20 +137,20 @@ public class LectureFichier {
 
 
 
-public MenageCompte handleLogin(String id,String mdp) {
-    String identifiant = id;
-    String motDePasse = mdp;
-
-    MenageCompte compte = login(identifiant, motDePasse);
-
-    if (compte != null) {
-        // Les identifiants sont corrects, on cr�e l'objet Compte et on passe � la page suivante
-        return compte;
-    } else {
-        // Les identifiants sont incorrects, on affiche une alerte
-        return null;
-    }
-}
+	public MenageCompte handleLogin(String id,String mdp) {
+	    String identifiant = id;
+	    String motDePasse = mdp;
+	
+	    MenageCompte compte = login(identifiant, motDePasse);
+	
+	    if (compte != null) {
+	        // Les identifiants sont corrects, on cr�e l'objet Compte et on passe � la page suivante
+	        return compte;
+	    } else {
+	        // Les identifiants sont incorrects, on affiche une alerte
+	        return null;
+	    }
+	}
 
 public MenageCompte login(String identifiant, String motDePasse) {
     try {

@@ -1,10 +1,7 @@
 package com.cytech.Centre_tri;
 
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.io.*;
 import com.cytech.Poubelle.Poubelle;
 //TODO : verifier que le Centre de tri est pas deja dans le fichier
@@ -51,12 +48,12 @@ public class centre_tri {
 	}
 	private void Printline(){
 		
-		String stringPoubelles = "";
+		String stringPoubelles = "/";
 		for (Poubelle e : Poubelles){
 			stringPoubelles += String.valueOf(e.getIdentifiant())+"/";
 		}
 
-		String stringContrat = "";
+		String stringContrat = "/";
 		for (Contrat e : contrats){
 			stringContrat += String.valueOf(e.getId())+"/";
 		}
@@ -78,56 +75,63 @@ public class centre_tri {
 	public void Retirer(Poubelle p) {
 		Poubelles.remove(p.getIdentifiant());
 	}
-	public void Ajouter(Poubelle p) {
+	
+	public void AddPoubelle(Poubelle p) {
 		this.Poubelles.add(p);
+	}
+	public void Ajouter(Poubelle p) {
+		AddPoubelle(p);
 		LectureFichier lecteur = new LectureFichier("datas\\Centre_tri.csv");
-		
-		String filename = lecteur.getFichier();
-        int lineNumber = lecteur.Isinlinenth(0, String.valueOf(this.identifiant)); 
-        String newText = "";
-        String stringPoubelles = "";
+		String inputFile = lecteur.getFichier();
+        int n = lecteur.Isinlinenth(1, this.nom); 
+        System.out.println(n);
+        String stringPoubelles = "/";
 		for (Poubelle e : Poubelles){
 			stringPoubelles += String.valueOf(e.getIdentifiant())+"/";
 		}
 
-		String stringContrat = "";
+		String stringContrat = "/";
 		for (Contrat e : contrats){
 			stringContrat += String.valueOf(e.getId())+"/";
 		}
 
-		String chaine = String.valueOf(this.getIdentifiant()) +";"+ this.nom +";" +String.valueOf(this.Password)+";"+stringContrat+";"+stringPoubelles+";"+this.adresse+";";
+		String replacementText = String.valueOf(this.getIdentifiant()) +";"+ this.nom +";" +String.valueOf(this.Password)+";"+stringContrat+";"+stringPoubelles+";"+this.adresse+";"+"\n";
 
-		newText = chaine + "\n";
-        try {
-            // read the contents of the file into a string
-            BufferedReader reader = new BufferedReader(new FileReader(filename));
-            String line = "";
-            String oldText = "";
-            int currentLineNumber = 1;
-
-            while ((line = reader.readLine()) != null) {
-                if (currentLineNumber == lineNumber) {
-                    oldText += newText + "\n";
-                } else {
-                    oldText += line + "\n";
-                }
-                currentLineNumber++;
-            }
-
-            // close the reader
-            reader.close();
-
-            // write the new contents back to the file
-            BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
-            writer.write(oldText);
-
-            // close the writer
-            writer.close();
-
-            System.out.println("Successfully changed the " + lineNumber + "th line of " + filename + ".");
-        } catch (IOException e) {
-            System.out.println("Error: " + e.getMessage());
-        }
+		 List<String> lines = new ArrayList<>();
+	        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile))) {
+	            String line;
+	            try {
+					while ((line = reader.readLine()) != null) {
+					    lines.add(line);
+					}
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+	        } catch (FileNotFoundException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			} catch (IOException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			}
+	        
+	        if (n > 0 && n <= lines.size()) {
+	            lines.set(n - 1, replacementText);
+	            try (BufferedWriter writer = new BufferedWriter(new FileWriter(inputFile))) {
+	                for (String line : lines) {
+	                    writer.write(line);
+	                    writer.newLine();
+	                }
+	            } catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+	            System.out.println("Line " + n + " has been replaced.");
+	        } else {
+	            System.out.println("Line " + n + " does not exist in the file.");
+	        }
+	    
 	}
 	public void Collecter(Poubelle p) {
 		if( p.getIdentifiant() <= Poubelles.size()) {

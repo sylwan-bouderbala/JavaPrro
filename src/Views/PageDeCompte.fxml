@@ -7,8 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane fx:controller="com.cytech.Controller.PageDeCompteController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cytech.Controller.PageDeCompteController">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
       <Text layoutX="248.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Compte">
@@ -16,10 +15,13 @@
             <Font name="System Bold" size="28.0" />
          </font>
       </Text>
-      <TableView layoutX="22.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0">
+      <TableView layoutX="22.0" layoutY="100.0" prefHeight="200.0" prefWidth="494.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Identifiant" />
-          <TableColumn prefWidth="75.0" text="Nombre de déchets" />
+          <TableColumn fx:id="identifiantColumn" prefWidth="75.0" text="Identifiant" />
+          <TableColumn fx:id="quartierColumn" prefWidth="75.0" text="Quartier" />
+            <TableColumn fx:id="quantiteColumn" prefWidth="75.0" text="Quantite" />
+            <TableColumn fx:id="couleurColumn" prefWidth="75.0" text="couleurColumn" />
+            <TableColumn prefWidth="75.0" text="nbDechetsColumn" />
         </columns>
       </TableView>
       <Text layoutX="452.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vos points de fidélité :" />

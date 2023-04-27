@@ -3,7 +3,9 @@ package com.cytech.Poubelle;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.StringProperty;
+import javafx.beans.property.FloatProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.ObjectProperty;
 
 public class Depot {
@@ -46,6 +48,21 @@ public StringProperty quartierProperty() {
 public IntegerProperty identifiantProperty() {
 	IntegerProperty identifiantProperty = new SimpleIntegerProperty(identifiant);
 	return identifiantProperty;
+}
+
+public StringProperty couleurProperty() {
+	StringProperty couleurProperty = new SimpleStringProperty(couleurBac);
+	return couleurProperty;
+}
+
+public FloatProperty quantiteProperty() {
+	FloatProperty quantiteProperty = new SimpleFloatProperty(quantite);
+	return quantiteProperty;
+}
+
+public IntegerProperty nombreProperty() {
+	IntegerProperty nombretProperty = new SimpleIntegerProperty(nbDechets);
+	return nombretProperty;
 }
 
 public int getNbDechets() {

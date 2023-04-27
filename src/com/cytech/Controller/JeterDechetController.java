@@ -3,8 +3,8 @@ package com.cytech.Controller;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 
-import com.cytech.Menage.MenageCompte;
 import com.cytech.Usuelles.LectureFichier;
 
 import javafx.event.ActionEvent;
@@ -35,8 +35,12 @@ public class JeterDechetController {
 	    @FXML
 	    private TextField typeDechet;
 	    
+
 	    @FXML
-	    private TextField date;
+	    private TextField quantite;
+	    
+	    @FXML
+	    private TextField dateT;
 	    
 	    @FXML
 	    private TextField couleurBac;
@@ -50,7 +54,30 @@ public class JeterDechetController {
 	    @FXML
 	    private Button retourButton;
 
-	    
+	    public void jeterbis(MenageCompte compte, Poubelle poubelle) {
+		 // Récupération de la valeur saisie dans le TextField
+		 	String dateString = dateT.getText();
+
+		 	// Conversion de la chaîne de caractères en LocalDate
+		 	LocalDate date = LocalDate.parse(dateString);
+		 	int nbDe = Integer.parseInt(nbDechets.getText());
+		 	String couleurB = couleurBac.getText();
+		 	String typeDe = typeDechet.getText();
+		 	String quanti = quantite.getText();
+		 	float quant =  Float.parseFloat(quanti);
+		 	int idP = Integer.parseInt(identifiantP.getText());
+		 	// Utilisation de la méthode LocalDate.of pour créer une instance de LocalDate
+		 	LocalDate nvdate = LocalDate.of(date.getYear(), date.getMonth(), date.getDayOfMonth());
+		 	CorbeilleOperation operation = new CorbeilleOperation(poubelle,compte,idP,quant, typeDe,nvdate, false, couleurB,nbDe);
+		 	Dechet dechet = new Dechet(operation.getIdDechet(),operation.getTypeDechet());
+		    Bac bac = new Bac(poubelle.getIdentifiantBac(operation.getCouleurBac()), operation.getCouleurBac());
+			Poubelle.calculer(operation);
+			poubelle.verifier(dechet,bac);
+			poubelle.attribuer(dechet,bac, operation);
+			poubelle.envoyerNotifs(operation);
+			poubelle.enregistrerStats(operation);	
+		}	    
+
 	    
 	 
 
@@ -58,7 +85,7 @@ public class JeterDechetController {
 	public void HandleJeter(ActionEvent event)throws IOException {
 		LectureFichier lecture = new LectureFichier("datas\\compteMenage.csv");
 
-		if (identifiant.getText().isEmpty() || identifiantP.getText().isEmpty() || typeDechet.getText().isEmpty() || date.getText().isEmpty() || couleurBac.getText().isEmpty() || nbDechets.getText().isEmpty()) {
+		if (identifiant.getText().isEmpty() || identifiantP.getText().isEmpty() || typeDechet.getText().isEmpty() || dateT.getText().isEmpty() || couleurBac.getText().isEmpty() || nbDechets.getText().isEmpty()) {
 			Alert alert = new Alert(AlertType.ERROR);
 	        alert.setTitle("Pas de champs null");
 	        alert.setHeaderText("l'un des champs est nul");
@@ -66,12 +93,12 @@ public class JeterDechetController {
 		}
 	
 		else {
-			int id = Integer.parseInt(identifiant.getText());
 			int idP = Integer.parseInt(identifiantP.getText());
-			int nbDeche = Integer.parseInt(nbDechets.getText());
-			MenageCompte compte = lecture.handleLogin(identifiant,mdp);
-			Poubelle poubelle = trouverPoubelle(identifiantP);
-			poubelle.jeterbis();
+			String idS = identifiant.getText();
+			String motdp = mdp.getText();
+			MenageCompte compte = lecture.handleLogin(idS,motdp);
+			Poubelle poubelle = lecture.CreatePoubelle(idP);
+			jeterbis(compte,poubelle);
 			String absolutePath = "src\\Views\\HomePage.fxml";
 			URL url = new File(absolutePath).toURI().toURL();
 			FXMLLoader loader = new FXMLLoader(url);

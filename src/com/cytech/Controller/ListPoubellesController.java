@@ -60,6 +60,9 @@ public class ListPoubellesController {
 	@FXML
 	public void update() {
 		nom.setText("Bonjour" + this.centretri.getNom());
+		for (Poubelle e : centretri.getPoubelles()) {
+			System.out.println("les ids des pb" + String.valueOf(e.getIdentifiant()));
+		}
 	}
 	public centre_tri getCentretri() {
 		return centretri;

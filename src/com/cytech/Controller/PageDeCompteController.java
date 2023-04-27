@@ -60,6 +60,9 @@ public class PageDeCompteController {
     
     @FXML
     private Button retourButton;
+    
+    @FXML
+    private Button jeterDechet;
 
 public PageDeCompteController() {
 }
@@ -140,4 +143,15 @@ public void setValue() {
 	    stage.setScene(scene);
 	    stage.show();
 	}
+
+	public void jeterDechet(ActionEvent event) throws IOException{
+		String absolutePath = "src\\Views\\JeterDechet.fxml";
+		URL url = new File(absolutePath).toURI().toURL();
+		FXMLLoader loader = new FXMLLoader(url);
+	    Parent root = loader.load();
+	    Scene scene = new Scene(root);
+	    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+	    stage.setScene(scene);
+	    stage.show();
+}
 }

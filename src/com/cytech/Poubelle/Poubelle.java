@@ -195,13 +195,13 @@ public class Poubelle {
 	        writer = new FileWriter("datas\\stats_poubelle.csv", true); // true pour ajouter les données au fichier existant
 	        
 	        // Écrire les données dans le fichier CSV
-	        writer.write(operation.getMenageCompte().getIdentifiant() + ",");
-	        writer.write(operation.getMenageCompte().getQuartier() + ",");
-	        writer.write(operation.getCouleurBac() + ",");
-	        writer.write(operation.getPoubelle().getIdentifiant() + ",");
-	        writer.write(operation.getQuantite() + ",");
-	        writer.write(operation.getNbDechets() + ",");
-	        writer.write(valeurVerifier + ",");
+	        writer.write(operation.getMenageCompte().getIdentifiant() + ";");
+	        writer.write(operation.getMenageCompte().getQuartier() + ";");
+	        writer.write(operation.getCouleurBac() + ";");
+	        writer.write(operation.getPoubelle().getIdentifiant() + ";");
+	        writer.write(operation.getQuantite() + ";");
+	        writer.write(operation.getNbDechets() + ";");
+	        writer.write(valeurVerifier + ";");
 	        writer.write("\n"); // ajouter une ligne vide pour faciliter la lecture
 	        
 	        // Fermer le FileWriter

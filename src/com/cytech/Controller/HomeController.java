@@ -181,25 +181,30 @@ public class HomeController {
 	        break;
 		case "Ménages":
 			LectureFichier lecteur3 = new LectureFichier("datas\\compteMenage.csv");
+			System.out.print("monde");
 			MenageCompte compte;
 			compte = lecteur3.handleLogin(ChampUsername.getText(),ChampPassword.getText());
-			//PageDeCompteController controller3 = loader.getController();
-			//controller.setMenageCompte(compte);
-			if (compte == null) {
+			if (compte != null) {
+				absolutepath = "src\\Views\\PageDeCompte.fxml";
+
+				url = new File(absolutepath).toURI().toURL();
+				loader = new FXMLLoader(url);
+				root = loader.load();
+				PageDeCompteController controller = loader.getController();
+				controller.setMenageCompte(compte);
+		        // Set the scene
+		        scene = new Scene(root);
+		        stage.setScene(scene);
+		        stage.show();
+		        controller.update();
+		        controller.setHomeController(null);
+			}
+			else {
 				alert.setTitle("Mot de passe incorect");
 	        	alert.setHeaderText("Votre mot de passeet nom ne correspondent pas");
 	        	alert.showAndWait();
 	        	break;
 			}
-			absolutepath = "src\\Views\\PageDeCompte.fxml";
-
-			url = new File(absolutepath).toURI().toURL();
-			loader = new FXMLLoader(url);
-			root = loader.load();
-			 scene = new Scene(root);
-		        stage.setScene(scene);
-		        stage.show();
-	        break;
 		default:
 	        alert.setTitle("Mot de passe incorect");
 	        alert.setHeaderText("Votre mot de passeet nom ne correspondent pas");

@@ -21,22 +21,21 @@ import javafx.stage.Stage;
 
 public class ListPoubellesController {
 	@FXML
-	private Button boutton;
+	private Button AjoutPoubelle;
 	@FXML
-	private Button boutton_quitter;
+	private Button Quitter;
 	@FXML
 	private TableView<String> tableau;
 	@FXML
 	private Text nom;
-	@FXML
-	private Button Quitter;
+
 	
 	private centre_tri centretri;
 	public void initialize() {
 	}
-	public void AjoutPoubellePage(ActionEvent event) throws IOException {
+	public void AjoutPoubelle(ActionEvent event) throws IOException {
         // Code to execute on button click
-		String absolutePath = "src\\Views\\List_poubelles.fxml";
+		String absolutePath = "src\\Views\\AjoutPoubelle.fxml";
 		URL url = new File(absolutePath).toURI().toURL();
 		FXMLLoader loader = new FXMLLoader(url);
 	    Parent root = loader.load();

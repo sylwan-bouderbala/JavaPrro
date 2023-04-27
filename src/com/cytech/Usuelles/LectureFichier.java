@@ -64,17 +64,13 @@ public class LectureFichier {
 	        }
 			String[] temp = fichier.split("\n");
 			if (temp == null || (temp[0].split(";").length == 1)){
-				//System.out.println("pb ici");
 				return false;
 				
 			}
 
 			for (String i : temp){
-				//System.out.println(i.split(";")[columnn]);
-				//System.out.println(n);
 				if (!i.isBlank() && !i.isEmpty() && i.split(";").length==6) {
 					if (i.split(";")[columnn].equals(n)){
-					//System.out.println("Noms egaux");
 						System.out.println(i.split(";")[columnp]);
 						if (i.split(";")[columnp].equals(p)) {
 							
@@ -94,30 +90,26 @@ public class LectureFichier {
 		try {
 			reader = new BufferedReader(new FileReader(file));
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         String line = null;
         int lineNumber = 0;
-        int targetLineNumber = this.Isinlinenth(selecteur, selectant); // the line number you want to read
+        int targetLineNumber = this.Isinlinenth(selecteur, selectant); 
 
         try {
 			while ((line = reader.readLine()) != null) {
 			    lineNumber++;
 			    if (lineNumber == targetLineNumber) {
-			        //System.out.println(line);
 			        break;
 			    }
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
         try {
 			reader.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         //System.out.println(line+"Catogan");

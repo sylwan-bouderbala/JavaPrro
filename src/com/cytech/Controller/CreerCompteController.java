@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
-import com.cytech.Centre_tri.centre_tri;
 import com.cytech.Menage.MenageCompte;
 import com.cytech.Usuelles.LectureFichier;
 
@@ -54,25 +53,37 @@ public class CreerCompteController {
 	
     @FXML
 	public void HandleCreerMenageCompte(ActionEvent event)throws IOException {
+    	System.out.println("1");
 		LectureFichier lecture = new LectureFichier("datas\\compteMenage.csv");
-
+		System.out.println("2");
 		if (identifiant.getText().isEmpty() || quartier.getText().isEmpty() || mdp.getText().isEmpty() || nbPersonnes.getText().isEmpty()) {
+			System.out.println("3");
 			Alert alert = new Alert(AlertType.ERROR);
 	        alert.setTitle("Pas de champs null");
 	        alert.setHeaderText("l'un des champs est nul");
 	        alert.showAndWait();
 		}
 		else if (lecture.IsinFile(1, identifiant.getText())) {
+			System.out.println("4");
 			Alert alert = new Alert(AlertType.ERROR);
 	        alert.setTitle("Le compte existe deja");
 	        alert.setHeaderText("le nom de compte est dÃ©ja prÃ©sent dans notre base");
 	        alert.showAndWait();
 		}
 		else {
+<<<<<<< HEAD
 			String idT = identifiant.getText();
 			int id = Integer.parseInt(idT);
 			String nbPersT = nbPersonnes.getText();
 			int nbPers = Integer.parseInt(nbPersT);
+=======
+			System.out.println("5");
+			int id = Integer.parseInt(identifiant.getText());
+			System.out.println("ici");
+			System.out.println(id);
+			
+			int nbPers = Integer.parseInt(nbPersonnes.getText());
+>>>>>>> 9bd24a610f0409f5ef651eef7abfce5f1ea6ae3b
 			MenageCompte compte = new MenageCompte(id,mdp.getText(),quartier.getText(),nbPers,0);
 			compte.enregistrerMenageCompte(compte);
 			System.out.println("Votre Compte a bien été créé");

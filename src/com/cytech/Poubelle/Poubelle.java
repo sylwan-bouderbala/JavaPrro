@@ -12,7 +12,7 @@ import com.cytech.Menage.MenageCompte;
 import com.cytech.Usuelles.LectureFichier;
 
 public class Poubelle {
-	private int identifiantP; //- identifiantP est l'identifiant de la poubelle
+	public int identifiantP; //- identifiantP est l'identifiant de la poubelle
 	protected float quantiteMaximale;
 	protected float quantite;
 	private int codeAcces;

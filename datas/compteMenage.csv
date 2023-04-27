@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 1;alicia67;QuartierB;5;7
 2;password8;Quartier A;4;10
 3;password4;Quartier C;4;10
@@ -6,3 +7,8 @@
 6;password6;Quartier D;9;16
 7;password7;Quartier E;9;19
 10;df;d;5;0
+=======
+1;password;Quartier A;4;10
+1;password;Quartier A;4;10
+1;password;Quartier A;4;10
+>>>>>>> 9bd24a610f0409f5ef651eef7abfce5f1ea6ae3b

@@ -105,14 +105,13 @@ public void getDepotById(String identifiant) {
     try (Scanner scanner = new Scanner(new File("datas\\stats_poubelle.csv"))) {
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
-            String[] values = line.split(",");
+            String[] values = line.split(";");
 
             // Vérifier si l'identifiant correspond à celui donné en paramètre
             if (values[0].equals(identifiant)) {
             	int id = Integer.parseInt(values[0]);
             	float quant = Float.parseFloat(values[4]);
             	int nbDech = Integer.parseInt(values[5]);
-            	System.out.println(line);
             	Depot depot = new Depot(id,values[1],values[2],quant,nbDech);
                 depotData.add(depot);
             }

@@ -152,25 +152,28 @@ public class LectureFichier {
 	    }
 	}
 
-private MenageCompte login(String identifiant, String motDePasse) {
+public MenageCompte login(String identifiant, String motDePasse) {
     try {
         // Ouverture du fichier des comptes
         File file = new File(this.fichier);
-        Scanner scanner = new Scanner(file);
+        try (Scanner scanner = new Scanner(file)) {
+			while (scanner.hasNextLine()) {
+			    String line = scanner.nextLine();
+			    String[] elements = line.split(",");
 
-        while (scanner.hasNextLine()) {
-            String line = scanner.nextLine();
-            String[] elements = line.split(",");
-
-            // V�rification si les identifiants sont corrects
-            if (elements[0].equals(identifiant) && elements[1].equals(motDePasse)) {
-            	int id = Integer.parseInt(elements[0]);
-            	int nbPts = Integer.parseInt(elements[3]);
-            	int nbPers =Integer.parseInt(elements[4]);
-                return new MenageCompte(id, elements[1],elements[2],nbPts,nbPers);
-            }
-        }
-        scanner.close();
+			    // V�rification si les identifiants sont corrects
+			    if (elements[0].equals(identifiant) && elements[1].equals(motDePasse)) {
+			    	int id = Integer.parseInt(elements[0]);
+			    	int nbPts = Integer.parseInt(elements[3]);
+			    	int nbPers =Integer.parseInt(elements[4]);
+			        return new MenageCompte(id, elements[1],elements[2],nbPts,nbPers);
+			    }
+			}
+			scanner.close();
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     } catch (FileNotFoundException e) {
         System.out.println("Fichier de comptes non trouv�");
     }

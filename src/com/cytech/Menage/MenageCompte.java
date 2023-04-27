@@ -2,13 +2,12 @@ package com.cytech.Menage;
 
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.Serializable;
 import java.io.BufferedReader;
 import java.io.IOException;
 
 
 
-public class MenageCompte implements Serializable {
+public class MenageCompte {
 
 	private int identifiant;
 

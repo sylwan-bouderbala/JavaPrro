@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 
+import com.cytech.Poubelle.*;
 import com.cytech.Menage.MenageCompte;
 import com.cytech.Poubelle.Bac;
 import com.cytech.Poubelle.Poubelle;
@@ -30,7 +31,11 @@ import java.util.Scanner;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import java.io.FileNotFoundException;
-import com.cytech.Poubelle.*;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.StringProperty;
+import javafx.beans.property.SimpleStringProperty;
+
 
 public class PageDeCompteController {
 	@FXML
@@ -63,29 +68,22 @@ public PageDeCompteController() {
 
 @FXML
 private void initialize() {
-	MenageCompte compte1 = new MenageCompte(1, "mdp123", "Quartier A", 4, 10);
-	Bac[] bacs = new Bac[4];
-	 bacs[0] = new Bac(0, "jaune");
-	 bacs[1] = new Bac(1, "vert");
-	 bacs[2] = new Bac(2, "classique");
-	 bacs[3] = new Bac(3, "bleu");
- 	Poubelle poubelle = new Poubelle(1, 50.0f, 20.0f, 1234, "Quartier A");
- 	LocalDate nvdate = LocalDate.of(2023,4,9);
-    CorbeilleOperation o = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "jaune",2);
-    CorbeilleOperation o1 = new CorbeilleOperation(poubelle,compte1,1,0.5f, "plastique",nvdate, false, "bleu",10);
-    CorbeilleOperation o2 = new CorbeilleOperation(poubelle,compte1,1,0.5f, "carton",nvdate, false, "vert",57);
-    CorbeilleOperation o3 = new CorbeilleOperation(poubelle,compte1,1,0.5f, "metal",nvdate, false, "classique",77);
-    CorbeilleOperation o4 = new CorbeilleOperation(poubelle,compte1,1,0.5f, "papier",nvdate, false, "bleu",130);
-    operationData.add(o);
-	operationData.add(o1);
-	operationData.add(o2);
-	operationData.add(o3);
-	operationData.add(o4);
-	// Initialize the corbeilleOperation table with the two columns.
-//    identifiantColumn.setCellValueFactory(cellData -> cellData.getValue().getMenageCompte().getIdentifiant()));
- //   nbDechetsColumn.setCellValueFactory(cellData -> cellData.getValue().toString(getNbDechets()));
+	// Initialize the person table with the two columns.
+    identifiantColumn.setCellValueFactory(cellData -> cellData.getValue().identifiantProperty());
+    quartierColumn.setCellValueFactory(cellData -> cellData.getValue().toString(getNbDechets()));
 }
 
+/**
+ * Is called by the HomeController to give a reference back to itself.
+ * 
+ * @param homeController
+ */
+public void setHomeController(HomeController homeController) {
+    this.homeController = homeController;
+
+    // Add observable list data to the table
+    depotTable.setItems(homeController.getDepotData());
+}
 
 
 

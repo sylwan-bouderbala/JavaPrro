@@ -4,6 +4,7 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.ObjectProperty;
 
 public class Depot {
 	private int identifiant;
@@ -13,14 +14,26 @@ public class Depot {
 	private int nbDechets;
 	private boolean valeurVerifier;
 
-
-public Depot (int identifiant, String quartier,String couleurBac,float quantite, int nbDechets) {
-	this.identifiant= identifiant;
-	this.quartier = quartier;
-	this.couleurBac = couleurBac;
-	this.quantite = quantite;
-	this.nbDechets = nbDechets;
-	this.valeurVerifier = false;
+	/**
+	 * Default constructor.
+	 */
+	public Depot() {
+		this(null, null);
+	}
+	
+	/**
+	 * Constructor with some initial data.
+	 * 
+	 * @param identifiant
+	 * @param quartier
+	 */
+	public Depot (int identifiant, String quartier,String couleurBac,float quantite, int nbDechets) {
+		this.identifiant= identifiant;
+		this.quartier = quartier;
+		this.couleurBac = couleurBac;
+		this.quantite = quantite;
+		this.nbDechets = nbDechets;
+		this.valeurVerifier = false;
 
 }
 

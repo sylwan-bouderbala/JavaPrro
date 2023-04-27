@@ -68,19 +68,19 @@ public class MenageCompte {
 	}
 
 
-	 public void enregistrerMenageCompte(MenageCompte nouveauMenageCompte) {
-	        // Ouvrir le fichier CSV en mode Ã©criture
-	        try (FileWriter writer = new FileWriter("./datas/compteMenage.csv", true)) { // true pour ajouter les donnÃ©es Ã  la fin du fichier
-	            // CrÃ©er une ligne de donnÃ©es pour le nouvel objet MenageCompte
-	            String ligne = String.format("%d,%s,%s,%d,%d", nouveauMenageCompte.getIdentifiant(), nouveauMenageCompte.getmotdePasse(), nouveauMenageCompte.getQuartier(), nouveauMenageCompte.getNbPersonnes(), nouveauMenageCompte.getptsFidelite());
-	            // Ã‰crire la ligne de donnÃ©es dans le fichier
-	            writer.write(ligne);
-	            writer.write(System.lineSeparator()); // saut de ligne pour faciliter la lecture
-	            writer.flush(); // flush pour vider le buffer et Ã©crire les donnÃ©es sur le disque
-	        } catch (IOException e) {
-	            System.out.printf("Erreur lors de l\"reductions.csv\", \"salami/jambon/\"'enregistrement du fichier [compteMenage.csv] : [%s]%n%n", e.getMessage());
-	        }
+	public void enregistrerMenageCompte(MenageCompte nouveauMenageCompte) {
+	    // Ouvrir le fichier CSV en mode écriture
+	    try (FileWriter writer = new FileWriter("./datas/compteMenage.csv", true)) { // true pour ajouter les données à la fin du fichier
+	        // Créer une ligne de données pour le nouvel objet MenageCompte
+	        String ligne = String.format("%d;%s;%s;%d;%d", nouveauMenageCompte.getIdentifiant(), nouveauMenageCompte.getmotdePasse(), nouveauMenageCompte.getQuartier(), nouveauMenageCompte.getNbPersonnes(), nouveauMenageCompte.getptsFidelite());
+	        // Écrire la ligne de données dans le fichier
+	        writer.write(ligne);
+	        writer.write(System.lineSeparator()); // saut de ligne pour faciliter la lecture
+	        writer.flush(); // flush pour vider le buffer et écrire les données sur le disque
+	    } catch (IOException e) {
+	        System.out.printf("Erreur lors de l'enregistrement du fichier [compteMenage.csv] : [%s]%n%n", e.getMessage());
 	    }
+	}
 	 
 	public void utiliser(MenageCompte m, int ptsAUtiliser)
 	{
@@ -145,7 +145,7 @@ public class MenageCompte {
 	}
 
 	public static void main(String[] args) {
-        MenageCompte menage = new MenageCompte(1, "password", "Quartier A", 4, 10);
+        MenageCompte menage = new MenageCompte(2, "password", "Quartier A", 4, 10);
         menage.enregistrerMenageCompte(menage);
     }
 	

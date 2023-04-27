@@ -95,7 +95,7 @@ public class centre_tri {
 			stringContrat += String.valueOf(e.getId())+"/";
 		}
 
-		String replacementText = String.valueOf(this.getIdentifiant()) +";"+ this.nom +";" +String.valueOf(this.Password)+";"+stringContrat+";"+stringPoubelles+";"+this.adresse+";"+"\n";
+		String replacementText = String.valueOf(this.getIdentifiant()) +";"+ this.nom +";" +String.valueOf(this.Password)+";"+stringContrat+";"+stringPoubelles+";"+this.adresse+";";
 
 		 List<String> lines = new ArrayList<>();
 	        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile))) {

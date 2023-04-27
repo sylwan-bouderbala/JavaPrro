@@ -47,9 +47,9 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <TextField layoutX="159.0" layoutY="78.0" prefHeight="34.0" prefWidth="391.0" />
-      <TextField layoutX="159.0" layoutY="133.0" prefHeight="34.0" prefWidth="391.0" />
-      <TextField layoutX="159.0" layoutY="198.0" prefHeight="34.0" prefWidth="391.0" />
-      <TextField layoutX="159.0" layoutY="266.0" prefHeight="34.0" prefWidth="391.0" />
+      <TextField fx:id="identifiant" layoutX="159.0" layoutY="78.0" prefHeight="34.0" prefWidth="391.0" />
+      <TextField fx:id="quartier" layoutX="159.0" layoutY="133.0" prefHeight="34.0" prefWidth="391.0" />
+      <TextField fx:id="mdp" layoutX="159.0" layoutY="198.0" prefHeight="34.0" prefWidth="391.0" />
+      <TextField fx:id="nbPersonnes" layoutX="159.0" layoutY="266.0" prefHeight="34.0" prefWidth="391.0" />
    </children>
 </AnchorPane>

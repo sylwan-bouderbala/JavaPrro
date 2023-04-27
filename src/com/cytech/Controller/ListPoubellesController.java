@@ -43,6 +43,8 @@ public class ListPoubellesController {
 	    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 	    stage.setScene(scene);
 	    stage.show();
+	    AjoutPoubelleController controller = loader.getController();
+	    controller.SetCentre(centretri);
 
 	}
 	public void BounttonQuiter(ActionEvent event) throws IOException{

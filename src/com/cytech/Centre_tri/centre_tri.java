@@ -80,47 +80,53 @@ public class centre_tri {
 	}
 	public void Ajouter(Poubelle p) {
 		this.Poubelles.add(p);
-		try {
-            // Open the input and output files
-            BufferedReader reader = new BufferedReader(new FileReader("datas\\Centre_tri.csv"));
-            BufferedWriter writer = new BufferedWriter(new FileWriter("datas\\Centre_tri.csv"));
-            LectureFichier lecteur = new LectureFichier("datas\\Centre_tri.csv");
-            // Read each line of the input file and write it to the output file,
-            // changing the line that needs to be updated
-            String line;
-            String stringPoubelles = "";
-    		for (Poubelle e : Poubelles){
-    			stringPoubelles += String.valueOf(e.getIdentifiant())+"/";
-    		}
+		LectureFichier lecteur = new LectureFichier("datas\\Centre_tri.csv");
+		
+		String filename = lecteur.getFichier();
+        int lineNumber = lecteur.Isinlinenth(0, String.valueOf(this.identifiant)); 
+        String newText = "";
+        String stringPoubelles = "";
+		for (Poubelle e : Poubelles){
+			stringPoubelles += String.valueOf(e.getIdentifiant())+"/";
+		}
 
-    		String stringContrat = "";
-    		for (Contrat e : contrats){
-    			stringContrat += String.valueOf(e.getId())+"/";
-    		}
+		String stringContrat = "";
+		for (Contrat e : contrats){
+			stringContrat += String.valueOf(e.getId())+"/";
+		}
 
-    		line = String.valueOf(this.getIdentifiant()) +";"+ this.nom +";" +String.valueOf(this.Password)+";"+stringContrat+";"+stringPoubelles+";"+this.adresse+";";
-            int lineNumber = 1;
+		String chaine = String.valueOf(this.getIdentifiant()) +";"+ this.nom +";" +String.valueOf(this.Password)+";"+stringContrat+";"+stringPoubelles+";"+this.adresse+";";
+
+		newText = chaine + "\n";
+        try {
+            // read the contents of the file into a string
+            BufferedReader reader = new BufferedReader(new FileReader(filename));
+            String line = "";
+            String oldText = "";
+            int currentLineNumber = 1;
+
             while ((line = reader.readLine()) != null) {
-                if (lineNumber == lecteur.Isinlinenth(0, String.valueOf(this.identifiant))) { // change line number 3
-                    line = "This is the new line.";
+                if (currentLineNumber == lineNumber) {
+                    oldText += newText + "\n";
+                } else {
+                    oldText += line + "\n";
                 }
-                writer.write(line + "\n");
-                lineNumber++;
+                currentLineNumber++;
             }
 
-            // Close the input and output files
+            // close the reader
             reader.close();
+
+            // write the new contents back to the file
+            BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
+            writer.write(oldText);
+
+            // close the writer
             writer.close();
 
-            // Replace the input file with the output file
-            File inputFile = new File("input.txt");
-            File outputFile = new File("output.txt");
-            inputFile.delete();
-            outputFile.renameTo(inputFile);
-
-            System.out.println("Line updated successfully!");
+            System.out.println("Successfully changed the " + lineNumber + "th line of " + filename + ".");
         } catch (IOException e) {
-            System.out.println("Error updating line: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
 	}
 	public void Collecter(Poubelle p) {

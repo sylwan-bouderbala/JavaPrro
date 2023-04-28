@@ -19,7 +19,7 @@
       <Text layoutX="32.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="couleurBac" wrappingWidth="70.142578125" />
       <Text layoutX="25.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nombreDechets" wrappingWidth="84.533203125" />
       <TextField fx:id="mdp" layoutX="172.0" layoutY="82.0" prefHeight="26.0" prefWidth="211.0" />
-      <TextField fx:id="IdentifiantP" layoutX="172.0" layoutY="116.0" prefHeight="26.0" prefWidth="211.0" />
+      <TextField fx:id="identifiantP" layoutX="172.0" layoutY="116.0" prefHeight="26.0" prefWidth="211.0" />
       <TextField fx:id="typeDechet" layoutX="172.0" layoutY="188.0" prefHeight="26.0" prefWidth="211.0" />
       <TextField fx:id="quantite" layoutX="172.0" layoutY="228.0" prefHeight="26.0" prefWidth="211.0" />
       <TextField fx:id="nbDechets" layoutX="172.0" layoutY="275.0" prefHeight="26.0" prefWidth="211.0" />

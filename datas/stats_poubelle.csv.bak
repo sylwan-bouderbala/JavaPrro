@@ -1,20 +1,16 @@
 1;Quartier A;jaune;1;0.5;1;false;
-2;La Bourse;bleu;1;0.5;6;false;
+2;La Bourse;bleu;1;0.3;6;false;
 1;Quartier A;jaune;1;0.5;2;false;
 2;La Bourse;bleu;1;0.5;11;false;
-2;La Bourse;vert;1;0.5;8;false;
+2;La Bourse;vert;1;0.9;8;false;
 1;Quartier A;jaune;1;0.5;3;false;
 2;La Bourse;bleu;1;0.5;16;false;
 3;L'Hotel de ville;vert;1;0.5;38;false;
 1;Quartier A;jaune;1;0.5;18;false;
-1;La Bourse;bleu;1;0.5;91;false;
+1;Quartier A;bleu;1;0.7;91;false;
 3;L'Hotel de ville;vert;1;0.5;40;true;
 1;Quartier A;jaune;1;0.5;19;false;
-2;La Bourse;bleu;1;0.5;96;false;
+2;La Bourse;bleu;1;0.2;96;false;
 3;L'Hotel de ville;vert;1;0.5;42;true;
-1;Quartier A;jaune;1;0.5;20;false;
+1;Quartier A;jaune;1;0.1;20;false;
 2;La Bourse;bleu;1;0.5;101;false;
-<<<<<<< HEAD
-=======
-
->>>>>>> d6d3402a8934436085c89c3baee9d9fcf0cc724e

@@ -71,8 +71,8 @@ public PageDeCompteController() {
 private void initialize() {
 	// Initialize the person table with the two columns.
 		DepotTable.setItems(depotData);
-		String identifiant = "1";
-		getDepotById(identifiant);
+		String id = "1";
+		getDepotById(id);
     identifiantColumn.setCellValueFactory(cellData -> cellData.getValue().identifiantProperty().asString());
     quartierColumn.setCellValueFactory(cellData -> cellData.getValue().quartierProperty());
     quantiteColumn.setCellValueFactory(cellData -> cellData.getValue().quantiteProperty().asString());
@@ -121,15 +121,7 @@ public void getDepotById(String identifiant) {
     }
 }
 
-// Sert uniquement à tester
-public void setValue() {
-	
-	depotData.add(new Depot(10, "Latin","jaune",0.5f,5));
-	depotData.add(new Depot(10, "Latin","jaune",0.5f,5));
-	depotData.add(new Depot(10, "Latin","jaune",0.5f,5));
-	depotData.add(new Depot(10, "Latin","jaune",0.5f,5));
-	
-}
+
 
 @FXML
 	public void retourBouton(ActionEvent event) throws IOException{

@@ -29,7 +29,7 @@ public class centre_tri {
 	private ArrayList<Contrat> contrats;
 	private ArrayList<Poubelle> Poubelles;
 
-
+	//creer un centre de tri et l'enregistrer dans un fichier si il n'y est pas déjà
 	public centre_tri(String adresse, String nom, String Password){
 		LectureFichier lecteur = new LectureFichier("datas\\Centre_tri.csv");
 		this.adresse = adresse;
@@ -46,8 +46,9 @@ public class centre_tri {
 			Printline();
 		}
 	}
+	//Fonction d'inscription dans un fichier tout est séparé par des points virgules
 	private void Printline(){
-		
+		//les listes de poubelles et de contrat sont séparé par des /
 		String stringPoubelles = "/";
 		for (Poubelle e : Poubelles){
 			stringPoubelles += String.valueOf(e.getIdentifiant())+"/";
@@ -71,11 +72,11 @@ public class centre_tri {
             e.printStackTrace();
         }
 	}
-
+	//retirer une poubelle
 	public void Retirer(Poubelle p) {
 		Poubelles.remove(p.getIdentifiant());
 	}
-	
+	//
 	public void AddPoubelle(Poubelle p) {
 		this.Poubelles.add(p);
 	}

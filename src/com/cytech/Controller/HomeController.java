@@ -53,11 +53,6 @@ public class HomeController {
 	
 	public HomeController() {
 		
-		depotData.add(new Depot(10, "Latin","jaune",0.5f,5));
-		depotData.add(new Depot(10, "Latin","jaune",0.5f,5));
-		depotData.add(new Depot(10, "Latin","jaune",0.5f,5));
-		depotData.add(new Depot(10, "Latin","jaune",0.5f,5));
-		
 	}
 	
 	/**

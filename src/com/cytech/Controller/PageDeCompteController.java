@@ -79,12 +79,11 @@ public String getidMenages(String idMenageS) {
 }
 
 @FXML
-private void initialize() {
+public void initialize() {
 	// Initialize the person table with the two columns.
 		DepotTable.setItems(depotData);
-		System.out.println("donner idMenageS");
-		System.out.println(idMenageS);
-		getDepotById(idMenageS);
+		
+		getDepotById(String.valueOf(this.idMenageS));
     identifiantColumn.setCellValueFactory(cellData -> cellData.getValue().identifiantProperty().asString());
     quartierColumn.setCellValueFactory(cellData -> cellData.getValue().quartierProperty());
     quantiteColumn.setCellValueFactory(cellData -> cellData.getValue().quantiteProperty().asString());

@@ -192,8 +192,8 @@ public class HomeController {
 				loader = new FXMLLoader(url);
 				root = loader.load();
 				PageDeCompteController controller = loader.getController();
-				controller.setMenageCompte(compte);
 				controller.setidMenages(idMenageS);
+				controller.initialize();
 		        scene = new Scene(root);
 		        stage.setScene(scene);
 		        stage.show();

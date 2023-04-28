@@ -63,16 +63,28 @@ public class PageDeCompteController {
     
     @FXML
     private Button jeterDechet;
+    
+    @FXML
+    private String idMenageS;
 
 public PageDeCompteController() {
+}
+
+public void setidMenages(String idMenageS) {
+	this.idMenageS=idMenageS;
+}
+
+public String getidMenages(String idMenageS) {
+    return this.idMenageS;
 }
 
 @FXML
 private void initialize() {
 	// Initialize the person table with the two columns.
 		DepotTable.setItems(depotData);
-		String id = "1";
-		getDepotById(id);
+		System.out.println("donner idMenageS");
+		System.out.println(idMenageS);
+		getDepotById(idMenageS);
     identifiantColumn.setCellValueFactory(cellData -> cellData.getValue().identifiantProperty().asString());
     quartierColumn.setCellValueFactory(cellData -> cellData.getValue().quartierProperty());
     quantiteColumn.setCellValueFactory(cellData -> cellData.getValue().quantiteProperty().asString());

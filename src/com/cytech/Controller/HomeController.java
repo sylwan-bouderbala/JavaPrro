@@ -181,7 +181,8 @@ public class HomeController {
 	        break;
 		case "Ménages":
 			LectureFichier lecteur3 = new LectureFichier("datas\\compteMenage.csv");
-			System.out.print("monde");
+			String idMenageS = ChampUsername.getText();
+			String mdpS = ChampPassword.getText();
 			MenageCompte compte;
 			compte = lecteur3.handleLogin(ChampUsername.getText(),ChampPassword.getText());
 			if (compte != null) {
@@ -192,6 +193,7 @@ public class HomeController {
 				root = loader.load();
 				PageDeCompteController controller = loader.getController();
 				controller.setMenageCompte(compte);
+				controller.setidMenages(idMenageS);
 		        scene = new Scene(root);
 		        stage.setScene(scene);
 		        stage.show();

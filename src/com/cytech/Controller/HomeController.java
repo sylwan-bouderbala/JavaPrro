@@ -193,7 +193,7 @@ public class HomeController {
 				root = loader.load();
 				PageDeCompteController controller = loader.getController();
 				controller.setidMenages(idMenageS);
-				controller.initialize();
+				controller.initiate();
 		        scene = new Scene(root);
 		        stage.setScene(scene);
 		        stage.show();

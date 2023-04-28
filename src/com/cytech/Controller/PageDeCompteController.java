@@ -79,7 +79,7 @@ public String getidMenages(String idMenageS) {
 }
 
 @FXML
-public void initialize() {
+public void initiate() {
 	// Initialize the person table with the two columns.
 		DepotTable.setItems(depotData);
 		

@@ -152,10 +152,11 @@ public class Statistiques {
                 line = reader.readLine();
 				if (line != null && line.trim().length() > 0){
 				String[] tab = line.split(",");
+				if (tab !=null && tab.length > 1) {
 				if (this.ListeQuartier.contains(tab[1]) == false){
 					this.ListeQuartier.add(tab[1]);
 				}
-
+				}
             }
 		}
 

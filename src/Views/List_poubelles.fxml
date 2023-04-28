@@ -41,6 +41,7 @@
                         <TextField fx:id="quantitémax" layoutX="423.0" layoutY="170.0" />
                         <Text layoutX="300.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Code d'acces :" />
                         <TextField fx:id="Code" layoutX="423.0" layoutY="212.0" />
+                        <Button layoutX="116.0" layoutY="265.0" mnemonicParsing="false" text="Vider" />
                      </children>
                   </AnchorPane>
             </content>

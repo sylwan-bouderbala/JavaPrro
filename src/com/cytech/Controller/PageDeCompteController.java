@@ -67,93 +67,93 @@ public class PageDeCompteController {
     @FXML
     private String idMenageS;
 
-public PageDeCompteController() {
-}
+	public PageDeCompteController() {
+	}
+	
+	public void setidMenages(String idMenageS) {
+		this.idMenageS=idMenageS;
+	}
+	
+	public String getidMenages(String idMenageS) {
+	    return this.idMenageS;
+	}
 
-public void setidMenages(String idMenageS) {
-	this.idMenageS=idMenageS;
-}
-
-public String getidMenages(String idMenageS) {
-    return this.idMenageS;
-}
-
-@FXML
-public void initiate() {
-	// Initialize the person table with the two columns.
-		DepotTable.setItems(depotData);
-		
-		getDepotById(String.valueOf(this.idMenageS));
-    identifiantColumn.setCellValueFactory(cellData -> cellData.getValue().identifiantProperty().asString());
-    quartierColumn.setCellValueFactory(cellData -> cellData.getValue().quartierProperty());
-    quantiteColumn.setCellValueFactory(cellData -> cellData.getValue().quantiteProperty().asString());
-    couleurColumn.setCellValueFactory(cellData -> cellData.getValue().couleurProperty());
-    nbDechetColumn.setCellValueFactory(cellData -> cellData.getValue().nombreProperty().asString());
-}
+	@FXML
+	public void initiate() {
+		// Initialize the person table with the two columns.
+			DepotTable.setItems(depotData);
+			
+			getDepotById(String.valueOf(this.idMenageS));
+	    identifiantColumn.setCellValueFactory(cellData -> cellData.getValue().identifiantProperty().asString());
+	    quartierColumn.setCellValueFactory(cellData -> cellData.getValue().quartierProperty());
+	    quantiteColumn.setCellValueFactory(cellData -> cellData.getValue().quantiteProperty().asString());
+	    couleurColumn.setCellValueFactory(cellData -> cellData.getValue().couleurProperty());
+	    nbDechetColumn.setCellValueFactory(cellData -> cellData.getValue().nombreProperty().asString());
+	}
 
 /**
  * Is called by the HomeController to give a reference back to itself.
  * 
  * @param homeController
  */
-public void setHomeController(HomeController homeController) {
-    this.homeController = homeController;
-
-    // Add observable list data to the table
-    DepotTable.setItems(homeController.getDepotData());
-}
-
-public MenageCompte getMenageCompte() {
-	return compte;
-}
-public void setMenageCompte(MenageCompte compte) {
-	this.compte = compte;
-}
-
-// Cette fonction permet d'obtenir l'historique des dépôts du menage considéré identifié par son identifiant (unique)
-public void getDepotById(String identifiant) {
-
-    try (Scanner scanner = new Scanner(new File("datas\\stats_poubelle.csv"))) {
-        while (scanner.hasNextLine()) {
-            String line = scanner.nextLine();
-            String[] values = line.split(";");
-
-            // Vérifier si l'identifiant correspond à celui donné en paramètre
-            if (values[0].equals(identifiant)) {
-            	int id = Integer.parseInt(values[0]);
-            	float quant = Float.parseFloat(values[4]);
-            	int nbDech = Integer.parseInt(values[5]);
-            	Depot depot = new Depot(id,values[1],values[2],quant,nbDech);
-                depotData.add(depot);
-            }
-        }
-    } catch (FileNotFoundException e) {
-        e.printStackTrace();
-    }
-}
-
-
-
-@FXML
-	public void retourBouton(ActionEvent event) throws IOException{
-		String absolutePath = "src\\Views\\HomePage.fxml";
-		URL url = new File(absolutePath).toURI().toURL();
-		FXMLLoader loader = new FXMLLoader(url);
-	    Parent root = loader.load();
-	    Scene scene = new Scene(root);
-	    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-	    stage.setScene(scene);
-	    stage.show();
+	public void setHomeController(HomeController homeController) {
+	    this.homeController = homeController;
+	
+	    // Add observable list data to the table
+	    DepotTable.setItems(homeController.getDepotData());
+	}
+	
+	public MenageCompte getMenageCompte() {
+		return compte;
+	}
+	public void setMenageCompte(MenageCompte compte) {
+		this.compte = compte;
 	}
 
-	public void jeterDechet(ActionEvent event) throws IOException{
-		String absolutePath = "src\\Views\\JeterDechet.fxml";
-		URL url = new File(absolutePath).toURI().toURL();
-		FXMLLoader loader = new FXMLLoader(url);
-	    Parent root = loader.load();
-	    Scene scene = new Scene(root);
-	    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-	    stage.setScene(scene);
-	    stage.show();
-}
+	// Cette fonction permet d'obtenir l'historique des dépôts du menage considéré identifié par son identifiant (unique)
+	public void getDepotById(String identifiant) {
+	
+	    try (Scanner scanner = new Scanner(new File("datas\\stats_poubelle.csv"))) {
+	        while (scanner.hasNextLine()) {
+	            String line = scanner.nextLine();
+	            String[] values = line.split(";");
+	
+	            // Vérifier si l'identifiant correspond à celui donné en paramètre
+	            if (values[0].equals(identifiant)) {
+	            	int id = Integer.parseInt(values[0]);
+	            	float quant = Float.parseFloat(values[4]);
+	            	int nbDech = Integer.parseInt(values[5]);
+	            	Depot depot = new Depot(id,values[1],values[2],quant,nbDech);
+	                depotData.add(depot);
+	            }
+	        }
+	    } catch (FileNotFoundException e) {
+	        e.printStackTrace();
+	    }
+	}
+
+
+
+	@FXML
+		public void retourBouton(ActionEvent event) throws IOException{
+			String absolutePath = "src\\Views\\HomePage.fxml";
+			URL url = new File(absolutePath).toURI().toURL();
+			FXMLLoader loader = new FXMLLoader(url);
+		    Parent root = loader.load();
+		    Scene scene = new Scene(root);
+		    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		    stage.setScene(scene);
+		    stage.show();
+		}
+	
+		public void jeterDechet(ActionEvent event) throws IOException{
+			String absolutePath = "src\\Views\\JeterDechet.fxml";
+			URL url = new File(absolutePath).toURI().toURL();
+			FXMLLoader loader = new FXMLLoader(url);
+		    Parent root = loader.load();
+		    Scene scene = new Scene(root);
+		    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		    stage.setScene(scene);
+		    stage.show();
+	}
 }

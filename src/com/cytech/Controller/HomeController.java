@@ -170,9 +170,13 @@ public class HomeController {
 			break;
 		case "Commerce":
 			
-	        alert.setTitle("Mot de passe incorect");
-	        alert.setHeaderText("Votre mot de passeet nom ne correspondent pas");
-	        alert.showAndWait();
+			absolutepath = "src\\Views\\Commerce.fxml";
+			url = new File(absolutepath).toURI().toURL();
+			loader = new FXMLLoader(url);
+			root = loader.load();
+	        scene = new Scene(root);
+	        stage.setScene(scene);
+	        stage.show();
 	        break;
 		case "Ménages":
 			LectureFichier lecteur3 = new LectureFichier("datas\\compteMenage.csv");

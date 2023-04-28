@@ -91,7 +91,6 @@ public class JeterDechetController {
 	@FXML
 	public void HandleJeter(ActionEvent event)throws IOException {
 		LectureFichier lecture = new LectureFichier("datas\\compteMenage.csv");
-		System.out.println("je suis là f");
 		if (identifiant.getText().isEmpty() || identifiantP.getText().isEmpty() || typeDechet.getText().isEmpty() || couleurBac.getText().isEmpty() || nbDechets.getText().isEmpty()) {
 			Alert alert = new Alert(AlertType.ERROR);
 	        alert.setTitle("Pas de champs null");
@@ -102,8 +101,6 @@ public class JeterDechetController {
 		else {
 			String idT = identifiantP.getText();
 			int idP = Integer.parseInt(idT);
-			System.out.println("idP:");
-			System.out.println(idP);
 			String idS = identifiant.getText();
 			String motdp = mdp.getText();
 			MenageCompte compte = lecture.handleLogin(idS,motdp);

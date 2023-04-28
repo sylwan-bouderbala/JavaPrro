@@ -58,7 +58,7 @@ public class ListPoubellesController {
 		nom.setText("Bonjour  " + this.centretri.getNom() );
 		for (Poubelle i : centretri.getPoubelles()) {
 			if (i != null) {
-				System.out.println(i.getIdentifiant());
+				//System.out.println(i.getIdentifiant());
 				Poubellesobj.add(i);
 			}
 		}
@@ -90,7 +90,7 @@ public class ListPoubellesController {
 		ObservableList<Poubelle> Poubellesobj2 = FXCollections.observableArrayList();
 		for (Poubelle i : centretri.getPoubelles()) {
 			if (i != null) {
-				System.out.println(i.getIdentifiant());
+				//System.out.println(i.getIdentifiant());
 				Poubellesobj2.add(i);
 			}
 		}

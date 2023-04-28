@@ -115,7 +115,7 @@ public class LectureFichier {
         //System.out.println(line+"Catogan");
         centre_tri centre_tri = new centre_tri(line.split(";")[5], line.split(";")[1], line.split(";")[2]);
         for (String e :line.split(";")[4].split("/") ) {
-        	System.out.println("elemnt pbo : "+e);
+        	//System.out.println("elemnt pbo : "+e);
         }
         if (line.split(";")[4] !="/") {
 			if (line.split(";")[4].split("/") != null) {
